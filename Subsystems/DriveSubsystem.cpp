@@ -9,8 +9,8 @@
 void DriveSubsystem::InitDefaultCommand()
 {
 	printf("%s entering", __FUNCTION__);
-//	SetDefaultCommand( new JoyStickDriveCommand() );
-	SetDefaultCommand (new DriveOneWheelCommand() );
+	SetDefaultCommand( new JoyStickDriveCommand() );
+//	SetDefaultCommand (new DriveOneWheelCommand() );
 //	SetDefaultCommand (new DriveForwardAutoCommand () );
 	//	I believe this is what needs to be called when switching to non -default commands -Sam Kirschbaum 1/18/2012
 //	SetCurrentCommand (new DriveForwardAutoCommand() );
