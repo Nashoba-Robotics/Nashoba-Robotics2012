@@ -21,7 +21,7 @@ void DriveForwardAutoCommand::Initialize()
 void DriveForwardAutoCommand::Execute() 
 {
 	drivesubsystem->drive (0, 
-						   .20, //Go Forward at 1/5 speed
+						   -0.20, //Go Forward at 1/5 speed
 						   0  
 						   );
 }
