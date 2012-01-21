@@ -22,8 +22,13 @@ void JoyStickDriveCommand::Execute()
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
 	drivesubsystem->drive (
 					OperatorInput::getInstance().getDriveStick().GetX(),
+<<<<<<< HEAD
 					OperatorInput::getInstance().getDriveStick().GetZ(),
 					OperatorInput::getInstance().getDriveStick().GetY() // Switch to get twist if not working 
+=======
+					OperatorInput::getInstance().getDriveStick().GetY(),
+					OperatorInput::getInstance().getDriveStick().GetZ()// Switch to get twist if not working 
+>>>>>>> origin/brandon
 					// gyro (when uncommenting, add comma above)
 						   );
 }

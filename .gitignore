@@ -1,8 +1,6 @@
 *~
 *.o
 *.out
-*.cproject
-*.project
 *.exe
 *.obj
 *.bak
