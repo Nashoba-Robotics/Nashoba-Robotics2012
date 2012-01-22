@@ -13,7 +13,7 @@ DriveForwardAutoCommand::DriveForwardAutoCommand() {
 // Called just before this Command runs the first time
 void DriveForwardAutoCommand::Initialize() 
 {
-	SetTimeout(100.0);			//Sets a timer (100 secs for testing)
+	SetTimeout(2.5);			//Sets a timer (2.5 secs for testing)
 	printf("timer has been set\n");
 }
 
@@ -21,7 +21,7 @@ void DriveForwardAutoCommand::Initialize()
 void DriveForwardAutoCommand::Execute() 
 {
 	drivesubsystem->drive (0, 
-						   -0.20, //Go Forward at 1/5 speed
+						   -0.5f, //Go Forward at half speed
 						   0  
 						   );
 }

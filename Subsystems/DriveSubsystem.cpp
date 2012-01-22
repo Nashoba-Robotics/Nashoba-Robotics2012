@@ -18,7 +18,17 @@ void DriveSubsystem::InitDefaultCommand()
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
-	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
+	static int runNumber = 0;
+	
+	if( runNumber % 25 == 0)
+		printf( "%i: X = %f | Y = %f | Z = %f\n", runNumber / 50, x, y, z );
+	
+	if( OperatorInput::getInstance().getDriveStick().GetRawButton( 2 ))
+		myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
+	else
+		myWPIdrive.MecanumDrive_Cartesian(-x, -y, -z );
+	
+	runNumber++;
 }
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
@@ -53,13 +63,8 @@ DriveSubsystem::DriveSubsystem() : Subsystem("Drive"),
 											 )
 {
 	myWPIdrive.SetSafetyEnabled	(false);
-#define NR_CAST_CANID
-#ifndef NR_CAST_CANID
-	myWPIdrive.SetInvertedMotor( myWPIdrive.kFrontLeftMotor, true );
-	myWPIdrive.SetInvertedMotor( myWPIdrive.kRearLeftMotor, true );
-#else
+	
 	//NOTE: Subtract 2 and 1 so that our numbers match those in WPILib
 	myWPIdrive.SetInvertedMotor(( RobotDrive::MotorType )( FRONT_RIGHT_JAGUAR_CANID - 2 ), true );
 	myWPIdrive.SetInvertedMotor(( RobotDrive::MotorType )( BACK_RIGHT_JAGUAR_CANID - 1 ), true );
-#endif
 }
