@@ -20,11 +20,9 @@ void DriveSubsystem::drive (float x, float y, float z)
 {
 	static int runNumber = 0;
 	
-	if( runNumber % 25 == 0)
-		printf( "%i: X = %f | Y = %f | Z = %f\n", runNumber / 50, x, y, z );
-	
+	// This will cut the speed in half for better precision
 	if( OperatorInput::getInstance().getDriveStick().GetRawButton( 2 ))
-		myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
+		myWPIdrive.MecanumDrive_Cartesian(( -x ) / 2, ( -y ) / 2, ( -z ) / 2 );
 	else
 		myWPIdrive.MecanumDrive_Cartesian(-x, -y, -z );
 	
