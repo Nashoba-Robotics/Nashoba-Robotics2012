@@ -24,7 +24,16 @@ private:
 	RobotDrive myWPIdrive;
 
 public:
+<<<<<<< HEAD
 	void drive(float x, float y, float rotation);
+=======
+	void drive(float x, float rotation, float z);
+	
+	void frontLeftJaguarDrive (float speed); 
+	void frontRightJaguarDrive (float speed);
+	void backLeftJaguarDrive (float speed);
+	void backRightJaguarDrive (float speed);
+>>>>>>> origin/brandon
 	
 	DriveSubsystem( 
 		   
