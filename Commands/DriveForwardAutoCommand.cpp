@@ -14,10 +14,14 @@ DriveForwardAutoCommand::DriveForwardAutoCommand() {
 void DriveForwardAutoCommand::Initialize() 
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	SetTimeout(5.0);			//Sets a timer
 =======
 	SetTimeout(100.0);			//Sets a timer (100 secs for testing)
 >>>>>>> origin/brandon
+=======
+	SetTimeout(2.5);			//Sets a timer (2.5 secs for testing)
+>>>>>>> a7dc06489e99d758a4d617ddc08342830075194f
 	printf("timer has been set\n");
 }
 
@@ -30,7 +34,7 @@ void DriveForwardAutoCommand::Execute()
 						   0  //No rotation
 =======
 	drivesubsystem->drive (0, 
-						   -0.20, //Go Forward at 1/5 speed
+						   -0.5f, //Go Forward at half speed
 						   0  
 >>>>>>> origin/brandon
 						   );
