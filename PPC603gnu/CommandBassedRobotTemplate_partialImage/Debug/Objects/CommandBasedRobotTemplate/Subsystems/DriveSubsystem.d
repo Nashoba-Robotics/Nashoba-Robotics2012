@@ -319,7 +319,6 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIlib.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../OperatorInput.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../HardwareSettings.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/JoyStickDriveCommand.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../CommandBase.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
@@ -332,8 +331,10 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/ExampleCommand.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../CommandBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/DriveOneWheelCommand.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/DriveForwardAutoCommand.h
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/DriveForwardAutoCommand.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../HardwareSettings.h
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.h:
 
@@ -971,8 +972,6 @@ C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../OperatorInput.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../HardwareSettings.h:
-
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/JoyStickDriveCommand.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../CommandBase.h:
@@ -997,6 +996,10 @@ C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/ExampleC
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../CommandBase.h:
 
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:
+
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/DriveOneWheelCommand.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/DriveForwardAutoCommand.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../HardwareSettings.h:

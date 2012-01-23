@@ -19,6 +19,8 @@ void _GLOBAL__I__ZN14ExampleCommandC2Ev();
 
 void _GLOBAL__I__ZN16ExampleSubsystemC2Ev();
 
+void _GLOBAL__I__ZN16RightTurnCommandC2Ev();
+
 void _GLOBAL__I__ZN20DriveOneWheelCommandC2Ev();
 
 void _GLOBAL__I__ZN20JoyStickDriveCommandC2Ev();
@@ -52,6 +54,7 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN14DriveSubsystem18InitDefaultCommandEv,
     _GLOBAL__I__ZN14ExampleCommandC2Ev,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
+    _GLOBAL__I__ZN16RightTurnCommandC2Ev,
     _GLOBAL__I__ZN20DriveOneWheelCommandC2Ev,
     _GLOBAL__I__ZN20JoyStickDriveCommandC2Ev,
     _GLOBAL__I__ZN23DriveForwardAutoCommandC2Ev,
@@ -78,6 +81,8 @@ void _GLOBAL__D__ZN14DriveSubsystem18InitDefaultCommandEv();
 void _GLOBAL__D__ZN14ExampleCommandC2Ev();
 
 void _GLOBAL__D__ZN16ExampleSubsystemC2Ev();
+
+void _GLOBAL__D__ZN16RightTurnCommandC2Ev();
 
 void _GLOBAL__D__ZN20DriveOneWheelCommandC2Ev();
 
@@ -108,6 +113,7 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN14DriveSubsystem18InitDefaultCommandEv,
     _GLOBAL__D__ZN14ExampleCommandC2Ev,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,
+    _GLOBAL__D__ZN16RightTurnCommandC2Ev,
     _GLOBAL__D__ZN20DriveOneWheelCommandC2Ev,
     _GLOBAL__D__ZN20JoyStickDriveCommandC2Ev,
     _GLOBAL__D__ZN23DriveForwardAutoCommandC2Ev,

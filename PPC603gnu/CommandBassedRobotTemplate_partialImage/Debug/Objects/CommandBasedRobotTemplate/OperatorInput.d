@@ -325,7 +325,8 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Subsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/OperatorInput.h:
 
@@ -976,3 +977,5 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h:

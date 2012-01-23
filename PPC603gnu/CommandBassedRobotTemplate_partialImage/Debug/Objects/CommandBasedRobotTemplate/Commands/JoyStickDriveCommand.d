@@ -321,8 +321,9 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIErrors.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../HardwareSettings.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/JoyStickDriveCommand.h:
@@ -965,8 +966,10 @@ C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h:
 
 C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../HardwareSettings.h:
-
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h:

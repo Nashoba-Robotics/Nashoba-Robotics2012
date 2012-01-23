@@ -5,7 +5,8 @@
 #include "Commands/Command.h"
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
-#include "HardwareSettings.h"
+//#include "HardwareSettings.h"
+#include "Commands/Scheduler.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:

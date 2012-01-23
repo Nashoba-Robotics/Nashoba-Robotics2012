@@ -5,6 +5,8 @@
 #include "../CommandBasedRobot.h"
 #include "../Commands/DriveOneWheelCommand.h"
 #include "../Commands/DriveForwardAutoCommand.h"
+#include "../HardwareSettings.h"
+
 
 void DriveSubsystem::InitDefaultCommand()
 {
@@ -18,7 +20,7 @@ void DriveSubsystem::InitDefaultCommand()
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
-	myWPIdrive.MecanumDrive_Cartesian(x,-z,y);
+	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
 }
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
@@ -53,4 +55,14 @@ DriveSubsystem::DriveSubsystem() : Subsystem("Drive"),
 											 )
 {
 	myWPIdrive.SetSafetyEnabled	(false);
+#define NR_CAST_CANID
+#ifndef NR_CAST_CANID
+	myWPIdrive.SetInvertedMotor( myWPIdrive.kFrontLeftMotor, true );
+	myWPIdrive.SetInvertedMotor( myWPIdrive.kRearLeftMotor, true );
+#else
+	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontLeftMotor ), true );
+	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearLeftMotor ), true );
+#endif
 }
+
+

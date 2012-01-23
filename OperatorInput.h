@@ -2,7 +2,6 @@
 #define OPERATORINPUT_H
 
 #include "WPILib.h"
-#include "HardwareSettings.h"
 
 
 
@@ -13,7 +12,20 @@ class OperatorInput
 private:
 	static OperatorInput instance;
 	Joystick driveStick;
-	JoystickButton *driveStraight;
+	JoystickButton *driveStickTriggerButton;
+	JoystickButton *driveStickdriveStickButtonTwo;
+	JoystickButton *driveStickButtonTwo;
+	JoystickButton *driveStickButtonThree;
+	JoystickButton *driveStickButtonFour;
+	JoystickButton *driveStickButtonFive;
+	JoystickButton *driveStickButtonSix;
+	JoystickButton *driveStickButtonSeven;
+	JoystickButton *driveStickButtonEight;
+	JoystickButton *driveStickButtonNine;
+	JoystickButton *driveStickButtonTen;
+	JoystickButton *driveStickButtonEleven;
+	JoystickButton *driveStickButtonTwelve;
+	
 
 public:
 	static OperatorInput& getInstance()
