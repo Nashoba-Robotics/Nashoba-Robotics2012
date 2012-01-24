@@ -4,4 +4,8 @@
 *.exe
 *.obj
 *.bak
+<<<<<<< HEAD
 PPC603gnu/CommandBas*
+=======
+PPC603GNU/CommandBas*
+>>>>>>> sam

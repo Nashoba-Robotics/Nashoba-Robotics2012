@@ -5,23 +5,36 @@
 DriveForwardAutoCommand::DriveForwardAutoCommand() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	
+
 	Requires(drivesubsystem);
-	
+
 }
 
 // Called just before this Command runs the first time
 void DriveForwardAutoCommand::Initialize() 
 {
+<<<<<<< HEAD
 	SetTimeout(2.5);			//Sets a timer (2.5 secs for testing)
 	printf("timer has been set\n");
+=======
+	SetTimeout(5.0);			//Sets a timer (5 secs for testing)
+	
+	printf("%s Drive Stick Button Pressed: Trigger\n ", __FUNCTION__ );
+	printf("%s Driving Forward at 1/5 speed for 5 seconds\n", __FUNCTION__ );
+	
+	
+>>>>>>> sam
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveForwardAutoCommand::Execute() 
-{
+{			
 	drivesubsystem->drive (0, 
+<<<<<<< HEAD
 						   -0.5f, //Go Forward at half speed
+=======
+						   -0.20, //Go Forward at 1/5 speed
+>>>>>>> sam
 						   0  
 						   );
 }

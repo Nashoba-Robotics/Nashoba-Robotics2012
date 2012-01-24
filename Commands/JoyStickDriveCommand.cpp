@@ -1,5 +1,8 @@
 #include "JoyStickDriveCommand.h"
+#include "DriveForwardAutoCommand.h"
+#include "../OperatorInput.h"
 #include "../Subsystems/DriveSubsystem.h"
+
 
 JoyStickDriveCommand::JoyStickDriveCommand() 
 {
@@ -21,11 +24,18 @@ void JoyStickDriveCommand::Execute()
 
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
 	drivesubsystem->drive (
-					OperatorInput::getInstance().getDriveStick().GetX(),
+					OperatorInput::getInstance().getDriveStick().GetX(), 
 					OperatorInput::getInstance().getDriveStick().GetY(),
 					OperatorInput::getInstance().getDriveStick().GetZ()// Switch to get twist if not working 
 					// gyro (when uncommenting, add comma above)
 						   );
+	
+/*	if ( OperatorInput::getInstance().getDriveStick().GetRawButton(7) )
+	{
+		drivesubsystem->SetCurrentCommand (new DriveForwardAutoCommand() );
+	}
+		*/
+		
 }
 
 // Make this return true when this Command no longer needs to run execute()

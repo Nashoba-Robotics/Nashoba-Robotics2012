@@ -18,7 +18,7 @@ void DriveOneWheelCommand::Initialize()
 void DriveOneWheelCommand::Execute() 
 {
 
-	drivesubsystem->frontRightJaguarDrive (-0.2);
+	drivesubsystem->frontLeftJaguarDrive (-1.0);
 	
 }
 

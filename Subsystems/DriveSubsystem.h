@@ -14,7 +14,8 @@
  * The drive class requires four Jaguars upon construction. It implements the subsystem
  * interface as defined in the command-based robot.
  */
-class DriveSubsystem: public Subsystem {
+class DriveSubsystem: public Subsystem 
+{
 private:
 	CANJaguar frontLeftJaguar; 
 	CANJaguar frontRightJaguar;  
@@ -33,7 +34,7 @@ public:
 	
 	DriveSubsystem( 
 		   
-		 	   	 );
+		 	   	  );
 	
 	
 	void InitDefaultCommand();

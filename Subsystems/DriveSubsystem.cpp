@@ -5,6 +5,8 @@
 #include "../CommandBasedRobot.h"
 #include "../Commands/DriveOneWheelCommand.h"
 #include "../Commands/DriveForwardAutoCommand.h"
+#include "../HardwareSettings.h"
+
 
 void DriveSubsystem::InitDefaultCommand()
 {
@@ -18,6 +20,7 @@ void DriveSubsystem::InitDefaultCommand()
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
+<<<<<<< HEAD
 	static int runNumber = 0;
 	
 	// This will cut the speed in half for better precision
@@ -27,6 +30,9 @@ void DriveSubsystem::drive (float x, float y, float z)
 		myWPIdrive.MecanumDrive_Cartesian(-x, -y, -z );
 	
 	runNumber++;
+=======
+	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
+>>>>>>> sam
 }
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
@@ -61,8 +67,21 @@ DriveSubsystem::DriveSubsystem() : Subsystem("Drive"),
 											 )
 {
 	myWPIdrive.SetSafetyEnabled	(false);
+<<<<<<< HEAD
 	
 	//NOTE: Subtract 2 and 1 so that our numbers match those in WPILib
 	myWPIdrive.SetInvertedMotor(( RobotDrive::MotorType )( FRONT_RIGHT_JAGUAR_CANID - 2 ), true );
 	myWPIdrive.SetInvertedMotor(( RobotDrive::MotorType )( BACK_RIGHT_JAGUAR_CANID - 1 ), true );
+=======
+#define NR_CAST_CANID
+#ifndef NR_CAST_CANID
+	myWPIdrive.SetInvertedMotor( myWPIdrive.kFrontLeftMotor, true );
+	myWPIdrive.SetInvertedMotor( myWPIdrive.kRearLeftMotor, true );
+#else
+	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontLeftMotor ), true );
+	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearLeftMotor ), true );
+#endif
+>>>>>>> sam
 }
+
+
