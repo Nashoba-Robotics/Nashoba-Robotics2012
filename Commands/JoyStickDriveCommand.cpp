@@ -31,12 +31,6 @@ void JoyStickDriveCommand::Execute()
 					OperatorInput::getInstance().getDriveStick().GetZ()// Switch to get twist if not working 
 					// gyro (when uncommenting, add comma above)
 						   );
-	
-	if ( OperatorInput::getInstance().getDriveStick().GetRawButton(7) )
-	{
-		drivesubsystem->SetCurrentCommand (new DriveForwardAutoCommand() );
-	}
-
 	runNum++;
 }
 

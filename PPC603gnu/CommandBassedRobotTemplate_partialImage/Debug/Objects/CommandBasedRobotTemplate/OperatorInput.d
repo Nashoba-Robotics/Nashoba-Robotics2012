@@ -328,6 +328,10 @@
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/PrintfOneSecInterval.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/StraightThenRightTurnCommand.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/CommandGroup.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/AddParallelTestingCommand.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIlib.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBasedRobot.h \
@@ -989,6 +993,14 @@ C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSub
 C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/PrintfOneSecInterval.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/StraightThenRightTurnCommand.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/CommandGroup.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/AddParallelTestingCommand.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.h:
 

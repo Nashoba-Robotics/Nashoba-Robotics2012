@@ -18,7 +18,6 @@ void DriveForwardAutoCommand::Initialize()
 	SetTimeout(10.0);			//Sets a timer (10 secs for testing)
 	
 //	drivesubsystem->Enable();
-	printf("%s Drive Stick Button Pressed: Trigger\n ", __FUNCTION__ );
 	printf("%s Driving Forward at 1/5 speed for 10 seconds\n", __FUNCTION__ );
 	
 	

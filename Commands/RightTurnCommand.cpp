@@ -13,10 +13,10 @@ RightTurnCommand::RightTurnCommand() : CommandBase("RightTurnCommand"){
 // Called just before this Command runs the first time
 void RightTurnCommand::Initialize() 
 {
-	SetTimeout(1.0);			//Sets a timer (1 secs for testing)
+	SetTimeout(2.0);			//Sets a timer (2 secs for testing)
 	
 	printf("%s Drive Stick Button Pressed : 6\n ", __FUNCTION__ );
-	printf("%s Make a 90 Degree Right Turn", __FUNCTION__ );
+	printf("%s Making a 90 Degree Right Turn", __FUNCTION__ );
 	
 	
 }

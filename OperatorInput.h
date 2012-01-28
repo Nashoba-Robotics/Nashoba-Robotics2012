@@ -28,12 +28,8 @@ private:
 	
 
 public:
-	static OperatorInput& getInstance()
-	{
-		if (instance == NULL)
-			instance = new OperatorInput();
-		return *instance;	
-	}
+	static OperatorInput& getInstance();
+
 	OperatorInput();
 	
 	Joystick& getDriveStick()
