@@ -1,7 +1,7 @@
 #include "DriveOneWheelCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
 
-DriveOneWheelCommand::DriveOneWheelCommand() 
+DriveOneWheelCommand::DriveOneWheelCommand() : CommandBase("DriveOneWheelCommand")
 {
 	// Use Requires() here to declare subsystem dependencies
 	

@@ -4,7 +4,7 @@
 #include "../Subsystems/DriveSubsystem.h"
 
 
-JoyStickDriveCommand::JoyStickDriveCommand() 
+JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand")
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
@@ -21,7 +21,9 @@ void JoyStickDriveCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void JoyStickDriveCommand::Execute() 
 {
-
+	static int runNum = 0;
+	if( runNum % 10 == 0)
+		printf( "JoyStickDriveCommand::Execute\n");
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
 	drivesubsystem->drive (
 					OperatorInput::getInstance().getDriveStick().GetX(), 
@@ -30,12 +32,12 @@ void JoyStickDriveCommand::Execute()
 					// gyro (when uncommenting, add comma above)
 						   );
 	
-/*	if ( OperatorInput::getInstance().getDriveStick().GetRawButton(7) )
+	if ( OperatorInput::getInstance().getDriveStick().GetRawButton(7) )
 	{
 		drivesubsystem->SetCurrentCommand (new DriveForwardAutoCommand() );
 	}
-		*/
-		
+
+	runNum++;
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -54,5 +56,5 @@ void JoyStickDriveCommand::End()
 // subsystems is scheduled to run
 void JoyStickDriveCommand::Interrupted() 
 {
-	
+	printf("JoyStickDriveCommand has been Interrupted");
 }

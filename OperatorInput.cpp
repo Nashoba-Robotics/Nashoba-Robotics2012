@@ -2,13 +2,17 @@
 #include "HardwareSettings.h"
 #include "Commands/DriveForwardAutoCommand.h"
 #include "Commands/RightTurnCommand.h"
+#include "Subsystems/DriveSubsystem.h"
+#include "WPIlib.h"
+#include "CommandBasedRobot.h"
 
-OperatorInput OperatorInput::instance;
+
+OperatorInput *OperatorInput::instance = NULL;
 
 OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT)
 {
 	driveStickTriggerButton = new JoystickButton( &driveStick, 1 );
-	driveStickTriggerButton->WhenPressed( new DriveForwardAutoCommand() );
+	driveStickTriggerButton->WhenPressed( new DriveForwardAutoCommand );
 	
 	driveStickButtonTwo = new JoystickButton( &driveStick, 2 );
 	driveStickButtonTwo->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 2\n ") );

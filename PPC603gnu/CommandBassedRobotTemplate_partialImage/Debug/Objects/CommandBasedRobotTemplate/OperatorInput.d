@@ -326,7 +326,15 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIlib.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBasedRobot.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/ExampleCommand.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBase.h \
+  C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/OperatorInput.h:
 
@@ -978,4 +986,20 @@ C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../OperatorInput.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h:
 
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
+
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/WPIlib.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBasedRobot.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/ExampleCommand.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/CommandBase.h:
+
+C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Scheduler.h:

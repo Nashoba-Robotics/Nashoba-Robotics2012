@@ -10,21 +10,21 @@
 
 class CommandBasedRobot : public IterativeRobot {
 private:
-	Command *autonomousCommand;
-
+	//Command *autonomousCommand;
+	
 	virtual void RobotInit() 
 	{
 		CommandBase::init();
-		autonomousCommand = new ExampleCommand();
-//		NetworkTable::Initialize();
-//		SmartDashboard::GetInstance()->PutData("SchedulerData", Scheduler::GetInstance());
-//		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
-		
+//		autonomousCommand = new ExampleCommand();
+//    	NetworkTable::Initialize();
+		SmartDashboard::GetInstance()->PutData("SchedulerData", Scheduler::GetInstance());
+		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
+		OperatorInput::getInstance();
 	}
 	
 	virtual void AutonomousInit() 
 	{
-		autonomousCommand->Start();
+//		autonomousCommand->Start();
 	}
 	
 	virtual void AutonomousPeriodic() {
@@ -37,10 +37,11 @@ private:
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		autonomousCommand->Cancel();
+//		autonomousCommand->Cancel();
 	}
 	
 	virtual void TeleopPeriodic() {
+	
 		Scheduler::GetInstance()->Run();
 	}
 	
