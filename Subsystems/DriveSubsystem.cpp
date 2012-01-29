@@ -38,17 +38,13 @@ void DriveSubsystem::backRightJaguarDrive (float speed)
 
 
 
-DriveSubsystem::DriveSubsystem() : Subsystem("Drive"), 	
+DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"), 	
 		frontLeftJaguar  ( FRONT_LEFT_JAGUAR_CANID  ),
 		frontRightJaguar ( FRONT_RIGHT_JAGUAR_CANID ),
 		backLeftJaguar   ( BACK_LEFT_JAGUAR_CANID   ),
 		backRightJaguar  ( BACK_RIGHT_JAGUAR_CANID  ),
 
-								   myWPIdrive(frontLeftJaguar,
-										      backLeftJaguar,
-										      frontRightJaguar,
-										      backRightJaguar 
-											 )
+		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar)
 {
 	myWPIdrive.SetSafetyEnabled	(false);
 #define NR_CAST_CANID
