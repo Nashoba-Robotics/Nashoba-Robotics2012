@@ -2,17 +2,20 @@
 #include "HardwareSettings.h"
 #include "Commands/DriveForwardAutoCommand.h"
 #include "Commands/RightTurnCommand.h"
+#include "Commands/PrintfOneSecInterval.h"
+#include "Commands/StraightThenRightTurnCommand.h"
+#include "Commands/AddParallelTestingCommand.h"
+#include "Subsystems/DriveSubsystem.h"
+#include "WPIlib.h"
+#include "CommandBasedRobot.h"
 
-OperatorInput OperatorInput::instance;
+
+OperatorInput *OperatorInput::instance = NULL;
 
 OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT)
 {
-<<<<<<< HEAD
-	driveStraight = new JoystickButton( &driveStick, 7 );
-	driveStraight->WhenPressed( new DriveForwardAutoCommand );
-=======
 	driveStickTriggerButton = new JoystickButton( &driveStick, 1 );
-	driveStickTriggerButton->WhenPressed( new DriveForwardAutoCommand() );
+	driveStickTriggerButton->WhenPressed( new DriveForwardAutoCommand );
 	
 	driveStickButtonTwo = new JoystickButton( &driveStick, 2 );
 	driveStickButtonTwo->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 2\n ") );
@@ -42,10 +45,15 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT)
 	driveStickButtonTen->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 10\n ") );
 	
 	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
-	driveStickButtonEleven->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 11\n ") );
+	driveStickButtonEleven->WhenPressed( new StraightThenRightTurnCommand());
 	
 	driveStickButtonTwelve = new JoystickButton( &driveStick, 12 );
-	driveStickButtonTwelve->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 12\n ") );
->>>>>>> sam
+	driveStickButtonTwelve->WhenPressed( new AddParallelTestingCommand() );
 }
 
+OperatorInput& OperatorInput::getInstance()
+{
+	if (instance == NULL)
+		instance = new OperatorInput();
+	return *instance;	
+}

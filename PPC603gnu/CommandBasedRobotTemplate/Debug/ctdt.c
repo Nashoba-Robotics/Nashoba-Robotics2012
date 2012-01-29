@@ -25,7 +25,13 @@ void _GLOBAL__I__ZN20DriveOneWheelCommandC2Ev();
 
 void _GLOBAL__I__ZN20JoyStickDriveCommandC2Ev();
 
+void _GLOBAL__I__ZN20PrintfOneSecIntervalC2Ev();
+
 void _GLOBAL__I__ZN23DriveForwardAutoCommandC2Ev();
+
+void _GLOBAL__I__ZN25AddParallelTestingCommandC2Ev();
+
+void _GLOBAL__I__ZN28StraightThenRightTurnCommandC2Ev();
 
 void _GLOBAL__I__ZN12PrintCommandC2EPKc();
 
@@ -57,7 +63,10 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN16RightTurnCommandC2Ev,
     _GLOBAL__I__ZN20DriveOneWheelCommandC2Ev,
     _GLOBAL__I__ZN20JoyStickDriveCommandC2Ev,
+    _GLOBAL__I__ZN20PrintfOneSecIntervalC2Ev,
     _GLOBAL__I__ZN23DriveForwardAutoCommandC2Ev,
+    _GLOBAL__I__ZN25AddParallelTestingCommandC2Ev,
+    _GLOBAL__I__ZN28StraightThenRightTurnCommandC2Ev,
     _GLOBAL__I__ZN12PrintCommandC2EPKc,
     _GLOBAL__I__ZN9Scheduler9_instanceE,
     _GLOBAL__I__ZN11WaitCommandC2Ed,
@@ -88,7 +97,13 @@ void _GLOBAL__D__ZN20DriveOneWheelCommandC2Ev();
 
 void _GLOBAL__D__ZN20JoyStickDriveCommandC2Ev();
 
+void _GLOBAL__D__ZN20PrintfOneSecIntervalC2Ev();
+
 void _GLOBAL__D__ZN23DriveForwardAutoCommandC2Ev();
+
+void _GLOBAL__D__ZN25AddParallelTestingCommandC2Ev();
+
+void _GLOBAL__D__ZN28StraightThenRightTurnCommandC2Ev();
 
 void _GLOBAL__D__ZN9Scheduler9_instanceE();
 
@@ -116,7 +131,10 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN16RightTurnCommandC2Ev,
     _GLOBAL__D__ZN20DriveOneWheelCommandC2Ev,
     _GLOBAL__D__ZN20JoyStickDriveCommandC2Ev,
+    _GLOBAL__D__ZN20PrintfOneSecIntervalC2Ev,
     _GLOBAL__D__ZN23DriveForwardAutoCommandC2Ev,
+    _GLOBAL__D__ZN25AddParallelTestingCommandC2Ev,
+    _GLOBAL__D__ZN28StraightThenRightTurnCommandC2Ev,
     _GLOBAL__D__ZN9Scheduler9_instanceE,
     _GLOBAL__D_wpi_error_s_ModuleIndexOutOfRange,
     _GLOBAL__D__ZN13NetworkTables3Key11_staticLockE,
