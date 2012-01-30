@@ -21,6 +21,16 @@ void _GLOBAL__I__ZN16ExampleSubsystemC2Ev();
 
 void _GLOBAL__I__ZN16RightTurnCommandC2Ev();
 
+void _GLOBAL__I__ZN16ShooterSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__I__ZN16TopLiftSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__I__ZN19BallIntakeSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__I__ZN19BottomLiftSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__I__ZN19RampTipperSubsystem18InitDefaultCommandEv();
+
 void _GLOBAL__I__ZN20DriveOneWheelCommandC2Ev();
 
 void _GLOBAL__I__ZN20JoyStickDriveCommandC2Ev();
@@ -61,6 +71,11 @@ void (*_ctors[])() =
     _GLOBAL__I__ZN14ExampleCommandC2Ev,
     _GLOBAL__I__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__I__ZN16RightTurnCommandC2Ev,
+    _GLOBAL__I__ZN16ShooterSubsystem18InitDefaultCommandEv,
+    _GLOBAL__I__ZN16TopLiftSubsystem18InitDefaultCommandEv,
+    _GLOBAL__I__ZN19BallIntakeSubsystem18InitDefaultCommandEv,
+    _GLOBAL__I__ZN19BottomLiftSubsystem18InitDefaultCommandEv,
+    _GLOBAL__I__ZN19RampTipperSubsystem18InitDefaultCommandEv,
     _GLOBAL__I__ZN20DriveOneWheelCommandC2Ev,
     _GLOBAL__I__ZN20JoyStickDriveCommandC2Ev,
     _GLOBAL__I__ZN20PrintfOneSecIntervalC2Ev,
@@ -92,6 +107,16 @@ void _GLOBAL__D__ZN14ExampleCommandC2Ev();
 void _GLOBAL__D__ZN16ExampleSubsystemC2Ev();
 
 void _GLOBAL__D__ZN16RightTurnCommandC2Ev();
+
+void _GLOBAL__D__ZN16ShooterSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__D__ZN16TopLiftSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__D__ZN19BallIntakeSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__D__ZN19BottomLiftSubsystem18InitDefaultCommandEv();
+
+void _GLOBAL__D__ZN19RampTipperSubsystem18InitDefaultCommandEv();
 
 void _GLOBAL__D__ZN20DriveOneWheelCommandC2Ev();
 
@@ -129,6 +154,11 @@ void (*_dtors[])() =
     _GLOBAL__D__ZN14ExampleCommandC2Ev,
     _GLOBAL__D__ZN16ExampleSubsystemC2Ev,
     _GLOBAL__D__ZN16RightTurnCommandC2Ev,
+    _GLOBAL__D__ZN16ShooterSubsystem18InitDefaultCommandEv,
+    _GLOBAL__D__ZN16TopLiftSubsystem18InitDefaultCommandEv,
+    _GLOBAL__D__ZN19BallIntakeSubsystem18InitDefaultCommandEv,
+    _GLOBAL__D__ZN19BottomLiftSubsystem18InitDefaultCommandEv,
+    _GLOBAL__D__ZN19RampTipperSubsystem18InitDefaultCommandEv,
     _GLOBAL__D__ZN20DriveOneWheelCommandC2Ev,
     _GLOBAL__D__ZN20JoyStickDriveCommandC2Ev,
     _GLOBAL__D__ZN20PrintfOneSecIntervalC2Ev,

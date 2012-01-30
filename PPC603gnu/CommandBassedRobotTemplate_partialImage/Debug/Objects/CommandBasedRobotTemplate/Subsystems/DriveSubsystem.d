@@ -327,6 +327,11 @@
   C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../OperatorInput.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/ShooterSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/BallIntakeSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/TopLiftSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/BottomLiftSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/RampTipperSubsystem.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../CommandBasedRobot.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/Command.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/ExampleCommand.h \
@@ -987,6 +992,16 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/WPILib.h:
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../OperatorInput.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/DriveSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/ShooterSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/BallIntakeSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/TopLiftSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/BottomLiftSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../Commands/../Subsystems/RampTipperSubsystem.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Subsystems/../CommandBasedRobot.h:
 
