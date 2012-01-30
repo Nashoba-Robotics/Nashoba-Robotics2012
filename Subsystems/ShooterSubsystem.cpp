@@ -10,9 +10,9 @@ void ShooterSubsystem::InitDefaultCommand()
 	
 }
 
-void ShooterSubsystem::IsLoaded()
+bool ShooterSubsystem::IsLoaded()
 {
-	
+	return true;
 }
 
 void ShooterSubsystem::load()
