@@ -2,7 +2,6 @@
 #define SHOOTER_SUBSYSTEM_H
 
 #include "WPILib.h"
-#include "Commands/PIDSubsystem.h"
 #include "../OperatorInput.h"
 #include "../HardwareSettings.h"
 
