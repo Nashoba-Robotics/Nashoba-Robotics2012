@@ -328,9 +328,10 @@
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/DriveSubsystem.h \
   C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/ShooterSubsystem.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/../OperatorInput.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/../HardwareSettings.h \
-  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/BallIntakeSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/TopLiftSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/BottomLiftSubsystem.h \
+  C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/RampTipperSubsystem.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/PrintfOneSecInterval.h \
   C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/StraightThenRightTurnCommand.h \
@@ -998,11 +999,13 @@ C:/WindRiver/vxworks-6.3/target/h/WPILib/Commands/PIDSubsystem.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/ShooterSubsystem.h:
 
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/../OperatorInput.h:
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/BallIntakeSubsystem.h:
 
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/../HardwareSettings.h:
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/TopLiftSubsystem.h:
 
-C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.h:
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/BottomLiftSubsystem.h:
+
+C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/../Subsystems/RampTipperSubsystem.h:
 
 C:/WindRiver/workspace/CommandBasedRobotTemplate/Commands/RightTurnCommand.h:
 

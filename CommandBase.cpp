@@ -17,4 +17,9 @@ void CommandBase::init() {
 	// line should be repeated for each subsystem in the project.
 	examplesubsystem = new ExampleSubsystem();
 	drivesubsystem = new DriveSubsystem();
+	shootersubsytem = new ShooterSubsystem();
+	ballintakesubsystem = new BallIntakeSubsystem();
+	topliftsubsystem = new TopLiftSubsystem();
+	bottomliftsubsystem = new BottomLiftSubsystem();
+	ramptippersubsystem = new RampTipperSubsystem();
 }
