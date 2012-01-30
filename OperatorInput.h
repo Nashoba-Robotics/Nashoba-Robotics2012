@@ -10,7 +10,7 @@
 class OperatorInput 
 {
 private:
-	static OperatorInput instance;
+	static OperatorInput *instance;
 	Joystick driveStick;
 	JoystickButton *driveStickTriggerButton;
 	JoystickButton *driveStickdriveStickButtonTwo;
@@ -28,10 +28,8 @@ private:
 	
 
 public:
-	static OperatorInput& getInstance()
-	{
-		return instance;	
-	}
+	static OperatorInput& getInstance();
+
 	OperatorInput();
 	
 	Joystick& getDriveStick()

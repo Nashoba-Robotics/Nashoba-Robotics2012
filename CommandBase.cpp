@@ -10,7 +10,6 @@ CommandBase::CommandBase() : Command() {
 
 // Initialize a single static instance of all of your subsystems to NULL
 ExampleSubsystem* CommandBase::examplesubsystem = NULL;
-OperatorInput* CommandBase::operatorinput = NULL;
 DriveSubsystem* CommandBase::drivesubsystem = NULL;
 
 void CommandBase::init() {

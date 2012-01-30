@@ -12,27 +12,11 @@ void DriveSubsystem::InitDefaultCommand()
 {
 	printf("%s entering", __FUNCTION__);
 	SetDefaultCommand( new JoyStickDriveCommand() );
-//	SetDefaultCommand (new DriveOneWheelCommand() );
-//	SetDefaultCommand (new DriveForwardAutoCommand () );
-	//	I believe this is what needs to be called when switching to non -default commands -Sam Kirschbaum 1/18/2012
-//	SetCurrentCommand (new DriveForwardAutoCommand() );
 }
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
-<<<<<<< HEAD
-	static int runNumber = 0;
-	
-	// This will cut the speed in half for better precision
-	if( OperatorInput::getInstance().getDriveStick().GetRawButton( 2 ))
-		myWPIdrive.MecanumDrive_Cartesian(( -x ) / 2, ( -y ) / 2, ( -z ) / 2 );
-	else
-		myWPIdrive.MecanumDrive_Cartesian(-x, -y, -z );
-	
-	runNumber++;
-=======
 	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
->>>>>>> sam
 }
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
@@ -54,25 +38,15 @@ void DriveSubsystem::backRightJaguarDrive (float speed)
 
 
 
-DriveSubsystem::DriveSubsystem() : Subsystem("Drive"), 	
+DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"), 	
 		frontLeftJaguar  ( FRONT_LEFT_JAGUAR_CANID  ),
 		frontRightJaguar ( FRONT_RIGHT_JAGUAR_CANID ),
 		backLeftJaguar   ( BACK_LEFT_JAGUAR_CANID   ),
 		backRightJaguar  ( BACK_RIGHT_JAGUAR_CANID  ),
 
-								   myWPIdrive(frontLeftJaguar,
-										      backLeftJaguar,
-										      frontRightJaguar,
-										      backRightJaguar 
-											 )
+		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar)
 {
 	myWPIdrive.SetSafetyEnabled	(false);
-<<<<<<< HEAD
-	
-	//NOTE: Subtract 2 and 1 so that our numbers match those in WPILib
-	myWPIdrive.SetInvertedMotor(( RobotDrive::MotorType )( FRONT_RIGHT_JAGUAR_CANID - 2 ), true );
-	myWPIdrive.SetInvertedMotor(( RobotDrive::MotorType )( BACK_RIGHT_JAGUAR_CANID - 1 ), true );
-=======
 #define NR_CAST_CANID
 #ifndef NR_CAST_CANID
 	myWPIdrive.SetInvertedMotor( myWPIdrive.kFrontLeftMotor, true );
@@ -81,7 +55,6 @@ DriveSubsystem::DriveSubsystem() : Subsystem("Drive"),
 	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontLeftMotor ), true );
 	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearLeftMotor ), true );
 #endif
->>>>>>> sam
 }
 
 

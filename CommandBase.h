@@ -20,7 +20,6 @@ public:
 	// Create a single static instance of all of your subsystems
 	static ExampleSubsystem *examplesubsystem;
 	static DriveSubsystem *drivesubsystem;
-	static OperatorInput *operatorinput;
 };
 
 #endif
