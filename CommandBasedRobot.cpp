@@ -7,7 +7,7 @@ void CommandBasedRobot::RobotInit()
 	{
 		CommandBase::init();
 //		autonomousCommand = new ExampleCommand();
-//    	NetworkTable::Initialize();
+		NetworkTable::Initialize();
 		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 //		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
@@ -37,7 +37,7 @@ void CommandBasedRobot::RobotInit()
 	
 	void CommandBasedRobot::TeleopPeriodic() {
 	
-		GetWatchdog().Feed();
+//		GetWatchdog().Feed();
 		Scheduler::GetInstance()->Run();
 //		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
 //		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
