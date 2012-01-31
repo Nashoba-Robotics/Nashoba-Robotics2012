@@ -5,7 +5,11 @@
 #include "Subsystems/ExampleSubsystem.h"
 #include "OperatorInput.h"
 #include "Subsystems/DriveSubsystem.h"
-
+#include "Subsystems/ShooterSubsystem.h"
+#include "Subsystems/BallIntakeSubsystem.h"
+#include "Subsystems/TopLiftSubsystem.h"
+#include "Subsystems/BottomLiftSubsystem.h"
+#include "Subsystems/RampTipperSubsystem.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -20,6 +24,11 @@ public:
 	// Create a single static instance of all of your subsystems
 	static ExampleSubsystem *examplesubsystem;
 	static DriveSubsystem *drivesubsystem;
+	static ShooterSubsystem *shootersubsytem;
+	static BallIntakeSubsystem *ballintakesubsystem;
+	static TopLiftSubsystem *topliftsubsystem;
+	static BottomLiftSubsystem *bottomliftsubsystem;
+	static RampTipperSubsystem *ramptippersubsystem;
 };
 
 #endif

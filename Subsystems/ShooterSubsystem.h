@@ -11,6 +11,8 @@
 class ShooterSubsystem: public Subsystem
 {
 private:
+
+
 public:
 	void load();
 	void shoot();
@@ -21,4 +23,5 @@ public:
 	
 	void InitDefaultCommand();
 };
+
 #endif
