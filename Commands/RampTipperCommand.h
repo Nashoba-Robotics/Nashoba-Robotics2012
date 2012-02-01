@@ -1,19 +1,18 @@
-#ifndef BALLINTAKECOMMAND_H_
-#define BALLINTAKECOMMAND_H_
+#ifndef RAMPTIPPERCOMMAND_H_
+#define RAMPTIPPERCOMMAND_H_
 
 #include "../CommandBase.h"
-#include "../Subsystems/BallIntakeSubsystem.h"
+#include "../Subsystems/RampTipperSubsystem.h"
 
-class BallIntakeCommand : public CommandBase
+class RampTipperCommand : public CommandBase
 {
 private:
 public:
-	BallIntakeCommand();
+	RampTipperCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };
-
 #endif

@@ -1,19 +1,18 @@
-#ifndef BALLINTAKECOMMAND_H_
-#define BALLINTAKECOMMAND_H_
+#ifndef BOTTOMLIFTCOMMAND_H_
+#define BOTTOMLIFTCOMMAND_H_
 
 #include "../CommandBase.h"
-#include "../Subsystems/BallIntakeSubsystem.h"
+#include "../Subsystems/BottomLiftSubsystem.h"
 
-class BallIntakeCommand : public CommandBase
+class BottomLiftCommand : public CommandBase
 {
 private:
 public:
-	BallIntakeCommand();
+	BottomLiftCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };
-
 #endif
