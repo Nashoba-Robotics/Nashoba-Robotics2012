@@ -11,7 +11,7 @@ public:
 	BallIntakeCommand();
 	virtual void Initialize();
 	virtual void Execute();
-	virtual void IsFinished();
+	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };

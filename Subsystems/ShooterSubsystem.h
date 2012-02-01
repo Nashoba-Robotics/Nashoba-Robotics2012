@@ -13,18 +13,14 @@ private:
 
 
 public:
-	void load();
-	void shoot();
-	void IsLoaded();
+	virtual void load();
+	virtual void shoot();
+	virtual bool IsLoaded();
 	ShooterSubsystem(
 		
 					  );
 	
 	void InitDefaultCommand();
-	
-	ShooterSubsystem( 
-		   
-					);
 };
 
 #endif
