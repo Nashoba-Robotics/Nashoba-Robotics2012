@@ -174,6 +174,10 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTem
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
 
+CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/BallIntakeCommand.o : $(PRJ_ROOT_DIR)/Commands/BallIntakeCommand.cpp $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
+
+
 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.o : $(PRJ_ROOT_DIR)/Commands/DriveForwardAutoCommand.cpp $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(TOOL_PATH)ccppc $(DEBUGFLAGS_C++-Compiler) $(CC_ARCH_SPEC) -ansi -Wall  -MD -MP -mlongcall $(ADDED_C++FLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -DCPU=$(CPU) -DTOOL_FAMILY=$(TOOL_FAMILY) -DTOOL=$(TOOL) -D_WRS_KERNEL   $(DEFINES) -o "$@" -c "$<"
 
@@ -241,6 +245,7 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTem
 OBJECTS_CommandBassedRobotTemplate_partialImage = CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/CommandBase.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/CommandBasedRobot.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/AddParallelTestingCommand.o \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/BallIntakeCommand.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveOneWheelCommand.o \
 	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/ExampleCommand.o \
@@ -271,11 +276,12 @@ CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/CommandBassedRobotTemplate_p
 force : 
 
 DEP_FILES := CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/CommandBase.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/CommandBasedRobot.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/AddParallelTestingCommand.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveOneWheelCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/ExampleCommand.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/JoyStickDriveCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/PrintfOneSecInterval.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/RightTurnCommand.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/StraightThenRightTurnCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/OperatorInput.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/BallIntakeSubsystem.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/BottomLiftSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.d \
-	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/RampTipperSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/ShooterSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/TopLiftSubsystem.d
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/BallIntakeCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveForwardAutoCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/DriveOneWheelCommand.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/ExampleCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/JoyStickDriveCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/PrintfOneSecInterval.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/RightTurnCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/ShootCommand.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Commands/StraightThenRightTurnCommand.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/OperatorInput.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/BallIntakeSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/BottomLiftSubsystem.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/DriveSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/ExampleSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/RampTipperSubsystem.d \
+	 CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/ShooterSubsystem.d CommandBassedRobotTemplate_partialImage/$(MODE_DIR)/Objects/CommandBasedRobotTemplate/Subsystems/TopLiftSubsystem.d
 -include $(DEP_FILES)
 
 
