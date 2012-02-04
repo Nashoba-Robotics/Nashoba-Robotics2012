@@ -14,9 +14,8 @@ public:
 
 	void InitDefaultCommand();
 	
-	RampTipperSubsystem( 
-		   
-						);
+	RampTipperSubsystem();
+	
 };
 
 #endif

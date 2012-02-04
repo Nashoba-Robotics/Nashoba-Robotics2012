@@ -38,21 +38,21 @@ void CommandBasedRobot::RobotInit()
 	void CommandBasedRobot::TeleopPeriodic() {
 	
 //		GetWatchdog().Feed();
-		Scheduler::GetInstance()->Run();
+//		Scheduler::GetInstance()->Run();
 //		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
 //		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
-		static int i=0;
-		SmartDashboard::GetInstance()->PutInt("Blair", i++);
-		SmartDashboard::GetInstance()->PutString("Sam", "1768");
-		SmartDashboard::GetInstance()->PutString("Brandon", "17234");
-		SmartDashboard::GetInstance()->PutString("Alex", "171238");
-		SmartDashboard::GetInstance()->PutString("Zach", "11234");
-		SmartDashboard::GetInstance()->PutString("Fordiani", "1723268");
-		SmartDashboard::GetInstance()->PutString("Carpenter", "1721134");
-		SmartDashboard::GetInstance()->PutString("Ethan", "1762238");
-		SmartDashboard::GetInstance()->PutString("Hamilton", "17222234");
-		SmartDashboard::GetInstance()->PutString("Bricknell", "1768342");
-		SmartDashboard::GetInstance()->PutString("Ursuliak", "17123234");
+//		static int i=0;
+//		SmartDashboard::GetInstance()->PutInt("Blair", i++);
+//		SmartDashboard::GetInstance()->PutString("Sam", "1768");
+//		SmartDashboard::GetInstance()->PutString("Brandon", "17234");
+//		SmartDashboard::GetInstance()->PutString("Alex", "171238");
+//		SmartDashboard::GetInstance()->PutString("Zach", "11234");
+//		SmartDashboard::GetInstance()->PutString("Fordiani", "1723268");
+//		SmartDashboard::GetInstance()->PutString("Carpenter", "1721134");
+//		SmartDashboard::GetInstance()->PutString("Ethan", "1762238");
+//		SmartDashboard::GetInstance()->PutString("Hamilton", "17222234");
+//		SmartDashboard::GetInstance()->PutString("Bricknell", "1768342");
+//		SmartDashboard::GetInstance()->PutString("Ursuliak", "17123234");
 	}
 	
 	CommandBasedRobot::CommandBasedRobot()	

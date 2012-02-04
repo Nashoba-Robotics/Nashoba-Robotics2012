@@ -1,14 +1,14 @@
-#ifndef SHOOT_COMMAND_H
-#define SHOOT_COMMAND_H
+#ifndef SHOOTER_READY_SHOT_COMMAND_H
+#define SHOOTER_READY_SHOT_COMMAND_H
 
 #include "../CommandBase.h"
 #include "../Subsystems/ShooterSubsystem.h"
 
-class ShootCommand : public CommandBase
+class ShooterReadyShotCommand : public CommandBase
 {
 private:
 public:
-	ShootCommand();
+	ShooterReadyShotCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

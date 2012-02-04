@@ -8,15 +8,19 @@
 class TopLiftSubsystem: public Subsystem 
 {
 private:
+	CANJaguar TopLiftJaguar;
+	
 
 
 public:
 
 	void InitDefaultCommand();
 	
-	TopLiftSubsystem( 
-		   
-		 	   	    );
+	void LiftBallUp();
+	void LiftBallDown();
+	void LiftIdle();
+	
+	TopLiftSubsystem();
 };
 
 #endif

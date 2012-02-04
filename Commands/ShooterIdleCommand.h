@@ -1,19 +1,18 @@
-#ifndef BALLINTAKECOMMAND_H_
-#define BALLINTAKECOMMAND_H_
+#ifndef SHOOTER_IDLE_COMMAND_H
+#define SHOOTER_IDLE_COMMAND_H
 
 #include "../CommandBase.h"
-#include "../Subsystems/BallIntakeSubsystem.h"
+#include "../Subsystems/ShooterSubsystem.h"
 
-class BallIntakeCommand : public CommandBase
+class ShooterIdleCommand : public CommandBase
 {
 private:
 public:
-	BallIntakeCommand();
+	ShooterIdleCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };
-
 #endif

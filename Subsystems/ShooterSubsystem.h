@@ -3,6 +3,7 @@
 
 #include "WPILib.h"
 #include "../OperatorInput.h"
+#include "Commands/PIDSubsystem.h"
 #include "../HardwareSettings.h"
 
 //This is the Shooter class of the robot. Controls the shooter. 
@@ -10,15 +11,14 @@
 class ShooterSubsystem: public Subsystem
 {
 private:
-
-
-public:
-	virtual void load();
-	virtual void shoot();
-	virtual bool IsLoaded();
-	ShooterSubsystem(
-		
-					  );
+	CANJaguar ShooterJaguar;
+	
+public:	
+	ShooterSubsystem();
+	
+	void Shoot();
+	void Rearm();
+	void Stop();
 	
 	void InitDefaultCommand();
 };
