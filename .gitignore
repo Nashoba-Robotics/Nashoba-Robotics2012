@@ -4,4 +4,5 @@
 *.exe
 *.obj
 *.bak
-PPC603gnu/CommandBas*
+PPC603gnu/
+.csettings/

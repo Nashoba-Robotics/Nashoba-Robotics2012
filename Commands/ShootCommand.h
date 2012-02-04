@@ -2,7 +2,6 @@
 #define SHOOT_COMMAND_H
 
 #include "../CommandBase.h"
-#include "../Subsystems/ShooterSubsystem.h"
 
 class ShootCommand : public CommandBase
 {
