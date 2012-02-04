@@ -1,6 +1,6 @@
 #include "OperatorInput.h"
 #include "HardwareSettings.h"
-#include "Commands/ShootCommand.h"
+#include "Commands/ShooterIdleCommand.h"
 #include "Commands/DriveForwardAutoCommand.h"
 #include "Commands/RightTurnCommand.h"
 #include "Commands/PrintfOneSecInterval.h"
@@ -43,7 +43,7 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT)
 	driveStickButtonNine->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 9\n ") );
 	
 	driveStickButtonTen = new JoystickButton( &driveStick, 10 );
-	driveStickButtonTen->WhenPressed( new ShootCommand() );
+	driveStickButtonTen->WhenPressed( new ShooterIdlCommand() );
 	
 	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
 	driveStickButtonEleven->WhenPressed( new StraightThenRightTurnCommand());
