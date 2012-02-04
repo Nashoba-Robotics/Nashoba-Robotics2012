@@ -10,3 +10,4 @@ PPC603gnu/
 .project
 Release/
 Debug/
+*.orig
