@@ -1,11 +1,19 @@
 #include "OperatorInput.h"
 #include "HardwareSettings.h"
-#include "Commands/ShootCommand.h"
+<<<<<<< HEAD
+=======
+#include "Commands/ShooterReadyShotCommand.h"
+#include "Commands/ShooterTakeShotCommand.h"
+>>>>>>> sam
+#include "Commands/ShooterIdleCommand.h"
 #include "Commands/DriveForwardAutoCommand.h"
 #include "Commands/RightTurnCommand.h"
 #include "Commands/PrintfOneSecInterval.h"
 #include "Commands/StraightThenRightTurnCommand.h"
 #include "Commands/AddParallelTestingCommand.h"
+#include "Commands/IntakeIdleCommand.h"
+#include "Commands/IntakeReceiveContinuousCommand.h"
+#include "Commands/IntakeRejectContinuousCommand.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
@@ -43,18 +51,19 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT)
 	driveStickButtonNine->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 9\n ") );
 	
 	driveStickButtonTen = new JoystickButton( &driveStick, 10 );
-	driveStickButtonTen->WhenPressed( new ShootCommand() );
+<<<<<<< HEAD
+	driveStickButtonTen->WhenPressed( new ShooterIdlCommand() );
+=======
+	driveStickButtonTen->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 10\n ") );
+>>>>>>> sam
 	
 	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
 	driveStickButtonEleven->WhenPressed( new StraightThenRightTurnCommand());
 	
 	driveStickButtonTwelve = new JoystickButton( &driveStick, 12 );
 	driveStickButtonTwelve->WhenPressed( new AddParallelTestingCommand() );
-<<<<<<< HEAD
 	
 	
-=======
->>>>>>> origin/sam
 }
 
 OperatorInput& OperatorInput::getInstance()

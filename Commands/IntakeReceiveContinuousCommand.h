@@ -1,14 +1,14 @@
-#ifndef BALLINTAKECOMMAND_H_
-#define BALLINTAKECOMMAND_H_
+#ifndef INTAKE_RECEIVE_CONTINUOUS_COMMAND_H
+#define INTAKE_RECEIVE_CONTINUOUS_COMMAND_H
 
 #include "../CommandBase.h"
 #include "../Subsystems/BallIntakeSubsystem.h"
 
-class BallIntakeCommand : public CommandBase
+class IntakeReceiveContinuousCommand : public CommandBase
 {
 private:
 public:
-	BallIntakeCommand();
+	IntakeReceiveContinuousCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

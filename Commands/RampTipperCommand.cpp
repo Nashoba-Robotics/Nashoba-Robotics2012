@@ -25,7 +25,7 @@ void RampTipperCommand::End()
 
 }
 
-void rampTippercommand::Interrupted()
+void RampTipperCommand::Interrupted()
 {
 
 }

@@ -8,5 +8,9 @@ PPC603gnu/
 .csettings/
 .cproject
 .project
+<<<<<<< HEAD
 Release/
 Debug/
+
+=======
+>>>>>>> sam

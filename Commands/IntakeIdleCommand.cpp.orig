@@ -1,7 +1,11 @@
 #include "IntakeIdleCommand.h"
 #include "../Debug.h"
 
+<<<<<<< HEAD
+IntakeIdleCommand:IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
+=======
 IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
+>>>>>>> sam
 {
 
 }

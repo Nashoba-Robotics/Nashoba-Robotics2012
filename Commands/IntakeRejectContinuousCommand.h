@@ -1,14 +1,14 @@
-#ifndef INTAKE_IDLE_COMMAND_H
-#define INTAKE_IDLE_COMMAND_H
+#ifndef INTAKE_REJECT_CONTINUOUS_COMMAND_H
+#define INTAKE_REJECT_CONTINUOUS_COMMAND_H
 
 #include "../CommandBase.h"
 #include "../Subsystems/BallIntakeSubsystem.h"
 
-class IntakeIdleCommand : public CommandBase
+class IntakeRejectContinuousCommand : public CommandBase
 {
 private:
 public:
-	IntakeIdleCommand();
+	IntakeRejectContinuousCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

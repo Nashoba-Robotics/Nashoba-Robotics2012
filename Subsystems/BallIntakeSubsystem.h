@@ -14,9 +14,7 @@ public:
 
 	void InitDefaultCommand();
 	
-	BallIntakeSubsystem( 
-		   
-		 	   	  	   );
+	BallIntakeSubsystem();
 };
 
 #endif

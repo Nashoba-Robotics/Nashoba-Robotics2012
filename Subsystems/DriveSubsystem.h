@@ -32,9 +32,7 @@ public:
 	void backLeftJaguarDrive (float speed);
 	void backRightJaguarDrive (float speed);
 	
-	DriveSubsystem( 
-		   
-		 	   	  );
+	DriveSubsystem();
 	
 	
 	void InitDefaultCommand();
