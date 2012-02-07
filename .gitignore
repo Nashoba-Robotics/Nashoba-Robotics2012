@@ -4,10 +4,11 @@
 *.exe
 *.obj
 *.bak
-PPC603gnu/
-.csettings/
+PPC603gnu/*
+.csettings/*
 .cproject
 .project
-Release/
-Debug/
+Release/*
+Debug/*
 *.orig
+*~HEAD
