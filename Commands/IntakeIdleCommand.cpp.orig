@@ -1,0 +1,36 @@
+#include "IntakeIdleCommand.h"
+#include "../Debug.h"
+
+<<<<<<< HEAD
+IntakeIdleCommand:IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
+=======
+IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
+>>>>>>> sam
+{
+
+}
+
+void IntakeIdleCommand::Initialize()
+{
+
+}
+
+void IntakeIdleCommand::Execute()
+{
+
+}
+
+bool IntakeIdleCommand::IsFinished()
+{
+	return true;
+}
+
+void IntakeIdleCommand::End()
+{
+
+}
+
+void IntakeIdleCommand::Interrupted()
+{
+
+}

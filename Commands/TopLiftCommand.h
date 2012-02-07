@@ -1,17 +1,19 @@
-#ifndef SHOOTER_IDLE_COMMAND_H
-#define SHOOTER_IDLE_COMMAND_H
+#ifndef TOPLIFTCOMMAND_H_
+#define TOPLIFTCOMMAND_H_
 
 #include "../CommandBase.h"
+#include "../Subsystems/TopLiftSubsystem.h"
 
-class ShooterIdleCommand : public CommandBase
+class TopLiftCommand : public CommandBase
 {
 private:
 public:
-	ShooterIdleCommand();
+	TopLiftCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };
+
 #endif
