@@ -16,7 +16,7 @@ void DriveSubsystem::InitDefaultCommand()
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
-	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
+//	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
 }
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)

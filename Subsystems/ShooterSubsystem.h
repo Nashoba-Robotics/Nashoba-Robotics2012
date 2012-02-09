@@ -11,14 +11,18 @@
 class ShooterSubsystem: public Subsystem
 {
 private:
-	CANJaguar ShooterJaguar;
+	CANJaguar shooterJaguar;
+	CANJaguar tensionerJaguar;
 	
 public:	
 	ShooterSubsystem();
 	
-	void Shoot();
+	void Shoot( float );
 	void Rearm();
 	void Stop();
+	
+	void Tensioner( float );
+	
 	
 	void InitDefaultCommand();
 };

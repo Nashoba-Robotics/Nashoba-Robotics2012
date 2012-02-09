@@ -10,6 +10,8 @@
  */
 
 class DriveForwardAutoCommand: public CommandBase {
+private:
+	
 public:
 	DriveForwardAutoCommand();
 	virtual void Initialize();

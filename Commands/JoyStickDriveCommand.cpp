@@ -2,6 +2,7 @@
 #include "DriveForwardAutoCommand.h"
 #include "../OperatorInput.h"
 #include "../Subsystems/DriveSubsystem.h"
+#include "../Debug.h"
 
 
 JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand")
@@ -15,23 +16,24 @@ JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand
 // Called just before this Command runs the first time
 void JoyStickDriveCommand::Initialize() 
 {
-	
+	ResetPrintCounter();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void JoyStickDriveCommand::Execute() 
 {
-	static int runNum = 0;
-	if( runNum % 10 == 0)
+	Joystick& driveStick = OperatorInput::getInstance().getDriveStick();
+	
+	if( IsTimeToPrint() )
 		printf( "JoyStickDriveCommand::Execute\n");
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
 	drivesubsystem->drive (
-					OperatorInput::getInstance().getDriveStick().GetX(), 
-					OperatorInput::getInstance().getDriveStick().GetY(),
-					OperatorInput::getInstance().getDriveStick().GetZ()// Switch to get twist if not working 
+					SNAP_TO_VALUE( 0, 0.05, driveStick.GetX() ), 
+					SNAP_TO_VALUE( 0, 0.05, driveStick.GetY() ),
+					SNAP_TO_VALUE( 0, 0.05, driveStick.GetZ() ) 
 					// gyro (when uncommenting, add comma above)
 						   );
-	runNum++;
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()

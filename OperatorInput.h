@@ -4,7 +4,7 @@
 #include "WPILib.h"
 
 
-
+#define SNAP_TO_VALUE( snapValue, plusMinus, actualValue ) ( (((actualValue) > ((snapValue)-(plusMinus))) && ( (actualValue) < ((snapValue)+(plusMinus))))  ? (snapValue) : (actualValue) )
 
 //! The operator input class 
 class OperatorInput 
@@ -12,6 +12,7 @@ class OperatorInput
 private:
 	static OperatorInput *instance;
 	Joystick driveStick;
+	Joystick camStick;
 	JoystickButton *driveStickTriggerButton;
 	JoystickButton *driveStickdriveStickButtonTwo;
 	JoystickButton *driveStickButtonTwo;
@@ -25,7 +26,9 @@ private:
 	JoystickButton *driveStickButtonTen;
 	JoystickButton *driveStickButtonEleven;
 	JoystickButton *driveStickButtonTwelve;
-	
+	JoystickButton *camStickButtonSix;
+	JoystickButton *camStickButtonTen;
+	JoystickButton *camStickButtonEleven;
 
 public:
 	static OperatorInput& getInstance();
@@ -35,6 +38,11 @@ public:
 	Joystick& getDriveStick()
 	{
 		return driveStick;
+	}
+	
+	Joystick& getCamStick()
+	{
+		return camStick;
 	}
 };
 

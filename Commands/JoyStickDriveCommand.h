@@ -12,6 +12,8 @@
 //Command to Drive with Joystick, inherits from CommandBase
 
 class JoyStickDriveCommand: public CommandBase {
+private:
+
 public:
 	JoyStickDriveCommand();
 	virtual void Initialize();

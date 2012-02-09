@@ -3,7 +3,7 @@
 
 IntakeRejectContinuousCommand::IntakeRejectContinuousCommand() : CommandBase ("IntakeRejectContinuousCommand")
 {
-
+	//Requires( ballintakesubsystem );
 }
 
 void IntakeRejectContinuousCommand::Initialize()

@@ -2,7 +2,6 @@
 #define INTAKE_IDLE_COMMAND_H
 
 #include "../CommandBase.h"
-#include "../Subsystems/BallIntakeSubsystem.h"
 
 class IntakeIdleCommand : public CommandBase
 {

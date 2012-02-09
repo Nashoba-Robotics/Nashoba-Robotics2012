@@ -1,15 +1,14 @@
-#ifndef SHOOTER_IDLE_COMMAND_H
-#define SHOOTER_IDLE_COMMAND_H
+#ifndef TENSION_INCREASE_COMMAND_H
+#define TENSION_INCREASE_COMMAND_H
 
 #include "../CommandBase.h"
 #include "../Subsystems/ShooterSubsystem.h"
 
-class ShooterIdleCommand : public CommandBase
+class TensionIncreaseCommand : public CommandBase
 {
 private:
-
 public:
-	ShooterIdleCommand();
+	TensionIncreaseCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

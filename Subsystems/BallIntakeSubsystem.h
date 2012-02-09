@@ -8,11 +8,17 @@
 class BallIntakeSubsystem: public Subsystem 
 {
 private:
-
+Victor BallIntakeVictor;
 
 public:
 
 	void InitDefaultCommand();
+	
+	void IntakeIdle();
+	
+	void IntakeIn();
+	
+	void IntakeOut();
 	
 	BallIntakeSubsystem();
 };
