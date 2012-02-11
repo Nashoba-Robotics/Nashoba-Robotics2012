@@ -17,7 +17,7 @@ void TensionIncreaseCommand::Execute()
 {
 	if ( IsTimeToPrint() )
 		 printf ("TensionIncreaseCommand is Executing!\n");
-	shootersubsystem->Tensioner(0.20);
+	shootersubsystem->Tensioner(1.00);
 }
 
 bool TensionIncreaseCommand::IsFinished()

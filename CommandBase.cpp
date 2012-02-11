@@ -15,10 +15,11 @@ CommandBase::CommandBase() : Command() {
 ExampleSubsystem* CommandBase::examplesubsystem = NULL;
 DriveSubsystem* CommandBase::drivesubsystem = NULL;
 ShooterSubsystem* CommandBase::shootersubsystem = NULL;
-//BallIntakeSubsystem* CommandBase::ballintakesubsystem = NULL;
-//TopLiftSubsystem* CommandBase::topliftsubsystem = NULL;
-//BottomLiftSubsystem* CommandBase::bottomliftsubsystem = NULL;
+BallIntakeSubsystem* CommandBase::ballintakesubsystem = NULL;
+TopLiftSubsystem* CommandBase::topliftsubsystem = NULL;
+BottomLiftSubsystem* CommandBase::bottomliftsubsystem = NULL;
 //RampTipperSubsystem* CommandBase::ramptippersubsystem = NULL;
+BallLoaderSubsystem* CommandBase::ballloadersubsystem = NULL;
 
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
@@ -26,10 +27,11 @@ void CommandBase::init() {
 	examplesubsystem = new ExampleSubsystem();
 	drivesubsystem = new DriveSubsystem();
 	shootersubsystem = new ShooterSubsystem();
-//	ballintakesubsystem = new BallIntakeSubsystem();
-//	topliftsubsystem = new TopLiftSubsystem();
-//	bottomliftsubsystem = new BottomLiftSubsystem();
+	ballintakesubsystem = new BallIntakeSubsystem();
+	topliftsubsystem = new TopLiftSubsystem();
+	bottomliftsubsystem = new BottomLiftSubsystem();
 //	ramptippersubsystem = new RampTipperSubsystem();
+	ballloadersubsystem = new BallLoaderSubsystem();
 }
 
 bool CommandBase::IsTimeToPrint()

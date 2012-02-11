@@ -8,7 +8,7 @@
 class BallIntakeSubsystem: public Subsystem 
 {
 private:
-Victor BallIntakeVictor;
+Victor ballIntakeVictor;
 
 public:
 

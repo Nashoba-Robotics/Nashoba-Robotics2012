@@ -9,7 +9,7 @@ void CommandBasedRobot::RobotInit()
 //		autonomousCommand = new ExampleCommand();
 		NetworkTable::Initialize();
 //		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
-//		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
+		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 //		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
 		OperatorInput::getInstance();
 	}

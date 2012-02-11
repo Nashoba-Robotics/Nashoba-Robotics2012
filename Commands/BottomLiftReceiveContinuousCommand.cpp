@@ -4,7 +4,7 @@
 
 BottomLiftReceiveContinuousCommand::BottomLiftReceiveContinuousCommand() : CommandBase("BottomLiftReceiveContinuousCommand")
 {
-
+	Requires( bottomliftsubsystem );
 }
 
 void BottomLiftReceiveContinuousCommand::Initialize()
@@ -14,20 +14,20 @@ void BottomLiftReceiveContinuousCommand::Initialize()
 
 void BottomLiftReceiveContinuousCommand::Execute()
 {
-
+	bottomliftsubsystem->LiftBallUp();
 }
 
 bool BottomLiftReceiveContinuousCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void BottomLiftReceiveContinuousCommand::End()
 {
-
+	bottomliftsubsystem->LiftIdle();
 }
 
 void BottomLiftReceiveContinuousCommand::Interrupted()
 {
-
+	bottomliftsubsystem->LiftIdle();
 }

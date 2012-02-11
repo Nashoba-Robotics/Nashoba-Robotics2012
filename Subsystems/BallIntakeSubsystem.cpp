@@ -1,4 +1,4 @@
-#include "ShooterSubsystem.h"
+#include "BallIntakeSubsystem.h"
 #include "WPIlib.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
@@ -13,24 +13,23 @@ void BallIntakeSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new IntakeIdleCommand() );
 }
 
-void IntakeIdle()
+void BallIntakeSubsystem::IntakeIdle()
 {
-	
+	ballIntakeVictor.Set(0.0);
 }
 
-void IntakeIn()
+void BallIntakeSubsystem::IntakeIn()
 {
-	
+	ballIntakeVictor.Set(-1.0);
 }
 
-void IntakeRejectOut()
+void BallIntakeSubsystem::IntakeOut()
 {
-	
+	ballIntakeVictor.Set(1.0);
 }
 
 BallIntakeSubsystem::BallIntakeSubsystem(): Subsystem("BallIntakeSubsyetm"),
-//check to see if slot,port or if the order is port,slot
-  BallIntakeVictor( BALL_INTAKE_VICTOR_SLOT, BALL_INTAKE_VICTOR_PORT )
+  ballIntakeVictor( BALL_INTAKE_VICTOR_CHANNEL )
 {
 	
 }
