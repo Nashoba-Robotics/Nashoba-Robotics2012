@@ -1,9 +1,10 @@
 #include "IntakeReceiveContinuousCommand.h"
+#include "../Subsystems/BallIntakeSubsystem.h"
 #include "../Debug.h"
 
 IntakeReceiveContinuousCommand::IntakeReceiveContinuousCommand() : CommandBase ("IntakeReceiveContinuousCommand")
 {
-
+	Requires( ballintakesubsystem );
 }
 
 void IntakeReceiveContinuousCommand::Initialize()
@@ -13,20 +14,20 @@ void IntakeReceiveContinuousCommand::Initialize()
 
 void IntakeReceiveContinuousCommand::Execute()
 {
-
+	ballintakesubsystem->IntakeIn();
 }
 
 bool IntakeReceiveContinuousCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void IntakeReceiveContinuousCommand::End()
 {
-
+	ballintakesubsystem->IntakeIdle();
 }
 
 void IntakeReceiveContinuousCommand::Interrupted()
 {
-
+	ballintakesubsystem->IntakeIdle();
 }

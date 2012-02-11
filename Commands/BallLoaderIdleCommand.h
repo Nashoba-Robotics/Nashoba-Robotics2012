@@ -1,13 +1,13 @@
-#ifndef INTAKE_IDLE_COMMAND_H
-#define INTAKE_IDLE_COMMAND_H
+#ifndef BALL_LOADER_IDLE_COMMAND_H
+#define BALL_LOADER_IDLE_COMMAND_H
 
 #include "../CommandBase.h"
 
-class IntakeIdleCommand : public CommandBase
+class BallLoaderIdleCommand : public CommandBase
 {
 private:
 public:
-	IntakeIdleCommand();
+	BallLoaderIdleCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

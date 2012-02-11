@@ -1,34 +1,45 @@
 #include "ShooterTakeShotCommand.h"
+#include "../Subsystems/ShooterSubsystem.h"
 #include "../Debug.h"
 
 ShooterTakeShotCommand::ShooterTakeShotCommand() : CommandBase("ShooterTakeShotCommand")
 {
-	
+	Requires(shootersubsystem);
+	SetReportPeriod ( 500 );
 }
 
 void ShooterTakeShotCommand::Initialize()
 {
-	printf ("ShooterTakeShotCommand Initialized");
+	ResetPrintCounter();
+	printf ("ShooterTakeShotCommand Initialized \n");
 }
 
 void ShooterTakeShotCommand::Execute()
 {
-	static int runNum = 0;
-	if (runNum % REPORT_PERIOD == 0)
-		 printf ("ShooterTakeShotCommand is Executing!\n");
+	float CamSpeed =  0 - OperatorInput::getInstance().getCamStick().GetY();
+	
+	CamSpeed = SNAP_TO_VALUE( 0, 0.05, CamSpeed );    // if it is close to zero, force it to be zero.
+	
+	if ( IsTimeToPrint() )
+		 {
+			printf ("ShooterTakeShotCommand is Executing! CamSpeed %6.4f \n", CamSpeed);
+		 }
+	shootersubsystem->Shoot( CamSpeed );
+	
 }
 
 bool ShooterTakeShotCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void ShooterTakeShotCommand::End()
 {
-	printf ("ShooterTakeShotCommand Finished!");
+	printf ("ShooterTakeShotCommand Finished! \n");
 }
 
 void ShooterTakeShotCommand::Interrupted()
 {
-	printf ("ShooterTakeShotCommand Interrupted!");
+	printf ("ShooterTakeShotCommand Interrupted! \n");
+	shootersubsystem->Stop();
 }

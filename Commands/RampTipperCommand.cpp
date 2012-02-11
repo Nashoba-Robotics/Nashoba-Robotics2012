@@ -2,7 +2,7 @@
 
 RampTipperCommand::RampTipperCommand() : CommandBase("RampTipperCommand")
 {
-
+//	Requires( ramptippersubsystem );
 }
 
 void RampTipperCommand::Initialize()

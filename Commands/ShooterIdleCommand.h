@@ -6,6 +6,7 @@
 class ShooterIdleCommand : public CommandBase
 {
 private:
+
 public:
 	ShooterIdleCommand();
 	virtual void Initialize();

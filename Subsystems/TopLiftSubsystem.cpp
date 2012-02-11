@@ -3,28 +3,28 @@
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
-#include "../Commands/IntakeReceiveContinuousCommand.h"
-#include "../Commands/IntakeRejectContinuousCommand.h"
-#include "../Commands/IntakeIdleCommand.h"
+#include "../Commands/TopLiftReceiveContinuousCommand.h"
+#include "../Commands/TopLiftRejectContinuousCommand.h"
+#include "../Commands/TopLiftIdleCommand.h"
 
 void TopLiftSubsystem::InitDefaultCommand()
 {
-
+	SetDefaultCommand( new TopLiftIdleCommand() );
 }
 
 void TopLiftSubsystem::LiftBallUp()
 {
-	//TODO
+	TopLiftJaguar.Set(1.0);
 }
 
 void TopLiftSubsystem::LiftBallDown()
 {
-	//TODO
+	TopLiftJaguar.Set(-1.0);
 }
 
 void TopLiftSubsystem::LiftIdle()
 {
-	//TODO
+	TopLiftJaguar.Set(0.0);
 }
 
 TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),

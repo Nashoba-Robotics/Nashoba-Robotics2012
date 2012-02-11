@@ -3,34 +3,37 @@
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
-#include "../Commands/IntakeReceiveContinuousCommand.h"
-#include "../Commands/IntakeRejectContinuousCommand.h"
-#include "../Commands/IntakeIdleCommand.h"
+#include "../Commands/BottomLiftIdleCommand.h"
+#include "../Commands/BottomLiftReceiveContinuousCommand.h"
+#include "../Commands/BottomLiftRejectContinuousCommand.h"
 
 void BottomLiftSubsystem::InitDefaultCommand()
 {
-
+	SetDefaultCommand( new BottomLiftIdleCommand() );
 }
 
 void BottomLiftSubsystem::LiftBallUp()
 {
-	//TODO
+	BottomLiftLeftRelay.Set( Relay::kForward );
+	BottomLiftRightRelay.Set( Relay::kForward );
 }
 
 void BottomLiftSubsystem::LiftBallDown()
 {
-	//TODO
+	BottomLiftLeftRelay.Set( Relay::kReverse );
+	BottomLiftRightRelay.Set( Relay::kReverse );
 }
 
 void BottomLiftSubsystem::LiftIdle()
 {
-	//TODO
+	BottomLiftLeftRelay.Set( Relay::kOff );
+	BottomLiftRightRelay.Set( Relay::kOff );
 }
 
 BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
 //will be changed to spike relays or something at somepoint
-  BottomLiftLeftJaguar( BOTTOM_LIFT_LEFT_JAGUAR_CANID ),
-  BottomLiftRightJaguar( BOTTOM_LIFT_RIGHT_JAGUAR_CANID )
+  BottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
+  BottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL )
 {
 	
 }

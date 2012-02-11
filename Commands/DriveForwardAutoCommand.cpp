@@ -1,7 +1,6 @@
 #include "DriveForwardAutoCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
-
-
+#include "../Debug.h"
 
 
 DriveForwardAutoCommand::DriveForwardAutoCommand() : CommandBase("DriveForwardAutoCommand"){
@@ -20,21 +19,21 @@ void DriveForwardAutoCommand::Initialize()
 //	drivesubsystem->Enable();
 	printf("%s Driving Forward at 1/5 speed for 10 seconds\n", __FUNCTION__ );
 	
+	ResetPrintCounter();
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveForwardAutoCommand::Execute() 
 {
-	static int runNum = 0;
-	if( runNum % 10 == 0)
+	if( IsTimeToPrint() )
 		printf( "DriveForwardAutoCommand::Execute\n");
 	
 	drivesubsystem->drive (0, 
 						   -0.20, //Go Forward at 1/5 speed
 						   0  
 						   );
-	runNum++;
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()

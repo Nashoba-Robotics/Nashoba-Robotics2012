@@ -1,13 +1,13 @@
-#ifndef INTAKE_IDLE_COMMAND_H
-#define INTAKE_IDLE_COMMAND_H
+#ifndef TOP_LIFT_IDLE_COMMAND_H
+#define TOP_LIFT_IDLE_COMMAND_H
 
 #include "../CommandBase.h"
 
-class IntakeIdleCommand : public CommandBase
+class TopLiftIdleCommand : public CommandBase
 {
 private:
 public:
-	IntakeIdleCommand();
+	TopLiftIdleCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

@@ -3,7 +3,7 @@
 
 IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
 {
-
+	Requires( ballintakesubsystem );
 }
 
 void IntakeIdleCommand::Initialize()
@@ -13,7 +13,7 @@ void IntakeIdleCommand::Initialize()
 
 void IntakeIdleCommand::Execute()
 {
-
+	ballintakesubsystem->IntakeIdle();
 }
 
 bool IntakeIdleCommand::IsFinished()
@@ -23,10 +23,10 @@ bool IntakeIdleCommand::IsFinished()
 
 void IntakeIdleCommand::End()
 {
-
+	ballintakesubsystem->IntakeIdle();
 }
 
 void IntakeIdleCommand::Interrupted()
 {
-
+	ballintakesubsystem->IntakeIdle();
 }

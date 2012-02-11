@@ -10,13 +10,24 @@
 #include "Subsystems/TopLiftSubsystem.h"
 #include "Subsystems/BottomLiftSubsystem.h"
 #include "Subsystems/RampTipperSubsystem.h"
+#include "Subsystems/BallLoaderSubsystem.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
  * subsystem elsewhere in your code in your code use CommandBase.examplesubsystem
  */
-class CommandBase: public Command {
+class CommandBase: public Command 
+{
+private:
+	int executionCounter;
+	int reportPeriod;
+	
+protected:
+	bool IsTimeToPrint();
+	void ResetPrintCounter();
+	void SetReportPeriod( int mseconds );
+	
 public:
 	CommandBase(const char *name);
 	CommandBase();
@@ -24,11 +35,12 @@ public:
 	// Create a single static instance of all of your subsystems
 	static ExampleSubsystem *examplesubsystem;
 	static DriveSubsystem *drivesubsystem;
-	static ShooterSubsystem *shootersubsytem;
+	static ShooterSubsystem *shootersubsystem;
 	static BallIntakeSubsystem *ballintakesubsystem;
 	static TopLiftSubsystem *topliftsubsystem;
 	static BottomLiftSubsystem *bottomliftsubsystem;
-	static RampTipperSubsystem *ramptippersubsystem;
+//	static RampTipperSubsystem *ramptippersubsystem;
+	static BallLoaderSubsystem *ballloadersubsystem;
 };
 
 #endif

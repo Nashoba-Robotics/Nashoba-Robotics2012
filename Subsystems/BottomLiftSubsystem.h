@@ -8,9 +8,9 @@
 class BottomLiftSubsystem: public Subsystem 
 {
 private:
-//Need to make the objects for the motors/spike relays/other things
-	CANJaguar BottomLiftLeftJaguar;
-	CANJaguar BottomLiftRightJaguar;
+
+	Relay BottomLiftLeftRelay;
+	Relay BottomLiftRightRelay;
 	
 public:
 

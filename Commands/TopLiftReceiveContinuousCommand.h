@@ -1,18 +1,17 @@
-#ifndef INTAKE_IDLE_COMMAND_H
-#define INTAKE_IDLE_COMMAND_H
+#ifndef TOP_LIFT_RECEIVE_CONTINUOUS_COMMAND_H_
+#define TOP_LIFT_RECEIVE_CONTINUOUS_COMMAND_H_
 
 #include "../CommandBase.h"
 
-class IntakeIdleCommand : public CommandBase
+class TopLiftReceiveContinuousCommand : public CommandBase
 {
 private:
 public:
-	IntakeIdleCommand();
+	TopLiftReceiveContinuousCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };
-
 #endif

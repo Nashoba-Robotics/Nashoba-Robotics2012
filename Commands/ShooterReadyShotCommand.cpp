@@ -3,18 +3,19 @@
 
 ShooterReadyShotCommand::ShooterReadyShotCommand() : CommandBase("ShooterReadyShotCommand")
 {
-	
+	Requires( shootersubsystem );
 }
 
 void ShooterReadyShotCommand::Initialize()
 {
+	ResetPrintCounter();
 	printf ("ShooterReadyShotCommand Initialized");
 }
 
 void ShooterReadyShotCommand::Execute()
 {
-	static int runNum = 0;
-	if (runNum % REPORT_PERIOD == 0)
+	
+	if ( IsTimeToPrint() )
 		 printf ("ShooterReadyShotCommand is Executing!\n");
 }
 
