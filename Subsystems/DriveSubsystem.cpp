@@ -4,7 +4,7 @@
 #include "../Commands/JoyStickDriveCommand.h"
 #include "../CommandBasedRobot.h"
 #include "../Commands/DriveOneWheelCommand.h"
-#include "../Commands/DriveForwardAutoCommand.h"
+#include "../Commands/DriveDurationCommand.h"
 #include "../HardwareSettings.h"
 
 

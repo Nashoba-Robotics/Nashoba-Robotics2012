@@ -1,49 +1,50 @@
-#include "DriveForwardAutoCommand.h"
+#include "DriveDurationCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../Debug.h"
 
 
-DriveForwardAutoCommand::DriveForwardAutoCommand() : CommandBase("DriveForwardAutoCommand"){
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+DriveDurationCommand::DriveDurationCommand(double duration, double bearingX, double bearingY) : CommandBase("DriveDurationCommand"){
 
 	Requires(drivesubsystem);
-
+	m_duration = duration;
+	m_bearingX = bearingX;
+	m_bearingY = bearingY;
 }
 
 // Called just before this Command runs the first time
-void DriveForwardAutoCommand::Initialize() 
+void DriveDurationCommand::Initialize() 
 {
-	SetTimeout(10.0);			//Sets a timer (10 secs for testing)
+	
+	SetTimeout(m_duration);			//Sets a timer 
 	
 //	drivesubsystem->Enable();
-	printf("%s Driving Forward at 1/5 speed for 10 seconds\n", __FUNCTION__ );
+	printf("%s Driving Forward at 1/5 speed for %f seconds\n", __FUNCTION__, m_duration );
 	
 	ResetPrintCounter();
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveForwardAutoCommand::Execute() 
+void DriveDurationCommand::Execute() 
 {
 	if( IsTimeToPrint() )
-		printf( "DriveForwardAutoCommand::Execute\n");
+		printf( "DriveDurationCommand::Execute\n");
 	
-	drivesubsystem->drive (0, 
-						   -0.20, //Go Forward at 1/5 speed
+	drivesubsystem->drive (m_bearingY, 
+						   m_bearingX, 
 						   0  
 						   );
 	
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveForwardAutoCommand::IsFinished() 
+bool DriveDurationCommand::IsFinished() 
 {
 	return IsTimedOut();	//Checks to see if the Timer has finished
 }
 
 // Called once after isFinished returns true
-void DriveForwardAutoCommand::End()
+void DriveDurationCommand::End()
 {
 	drivesubsystem->drive (0, //Stop motors
 						   0,
@@ -54,9 +55,9 @@ void DriveForwardAutoCommand::End()
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveForwardAutoCommand::Interrupted() 
+void DriveDurationCommand::Interrupted() 
 {
-	printf( "DriveForwardAutoCommand Interrupt\n");
+	printf( "DriveDurationCommand Interrupt\n");
 	drivesubsystem->drive (0, //Stop motors
 						   0,
 						   0

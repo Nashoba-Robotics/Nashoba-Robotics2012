@@ -7,13 +7,13 @@ void CommandBasedRobot::RobotInit()
 	{
 		CommandBase::init();
 //		autonomousCommand = new ExampleCommand();
-		NetworkTable::Initialize();
-		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
-		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
-		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);	
+//		NetworkTable::Initialize();
+//		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
 		
 		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
@@ -44,14 +44,16 @@ void CommandBasedRobot::RobotInit()
 	void CommandBasedRobot::TeleopPeriodic() {
 	
 		GetWatchdog().Feed();
+//		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
+		
+//		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 		Scheduler::GetInstance()->Run();
-		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
-		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
-		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);	
-//		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);	
 	}
 	
 	CommandBasedRobot::CommandBasedRobot()	

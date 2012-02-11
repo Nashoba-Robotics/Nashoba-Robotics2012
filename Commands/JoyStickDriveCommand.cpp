@@ -1,5 +1,5 @@
 #include "JoyStickDriveCommand.h"
-#include "DriveForwardAutoCommand.h"
+#include "DriveDurationCommand.h"
 #include "../OperatorInput.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../Debug.h"
