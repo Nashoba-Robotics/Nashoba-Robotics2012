@@ -9,7 +9,8 @@ TopLiftReceiveContinuousCommand::TopLiftReceiveContinuousCommand() : CommandBase
 
 void TopLiftReceiveContinuousCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("TopLiftReceiveContinuousCommand Initialized \n");
 }
 
 void TopLiftReceiveContinuousCommand::Execute()

@@ -9,7 +9,8 @@ IntakeReceiveContinuousCommand::IntakeReceiveContinuousCommand() : CommandBase (
 
 void IntakeReceiveContinuousCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("IntakeReceiveContinuousCommand Initialized \n");
 }
 
 void IntakeReceiveContinuousCommand::Execute()

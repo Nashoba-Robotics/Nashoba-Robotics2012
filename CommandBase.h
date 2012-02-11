@@ -2,7 +2,6 @@
 #define COMMAND_BASE_H
 
 #include "Commands/Command.h"
-#include "Subsystems/ExampleSubsystem.h"
 #include "OperatorInput.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "Subsystems/ShooterSubsystem.h"
@@ -33,7 +32,6 @@ public:
 	CommandBase();
 	static void init();
 	// Create a single static instance of all of your subsystems
-	static ExampleSubsystem *examplesubsystem;
 	static DriveSubsystem *drivesubsystem;
 	static ShooterSubsystem *shootersubsystem;
 	static BallIntakeSubsystem *ballintakesubsystem;

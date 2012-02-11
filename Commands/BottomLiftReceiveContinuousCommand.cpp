@@ -9,7 +9,8 @@ BottomLiftReceiveContinuousCommand::BottomLiftReceiveContinuousCommand() : Comma
 
 void BottomLiftReceiveContinuousCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("BottomLiftReceiveContinuousCommand Initialized \n");
 }
 
 void BottomLiftReceiveContinuousCommand::Execute()

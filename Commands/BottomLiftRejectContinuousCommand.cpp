@@ -9,7 +9,8 @@ BottomLiftRejectContinuousCommand::BottomLiftRejectContinuousCommand() : Command
 
 void BottomLiftRejectContinuousCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("BottomLiftRejectContinuousCommand Initialized \n");
 }
 
 void BottomLiftRejectContinuousCommand::Execute()

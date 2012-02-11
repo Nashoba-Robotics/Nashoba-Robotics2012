@@ -9,7 +9,8 @@ TopLiftRejectContinuousCommand::TopLiftRejectContinuousCommand() : CommandBase("
 
 void TopLiftRejectContinuousCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("TopLiftRejectCommand Initialized \n");
 }
 
 void TopLiftRejectContinuousCommand::Execute()

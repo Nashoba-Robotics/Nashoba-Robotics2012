@@ -17,6 +17,7 @@ JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand
 void JoyStickDriveCommand::Initialize() 
 {
 	ResetPrintCounter();
+	printf ("DriveForwardAutoCommand Initialized \n");
 }
 
 // Called repeatedly when this Command is scheduled to run

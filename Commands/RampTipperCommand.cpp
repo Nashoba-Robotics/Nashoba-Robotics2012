@@ -7,7 +7,8 @@ RampTipperCommand::RampTipperCommand() : CommandBase("RampTipperCommand")
 
 void RampTipperCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("RampTipperCommand Initialized \n");
 }
 
 void RampTipperCommand::Execute()

@@ -12,7 +12,6 @@ CommandBase::CommandBase() : Command() {
 }
 
 // Initialize a single static instance of all of your subsystems to NULL
-ExampleSubsystem* CommandBase::examplesubsystem = NULL;
 DriveSubsystem* CommandBase::drivesubsystem = NULL;
 ShooterSubsystem* CommandBase::shootersubsystem = NULL;
 BallIntakeSubsystem* CommandBase::ballintakesubsystem = NULL;
@@ -24,7 +23,6 @@ BallLoaderSubsystem* CommandBase::ballloadersubsystem = NULL;
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	examplesubsystem = new ExampleSubsystem();
 	drivesubsystem = new DriveSubsystem();
 	shootersubsystem = new ShooterSubsystem();
 	ballintakesubsystem = new BallIntakeSubsystem();

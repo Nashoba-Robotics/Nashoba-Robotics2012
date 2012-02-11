@@ -10,7 +10,8 @@ BottomLiftIdleCommand::BottomLiftIdleCommand() : CommandBase ("BottomLiftIdleCom
 
 void BottomLiftIdleCommand::Initialize()
 {
-	
+	ResetPrintCounter();
+	printf ("BottomLiftIdleCommand Initialized \n");
 }
 
 void BottomLiftIdleCommand::Execute()

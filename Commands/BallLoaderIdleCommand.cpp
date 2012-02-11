@@ -11,6 +11,7 @@ BallLoaderIdleCommand::BallLoaderIdleCommand() : CommandBase ("BallLoaderIdleCom
 void BallLoaderIdleCommand::Initialize()
 {
 	ResetPrintCounter();
+	printf ("BallLoaderIdleCommand Initialized \n");
 }
 
 void BallLoaderIdleCommand::Execute()
