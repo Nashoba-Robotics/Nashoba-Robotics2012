@@ -20,6 +20,11 @@ void DriveSubsystem::drive (float x, float y, float z )
 	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0 /*gyro.GetAngle*/ );
 }
 
+void DriveSubsystem::polarDrive (float mag, float dir, float rot)
+{
+	myWPIdrive.MecanumDrive_Polar(mag, dir, rot);
+}
+
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
 {
 	frontLeftJaguar.Set (speed);

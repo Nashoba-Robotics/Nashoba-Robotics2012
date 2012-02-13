@@ -37,6 +37,7 @@ private:
 
 public:
 	void drive(float x, float rotation, float z);
+	void polarDrive (float magnitiude, float direction, float rotation);
 	
 	void frontLeftJaguarDrive (float speed); 
 	void frontRightJaguarDrive (float speed);

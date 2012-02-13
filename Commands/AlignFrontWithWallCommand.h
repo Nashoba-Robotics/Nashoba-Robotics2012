@@ -1,5 +1,5 @@
-#ifndef ALIGN_WITH_WALL_COMMAND_H
-#define ALIGN_WITH_WALL_COMMAND_H
+#ifndef ALIGN_FRONT_WITH_WALL_COMMAND_H
+#define ALIGN_FRONT_WITH_WALL_COMMAND_H
 
 #include "../CommandBase.h"
 
@@ -9,12 +9,12 @@
  * 
  */
 
-class AlignWithWallCommand: public CommandBase {
+class AlignFrontWithWallCommand: public CommandBase {
 private:
 	
 
 public:
-	AlignWithWallCommand();
+	AlignFrontWithWallCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
