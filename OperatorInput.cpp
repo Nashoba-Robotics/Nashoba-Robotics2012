@@ -11,11 +11,15 @@
 #include "Commands/IntakeRejectContinuousCommand.h"
 #include "Commands/TensionIncreaseCommand.h"
 #include "Commands/TensionDecreaseCommand.h"
+#include "Commands/TopLiftReceiveContinuousCommand.h"
+#include "Commands/TopLiftRejectContinuousCommand.h"
+#include "Commands/TopLiftIdleCommand.h"
 #include "Commands/BottomLiftIdleCommand.h"
 #include "Commands/BottomLiftReceiveContinuousCommand.h"
 #include "Commands/BottomLiftRejectContinuousCommand.h"
 #include "Commands/BallLoaderIdleCommand.h"
 #include "Commands/BallLoaderLoadCommand.h"
+#include "Commands/AlignWithWallCommand.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
@@ -29,7 +33,7 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT), camStick(CAM_STICK
 	driveStickTriggerButton->WhenPressed( new DriveDurationCommand(Preferences::GetInstance()->GetInt("duration"), 0.5, 0) );
 	
 	driveStickButtonTwo = new JoystickButton( &driveStick, 2 );
-	driveStickButtonTwo->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 2\n ") );
+	driveStickButtonTwo->WhenPressed( new TopLiftReceiveContinuousCommand()  );
 	
 	driveStickButtonThree = new JoystickButton( &driveStick, 3 );
 	driveStickButtonThree->WhenPressed( new IntakeIdleCommand() );
@@ -53,13 +57,13 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT), camStick(CAM_STICK
 	driveStickButtonNine->WhenPressed( new BottomLiftIdleCommand() );
 	
 	driveStickButtonTen = new JoystickButton( &driveStick, 10 );
-	driveStickButtonTen->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 10\n ") );
+	driveStickButtonTen->WhenPressed( new TopLiftRejectContinuousCommand() );
 	
 	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
 	driveStickButtonEleven->WhenPressed( new StraightThenRightTurnCommand());
 	
 	driveStickButtonTwelve = new JoystickButton( &driveStick, 12 );
-	driveStickButtonTwelve->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 12\n ") );
+	driveStickButtonTwelve->WhenPressed( new TopLiftIdleCommand() );
 	
 	camStickButtonSix = new JoystickButton( &camStick, 6 );
 	camStickButtonSix->WhileHeld( new ShooterTakeShotCommand() );

@@ -1,5 +1,5 @@
 #include "CommandBasedRobot.h"
-
+#include "Subsystems/DriveSubsystem.h"
 
 START_ROBOT_CLASS(CommandBasedRobot);
 
@@ -16,7 +16,7 @@ void CommandBasedRobot::RobotInit()
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
 		
-		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
+//		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 		OperatorInput::getInstance();
 	}
 	
@@ -51,6 +51,7 @@ void CommandBasedRobot::RobotInit()
 //		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
+//		SmartDashboard::GetInstance()->PutDouble(drivesubsystem->gyro.GetAngle());
 		
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 		Scheduler::GetInstance()->Run();

@@ -31,8 +31,7 @@ void JoyStickDriveCommand::Execute()
 	drivesubsystem->drive (
 					SNAP_TO_VALUE( 0, 0.05, driveStick.GetX() ), 
 					SNAP_TO_VALUE( 0, 0.05, driveStick.GetY() ),
-					SNAP_TO_VALUE( 0, 0.05, driveStick.GetZ() ) 
-					// gyro (when uncommenting, add comma above)
+					SNAP_TO_VALUE( 0, 0.05, driveStick.GetZ() )
 						   );
 	
 }

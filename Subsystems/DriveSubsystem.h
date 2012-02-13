@@ -1,6 +1,7 @@
 #ifndef DRIVE_SUBSYSTEM_H
 #define DRIVE_SUBSYSTEM_H
 #include "Commands/PIDSubsystem.h"
+#include "../AnalogIRSensor.h"
 #include "WPILib.h"
 
 /*
@@ -22,7 +23,17 @@ private:
 	CANJaguar backLeftJaguar;
 	CANJaguar backRightJaguar;
 	
+public:
+	Gyro gyro;
+	
+private:
 	RobotDrive myWPIdrive;
+	
+	//AnalogIRSensor shooterIRSensor;
+	//AnalogIRSensor leftFrontIRSensor;
+	//AnalogIRSensor leftBackIRSensor;
+	//AnalogIRSensor rightFrontIRSensor;
+	//AnalogIRSensor rightBackIRSensor;
 
 public:
 	void drive(float x, float rotation, float z);
@@ -33,7 +44,6 @@ public:
 	void backRightJaguarDrive (float speed);
 	
 	DriveSubsystem();
-	
 	
 	void InitDefaultCommand();
 };
