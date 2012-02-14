@@ -3,14 +3,14 @@
 
 #include "WPILib.h"
 
-/*class AnalogIRSensor: public AnalogChannel
+class AnalogIRSensor: public AnalogChannel
 {
 public:
 	AnalogIRSensor(UINT32 channel);
-	float getDistance();
+	float GetDistance();
 private:
 	
-};*/
+};
 
 
 

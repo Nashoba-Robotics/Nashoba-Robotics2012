@@ -16,7 +16,7 @@ void DriveToCornerCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveToCornerCommand::Execute() 
 {	
-/*
+
 	drivesubsystem->gyro.Reset();
 	
 	float direction;
@@ -35,15 +35,15 @@ void DriveToCornerCommand::Execute()
 	direction = tanf( (ShooterXValue - 4.5) / (BackTowardsWallShotYValue - 3.5) );
 	}
 	
-	drivesubsystem->polarDrive( 0.5, direction, 0 )
-*/
+	drivesubsystem->polarDrive( 0.5, direction, 0 );
+
 }
 
 	
 // Make this return true when this Command no longer needs to run execute()
 bool DriveToCornerCommand::IsFinished() 
 {
-/*	if (fabsf (drivesubsystem->rightFrontIRSensor.GetDistance()<4.5) && fabsf(drivesubsystem->leftFrontIRSensor.GetDistance()) < 4.5 && fabsf(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
+	if (fabsf (drivesubsystem->rightFrontIRSensor.GetDistance()<4.5) && fabsf(drivesubsystem->leftFrontIRSensor.GetDistance()) < 4.5 && fabsf(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
 	{
 		printf("Robot Is Positioned to Shoot");
 		return true;
@@ -56,8 +56,7 @@ bool DriveToCornerCommand::IsFinished()
 	else
 	{
 		return false;
-	}*/
-	return true;
+	}
 }
 
 // Called once after isFinished returns true

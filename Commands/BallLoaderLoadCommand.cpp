@@ -4,7 +4,6 @@
 
 BallLoaderLoadCommand::BallLoaderLoadCommand() : CommandBase ("BallLoaderLoadCommand")
 {
-//WILL NEED TO UNCOMMENT THIS OUT LATER!!!
 	Requires( ballloadersubsystem );
 }
 

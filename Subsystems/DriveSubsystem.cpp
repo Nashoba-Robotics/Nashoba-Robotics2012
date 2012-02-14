@@ -50,12 +50,12 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 		backLeftJaguar   ( BACK_LEFT_JAGUAR_CANID   ),
 		backRightJaguar  ( BACK_RIGHT_JAGUAR_CANID  ),
 		gyro ( GYRO_PORT ),
-		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar)
-		//shooterIRSensor   (	SHOOTER_IR_SENSOR_PORT    ),
-		//leftFrontIRSensor (	LEFT_FRONT_IR_SENSOR_PORT ),
-		//leftBackIRSensor  (	LEFT_BACK_IR_SENSOR_PORT  ),
-		//rightFrontIRSensor(	RIGHT_FRONT_IR_SENSOR_PORT),
-		//rightBackIRSensor (	RIGHT_BACK_IR_SENSOR_PORT )
+		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar),
+		shooterIRSensor   (	SHOOTER_IR_SENSOR_PORT    ),
+		leftFrontIRSensor (	LEFT_FRONT_IR_SENSOR_PORT ),
+		leftBackIRSensor  (	LEFT_BACK_IR_SENSOR_PORT  ),
+		rightFrontIRSensor(	RIGHT_FRONT_IR_SENSOR_PORT),
+		rightBackIRSensor (	RIGHT_BACK_IR_SENSOR_PORT )
 {
 	myWPIdrive.SetSafetyEnabled	(false);
 #define NR_CAST_CANID

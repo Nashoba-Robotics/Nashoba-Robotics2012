@@ -28,14 +28,13 @@ public:
 	
 private:
 	RobotDrive myWPIdrive;
-	
-	//AnalogIRSensor shooterIRSensor;
-	//AnalogIRSensor leftFrontIRSensor;
-	//AnalogIRSensor leftBackIRSensor;
-	//AnalogIRSensor rightFrontIRSensor;
-	//AnalogIRSensor rightBackIRSensor;
-
 public:
+	AnalogIRSensor shooterIRSensor;
+	AnalogIRSensor leftFrontIRSensor;
+	AnalogIRSensor leftBackIRSensor;
+	AnalogIRSensor rightFrontIRSensor;
+	AnalogIRSensor rightBackIRSensor;
+
 	void drive(float x, float rotation, float z);
 	void polarDrive (float magnitiude, float direction, float rotation);
 	

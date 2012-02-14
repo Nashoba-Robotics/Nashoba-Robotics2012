@@ -16,7 +16,7 @@ void AlignBackWithWallCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AlignBackWithWallCommand::Execute() 
 {	
-/*	
+	
 	if (drivesubsystem->rightBackIRSensor.GetDistance() == 0 || drivesubsystem->leftBackIRSensor.GetDistance() == 0)  
   	{
   	drivesubsystem->drive (0, 0, 0.5);
@@ -38,13 +38,13 @@ void AlignBackWithWallCommand::Execute()
 						   0,
 						   turnSpeed);
 	}
-	*/
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AlignBackWithWallCommand::IsFinished() 
 {
-/*	if (fabsf (drivesubsystem->rightBackIRSensor.GetDistance() - drivesubsystem->leftBackIRSensor.GetDistance()) < 0.5 )
+	if (fabsf (drivesubsystem->rightBackIRSensor.GetDistance() - drivesubsystem->leftBackIRSensor.GetDistance()) < 0.5 )
 	{
 		printf("Robot Is Aligned with Wall");
 		return true;
@@ -52,8 +52,8 @@ bool AlignBackWithWallCommand::IsFinished()
 	else
 	{
 		return false;
-	}*/
-	return true;
+	}
+
 }
 
 // Called once after isFinished returns true
