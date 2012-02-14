@@ -1,6 +1,5 @@
 #include "BallTracker.h"
 #include "Subsystems/BallIntakeSubsystem.h"
-#include "Subsystems/BallLoaderSubsystem.h"
 #include "Subsystems/BottomliftSubsystem.h"
 #include "Subsystems/TopLiftSubsystem.h"
 #include "Subsystems/ShooterSubsystem.h"
@@ -23,11 +22,6 @@ bool BallTracker::IsBallInBotLift()
 }
 
 bool BallTracker::IsBallInTopLift()
-{
-	
-}
-
-bool BallTracker::IsBallInLoader()
 {
 	
 }

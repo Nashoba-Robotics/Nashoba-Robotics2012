@@ -24,7 +24,7 @@ void AlignBackWithWallCommand::Execute()
   
   	else
   	{
- 	float length = 35.25;
+ //	float length = 35.25;
 	float nearFarSensorDistanceDelta =( drivesubsystem->rightBackIRSensor.GetDistance() - drivesubsystem->leftBackIRSensor.GetDistance() );
 	float turnSpeed = 0.3;
 	if (nearFarSensorDistanceDelta < 0)

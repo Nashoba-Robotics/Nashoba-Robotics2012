@@ -15,7 +15,6 @@ private:
 	bool IsBallPastIntake();
 	bool IsBallInBotLift();
 	bool IsBallInTopLift();
-	bool IsBallInLoader();
 	bool IsBallInShooter();
 	
 	//NEED TO ADD IN DIGIGTAL IR SENSORS FOR ABOVE FUNCTIONS AND THEN 

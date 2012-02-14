@@ -13,8 +13,7 @@ void CommandBasedRobot::RobotInit()
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
-//		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
-//		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
+
 		
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 		OperatorInput::getInstance();
