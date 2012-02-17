@@ -1,5 +1,6 @@
 #include "IntakeRejectContinuousCommand.h"
 #include "../Debug.h"
+#include "../Subsystems/BallIntakeSubsystem.h"
 
 IntakeRejectContinuousCommand::IntakeRejectContinuousCommand() : CommandBase ("IntakeRejectContinuousCommand")
 {

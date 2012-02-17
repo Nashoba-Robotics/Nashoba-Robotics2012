@@ -7,6 +7,10 @@
 class ShooterTakeShotCommand : public CommandBase
 {
 private:
+	double speedUpPoint;
+	double endingPoint;
+	double currentPoint;
+	float  speed;
 public:
 	ShooterTakeShotCommand();
 	virtual void Initialize();

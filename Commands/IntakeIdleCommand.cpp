@@ -1,5 +1,6 @@
 #include "IntakeIdleCommand.h"
 #include "../Debug.h"
+#include "../Subsystems/BallIntakeSubsystem.h"
 
 IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
 {

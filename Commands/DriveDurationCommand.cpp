@@ -32,7 +32,7 @@ void DriveDurationCommand::Execute()
 	
 	drivesubsystem->drive (m_bearingY, 
 						   m_bearingX, 
-						   0  
+						   0
 						   );
 	
 }

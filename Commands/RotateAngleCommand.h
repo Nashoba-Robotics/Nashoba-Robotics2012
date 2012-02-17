@@ -1,13 +1,13 @@
-#ifndef BALL_LOADER_IDLE_COMMAND_H
-#define BALL_LOADER_IDLE_COMMAND_H
+#ifndef ROTATEANGLECOMMAND_H_
+#define ROTATEANGLECOMMAND_H_
 
+#include "WPILib.h"
 #include "../CommandBase.h"
 
-class BallLoaderIdleCommand : public CommandBase
+class RotateAngleCommand : public CommandBase
 {
-private:
 public:
-	BallLoaderIdleCommand();
+	RotateAngleCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

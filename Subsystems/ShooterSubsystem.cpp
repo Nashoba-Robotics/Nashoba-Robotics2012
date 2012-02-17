@@ -12,12 +12,14 @@
 void ShooterSubsystem::InitDefaultCommand()
 {
 	SetDefaultCommand( new ShooterIdleCommand() );
+	shooterJaguar.ConfigEncoderCodesPerRev(360) ;
 }
 
 //right now this is just being used for testing purposes, will be changed at later date ....
 void ShooterSubsystem::Shoot( float speed )
 {
 	shooterJaguar.Set( speed );
+	//TODO Find out how to instance and use encoder to shoot and rearm with 1 360 degree motion
 }
 
 void ShooterSubsystem::Rearm()

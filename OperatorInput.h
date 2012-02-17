@@ -13,6 +13,7 @@ private:
 	static OperatorInput *instance;
 	Joystick driveStick;
 	Joystick camStick;
+	
 	JoystickButton *driveStickTriggerButton;
 	JoystickButton *driveStickdriveStickButtonTwo;
 	JoystickButton *driveStickButtonTwo;
@@ -26,9 +27,20 @@ private:
 	JoystickButton *driveStickButtonTen;
 	JoystickButton *driveStickButtonEleven;
 	JoystickButton *driveStickButtonTwelve;
+	
+	JoystickButton *camStickTriggerButton;
+	JoystickButton *camStickButtonOne;
+	JoystickButton *camStickButtonTwo;
+	JoystickButton *camStickButtonThree;
+	JoystickButton *camStickButtonFour;
+	JoystickButton *camStickButtonFive;
 	JoystickButton *camStickButtonSix;
+	JoystickButton *camStickButtonSeven;
+	JoystickButton *camStickButtonEight;
+	JoystickButton *camStickButtonNine;
 	JoystickButton *camStickButtonTen;
 	JoystickButton *camStickButtonEleven;
+	JoystickButton *camStickButtonTwelve;
 
 public:
 	static OperatorInput& getInstance();

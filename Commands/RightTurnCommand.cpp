@@ -26,7 +26,7 @@ void RightTurnCommand::Execute()
 {			
 	drivesubsystem->drive (0, 
 						   0, 
-						   .5  
+						   .5
 						   );
 }
 
@@ -51,6 +51,6 @@ void RightTurnCommand::Interrupted()
 {
 	drivesubsystem->drive (0, //Stop motors
 						   0,
-						   0.4
+						   0
 						   );
 }

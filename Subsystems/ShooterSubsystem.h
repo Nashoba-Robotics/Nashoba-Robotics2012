@@ -11,10 +11,11 @@
 class ShooterSubsystem: public Subsystem
 {
 private:
+
+public:	
 	CANJaguar shooterJaguar;
 	CANJaguar tensionerJaguar;
 	
-public:	
 	ShooterSubsystem();
 	
 	void Shoot( float );

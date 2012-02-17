@@ -8,8 +8,6 @@
 #include "Subsystems/BallIntakeSubsystem.h"
 #include "Subsystems/TopLiftSubsystem.h"
 #include "Subsystems/BottomLiftSubsystem.h"
-#include "Subsystems/RampTipperSubsystem.h"
-#include "Subsystems/BallLoaderSubsystem.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -37,8 +35,7 @@ public:
 	static BallIntakeSubsystem *ballintakesubsystem;
 	static TopLiftSubsystem *topliftsubsystem;
 	static BottomLiftSubsystem *bottomliftsubsystem;
-//	static RampTipperSubsystem *ramptippersubsystem;
-	static BallLoaderSubsystem *ballloadersubsystem;
+
 };
 
 #endif
