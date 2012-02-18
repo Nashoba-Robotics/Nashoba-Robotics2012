@@ -28,6 +28,12 @@ void BallIntakeSubsystem::IntakeOut()
 	BallIntakeVictor.Set(1.0);
 }
 
+void BallIntakeSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("IntakeBallSensor", IntakeBallSensor.IsBallThere() );	
+//	SmartDashboard::GetInstance()->Pu("IntakeBallSensor", IntakeBallSensor.IsBallThere() );
+}
+
 BallIntakeSubsystem::BallIntakeSubsystem(): Subsystem("BallIntakeSubsyetm"),
   BallIntakeVictor( BALL_INTAKE_VICTOR_CHANNEL ),
   IntakeBallSensor( BALL_SENSOR_MODULE, INTAKE_BALL_SENSOR_CHANNEL )

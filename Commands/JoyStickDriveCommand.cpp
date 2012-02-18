@@ -34,28 +34,17 @@ void JoyStickDriveCommand::Execute()
 	float driveY = driveStick.GetY();
 	float driveZ = driveStick.GetZ();
 	
-	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive X", driveX );	
-	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Y", driveY );	
-	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Z", driveZ );
-	
 	float fieldX = fieldStick.GetX();
 	float fieldY = fieldStick.GetY();
 	float fieldZ = 0; // fieldStick.GetZ();
 	
-	float leftFrontEncoderPosition  = drivesubsystem->frontLeftJaguar.GetPosition();
-	float leftBackEncoderPosition   = drivesubsystem->backLeftJaguar.GetPosition();
-	float rightFrontEncoderPosition = drivesubsystem->frontRightJaguar.GetPosition();
-	float rightBackEncoderPosition  = drivesubsystem->backRightJaguar.GetPosition();
-	
-	
-	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive X", fieldX );	
-	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Y", fieldY );	
-	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Z", fieldZ );	
-	
-	SmartDashboard::GetInstance()->PutDouble("leftFrontEncoder", leftFrontEncoderPosition);	
-	SmartDashboard::GetInstance()->PutDouble("leftBackEncoder", leftBackEncoderPosition );	
-	SmartDashboard::GetInstance()->PutDouble("rightFrontEncoder", rightFrontEncoderPosition );	
-	SmartDashboard::GetInstance()->PutDouble("rightBackEncoder", rightBackEncoderPosition );	
+	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive X", driveX);	
+	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Y", driveY);	
+	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Z", driveZ);	
+
+	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive X", fieldX);	
+	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Y", fieldY);	
+	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Z", fieldZ);	
 	
 	if( IsTimeToPrint() )
 		printf( "JoyStickDriveCommand::Execute\n");

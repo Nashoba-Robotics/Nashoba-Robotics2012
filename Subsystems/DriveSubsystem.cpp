@@ -54,21 +54,34 @@ void DriveSubsystem::initialize()
 	backLeftJaguar.ConfigNeutralMode  (CANJaguar::kNeutralMode_Coast );
 	backRightJaguar.ConfigNeutralMode (CANJaguar::kNeutralMode_Coast );
 	
-	frontLeftJaguar.ConfigEncoderCodesPerRev(360);
+	frontLeftJaguar.ConfigEncoderCodesPerRev(250);
 	frontLeftJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 	
-	frontRightJaguar.ConfigEncoderCodesPerRev(360);
+	frontRightJaguar.ConfigEncoderCodesPerRev(250);
 	frontRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 	
-	backLeftJaguar.ConfigEncoderCodesPerRev(360);
+	backLeftJaguar.ConfigEncoderCodesPerRev(250);
 	backLeftJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 	
-	backRightJaguar.ConfigEncoderCodesPerRev(360);
+	backRightJaguar.ConfigEncoderCodesPerRev(250);
 	backRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 
 }
 
-
+void DriveSubsystem::UpdateSmartDashboard()
+{
+	float leftFrontEncoderPosition  = frontLeftJaguar.GetPosition();
+	float leftBackEncoderPosition   = backLeftJaguar.GetPosition();
+	float rightFrontEncoderPosition = frontRightJaguar.GetPosition();
+	float rightBackEncoderPosition  = backRightJaguar.GetPosition();
+		
+	SmartDashboard::GetInstance()->PutDouble("leftFrontEncoder", leftFrontEncoderPosition);	
+	SmartDashboard::GetInstance()->PutDouble("leftBackEncoder", leftBackEncoderPosition );	
+	SmartDashboard::GetInstance()->PutDouble("rightFrontEncoder", rightFrontEncoderPosition );	
+	SmartDashboard::GetInstance()->PutDouble("rightBackEncoder", rightBackEncoderPosition );
+	
+	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
+}
 
 DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"), 	
 		frontLeftJaguar  ( FRONT_LEFT_JAGUAR_CANID  ),
@@ -92,6 +105,7 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontRightMotor ), true );
 	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearRightMotor ), true );
 #endif
+	initialize();
 }
 
 

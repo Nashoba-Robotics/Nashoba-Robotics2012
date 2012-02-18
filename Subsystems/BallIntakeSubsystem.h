@@ -23,6 +23,8 @@ public:
 	
 	void IntakeOut();
 	
+	void UpdateSmartDashboard();
+	
 	BallIntakeSubsystem();
 };
 

@@ -22,6 +22,8 @@ public:
 	void LiftBallDown();
 	void LiftIdle();
 	
+	void UpdateSmartDashboard();
+	
 	TopLiftSubsystem();
 };
 

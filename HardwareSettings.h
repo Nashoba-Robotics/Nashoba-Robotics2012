@@ -36,4 +36,6 @@
 
 #define GYRO_PORT 1
 
+#define INCLUDE_BALL_CONTROL 1
+
 #endif

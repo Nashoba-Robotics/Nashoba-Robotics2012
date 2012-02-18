@@ -45,6 +45,8 @@ public:
 	void backLeftJaguarDrive (float speed);
 	void backRightJaguarDrive (float speed);
 	
+	void UpdateSmartDashboard();
+	
 	DriveSubsystem();
 	
 	void InitDefaultCommand();

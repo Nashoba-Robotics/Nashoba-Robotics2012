@@ -26,6 +26,10 @@ void TopLiftSubsystem::LiftIdle()
 {
 	TopLiftJaguar.Set(0.0);
 }
+void TopLiftSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("TopLiftBallSensor", TopLiftBallSensor.IsBallThere() );	
+}
 
 TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
   TopLiftJaguar( TOP_LIFT_JAGUAR_CANID ),

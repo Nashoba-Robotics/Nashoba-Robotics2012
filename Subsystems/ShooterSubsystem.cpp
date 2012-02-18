@@ -38,6 +38,11 @@ void ShooterSubsystem::Tensioner( float speed )
 	TensionerJaguar.Set( speed );
 }
 
+void ShooterSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("ShooterBallSensor", ShooterBallSensor.IsBallThere() );	
+}
+
 
 
 ShooterSubsystem::ShooterSubsystem(): Subsystem("ShooterSubsystem"),

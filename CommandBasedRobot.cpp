@@ -53,6 +53,12 @@ void CommandBasedRobot::RobotInit()
 //		SmartDashboard::GetInstance()->PutDouble(drivesubsystem->gyro.GetAngle());
 		
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
+		CommandBase::drivesubsystem->UpdateSmartDashboard();
+		CommandBase::shootersubsystem->UpdateSmartDashboard();
+		CommandBase::topliftsubsystem->UpdateSmartDashboard();
+		CommandBase::bottomliftsubsystem->UpdateSmartDashboard();
+		CommandBase::ballintakesubsystem->UpdateSmartDashboard();
+		
 		Scheduler::GetInstance()->Run();
 	}
 	
