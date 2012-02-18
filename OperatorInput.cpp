@@ -11,11 +11,15 @@
 #include "Commands/IntakeRejectContinuousCommand.h"
 #include "Commands/TensionIncreaseCommand.h"
 #include "Commands/TensionDecreaseCommand.h"
+#include "Commands/TopLiftReceiveContinuousCommand.h"
+#include "Commands/TopLiftRejectContinuousCommand.h"
+#include "Commands/TopLiftIdleCommand.h"
 #include "Commands/BottomLiftIdleCommand.h"
 #include "Commands/BottomLiftReceiveContinuousCommand.h"
 #include "Commands/BottomLiftRejectContinuousCommand.h"
-#include "Commands/BallLoaderIdleCommand.h"
-#include "Commands/BallLoaderLoadCommand.h"
+#include "Commands/AlignFrontWithWallCommand.h"
+#include "Commands/AlignBackWithWallCommand.h"
+#include "Commands/DriveToCornerCommand.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
@@ -26,10 +30,10 @@ OperatorInput *OperatorInput::instance = NULL;
 OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT), camStick(CAM_STICK_PORT)
 {
 	driveStickTriggerButton = new JoystickButton( &driveStick, 1 );
-	driveStickTriggerButton->WhenPressed( new DriveDurationCommand(Preferences::GetInstance()->GetInt("duration"), 0.5, 0) );
+	driveStickTriggerButton->WhenPressed( new TopLiftReceiveContinuousCommand() );
 	
 	driveStickButtonTwo = new JoystickButton( &driveStick, 2 );
-	driveStickButtonTwo->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 2\n ") );
+	driveStickButtonTwo->WhenPressed( new TopLiftIdleCommand()  );
 	
 	driveStickButtonThree = new JoystickButton( &driveStick, 3 );
 	driveStickButtonThree->WhenPressed( new IntakeIdleCommand() );
@@ -41,7 +45,7 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT), camStick(CAM_STICK
 	driveStickButtonFive->WhenPressed( new IntakeReceiveContinuousCommand() );
 	
 	driveStickButtonSix = new JoystickButton( &driveStick, 6 );
-	driveStickButtonSix->WhenPressed( new RightTurnCommand() );
+	driveStickButtonSix->WhenPressed(  );
 	
 	driveStickButtonSeven = new JoystickButton( &driveStick, 7 );
 	driveStickButtonSeven->WhenPressed( new BottomLiftReceiveContinuousCommand() );
@@ -53,13 +57,13 @@ OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT), camStick(CAM_STICK
 	driveStickButtonNine->WhenPressed( new BottomLiftIdleCommand() );
 	
 	driveStickButtonTen = new JoystickButton( &driveStick, 10 );
-	driveStickButtonTen->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 10\n ") );
+	driveStickButtonTen->WhenPressed( new AlignBackWithWallCommand() );
 	
 	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
-	driveStickButtonEleven->WhenPressed( new StraightThenRightTurnCommand());
+	driveStickButtonEleven->WhenPressed( new AlignFrontWithWallCommand() );
 	
 	driveStickButtonTwelve = new JoystickButton( &driveStick, 12 );
-	driveStickButtonTwelve->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 12\n ") );
+	driveStickButtonTwelve->WhenPressed( new DriveToCornerCommand () );
 	
 	camStickButtonSix = new JoystickButton( &camStick, 6 );
 	camStickButtonSix->WhileHeld( new ShooterTakeShotCommand() );

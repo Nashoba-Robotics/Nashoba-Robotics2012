@@ -14,9 +14,15 @@ void DriveSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new JoyStickDriveCommand() );
 }
 
-void DriveSubsystem::drive (float x, float y, float z)
+void DriveSubsystem::drive (float x, float y, float z )
 {
-//	myWPIdrive.MecanumDrive_Cartesian(-x, -y, (-z)/2 );
+	//float angle = gyro.GetAngle();
+	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0 /*gyro.GetAngle*/ );
+}
+
+void DriveSubsystem::polarDrive (float mag, float dir, float rot)
+{
+	myWPIdrive.MecanumDrive_Polar(mag, dir, rot);
 }
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
@@ -43,8 +49,13 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 		frontRightJaguar ( FRONT_RIGHT_JAGUAR_CANID ),
 		backLeftJaguar   ( BACK_LEFT_JAGUAR_CANID   ),
 		backRightJaguar  ( BACK_RIGHT_JAGUAR_CANID  ),
-
-		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar)
+		gyro ( GYRO_PORT ),
+		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar),
+		shooterIRSensor   (	SHOOTER_IR_SENSOR_PORT    ),
+		leftFrontIRSensor (	LEFT_FRONT_IR_SENSOR_PORT ),
+		leftBackIRSensor  (	LEFT_BACK_IR_SENSOR_PORT  ),
+		rightFrontIRSensor(	RIGHT_FRONT_IR_SENSOR_PORT),
+		rightBackIRSensor (	RIGHT_BACK_IR_SENSOR_PORT )
 {
 	myWPIdrive.SetSafetyEnabled	(false);
 #define NR_CAST_CANID
@@ -52,8 +63,8 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 	myWPIdrive.SetInvertedMotor( myWPIdrive.kFrontLeftMotor, true );
 	myWPIdrive.SetInvertedMotor( myWPIdrive.kRearLeftMotor, true );
 #else
-	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontLeftMotor ), true );
-	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearLeftMotor ), true );
+	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontRightMotor ), true );
+	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearRightMotor ), true );
 #endif
 }
 

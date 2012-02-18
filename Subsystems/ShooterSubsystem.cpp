@@ -18,6 +18,7 @@ void ShooterSubsystem::InitDefaultCommand()
 void ShooterSubsystem::Shoot( float speed )
 {
 	shooterJaguar.Set( speed );
+	//TODO Find out how to instance and use encoder to shoot and rearm with 1 360 degree motion
 }
 
 void ShooterSubsystem::Rearm()
