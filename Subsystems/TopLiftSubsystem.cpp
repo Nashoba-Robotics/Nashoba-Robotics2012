@@ -28,7 +28,8 @@ void TopLiftSubsystem::LiftIdle()
 }
 
 TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
-  TopLiftJaguar( TOP_LIFT_JAGUAR_CANID )
+  TopLiftJaguar( TOP_LIFT_JAGUAR_CANID ),
+  TopLiftBallSensor( BALL_SENSOR_MODULE, TOP_LIFT_BALL_SENSOR_CHANNEL )
 {
 	
 }

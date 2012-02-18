@@ -5,16 +5,20 @@
 #include "../OperatorInput.h"
 #include "Commands/PIDSubsystem.h"
 #include "../HardwareSettings.h"
+#include "../BallSensor.h"
 
 //This is the Shooter class of the robot. Controls the shooter. 
 
 class ShooterSubsystem: public Subsystem
 {
 private:
-	CANJaguar shooterJaguar;
-	CANJaguar tensionerJaguar;
-	
+
 public:	
+	CANJaguar ShooterJaguar;
+	CANJaguar TensionerJaguar;
+	
+	BallSensor ShooterBallSensor;
+	
 	ShooterSubsystem();
 	
 	void Shoot( float );
@@ -25,6 +29,8 @@ public:
 	
 	
 	void InitDefaultCommand();
+	
+
 };
 
 #endif

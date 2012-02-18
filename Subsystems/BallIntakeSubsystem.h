@@ -1,6 +1,7 @@
 #ifndef BALL_INTAKE_SUBSYSTEM_H
 #define BALL_INTAKE_SUBSYSTEM_H
 #include "WPILib.h"
+#include "../BallSensor.h"
 
 
 
@@ -8,10 +9,12 @@
 class BallIntakeSubsystem: public Subsystem 
 {
 private:
-Victor ballIntakeVictor;
+Victor BallIntakeVictor;
 
 public:
 
+	BallSensor IntakeBallSensor;
+	
 	void InitDefaultCommand();
 	
 	void IntakeIdle();

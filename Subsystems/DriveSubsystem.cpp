@@ -14,10 +14,15 @@ void DriveSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new JoyStickDriveCommand() );
 }
 
-void DriveSubsystem::drive (float x, float y, float z )
+void DriveSubsystem::driveField (float x, float y, float z )
 {
-	//float angle = gyro.GetAngle();
-	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0 /*gyro.GetAngle*/ );
+	float angle = gyro.GetAngle();
+	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), angle );
+}
+
+void DriveSubsystem::drive (float x, float y, float z)
+{
+	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0);
 }
 
 void DriveSubsystem::polarDrive (float mag, float dir, float rot)
@@ -40,6 +45,27 @@ void DriveSubsystem::backLeftJaguarDrive (float speed)
 void DriveSubsystem::backRightJaguarDrive (float speed)
 {
 	backRightJaguar.Set (speed);
+}
+
+void DriveSubsystem::initialize()
+{
+	frontLeftJaguar.ConfigNeutralMode (CANJaguar::kNeutralMode_Coast );
+	frontRightJaguar.ConfigNeutralMode(CANJaguar::kNeutralMode_Coast );
+	backLeftJaguar.ConfigNeutralMode  (CANJaguar::kNeutralMode_Coast );
+	backRightJaguar.ConfigNeutralMode (CANJaguar::kNeutralMode_Coast );
+	
+	frontLeftJaguar.ConfigEncoderCodesPerRev(360);
+	frontLeftJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	frontRightJaguar.ConfigEncoderCodesPerRev(360);
+	frontRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	backLeftJaguar.ConfigEncoderCodesPerRev(360);
+	backLeftJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	backRightJaguar.ConfigEncoderCodesPerRev(360);
+	backRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+
 }
 
 

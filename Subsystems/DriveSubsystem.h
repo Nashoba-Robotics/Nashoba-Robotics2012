@@ -17,13 +17,12 @@
  */
 class DriveSubsystem: public Subsystem 
 {
-private:
+public:
 	CANJaguar frontLeftJaguar; 
 	CANJaguar frontRightJaguar;  
 	CANJaguar backLeftJaguar;
 	CANJaguar backRightJaguar;
 	
-public:
 	Gyro gyro;
 	
 private:
@@ -36,7 +35,10 @@ public:
 	AnalogIRSensor rightBackIRSensor;
 
 	void drive(float x, float rotation, float z);
+	void driveField(float x, float rotation, float z);
 	void polarDrive (float magnitiude, float direction, float rotation);
+	
+	void initialize();
 	
 	void frontLeftJaguarDrive (float speed); 
 	void frontRightJaguarDrive (float speed);

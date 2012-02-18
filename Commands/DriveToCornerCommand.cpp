@@ -17,38 +17,41 @@ void DriveToCornerCommand::Initialize()
 void DriveToCornerCommand::Execute() 
 {	
 
-	drivesubsystem->gyro.Reset();
+//	drivesubsystem->gyro.Reset();
 	
 	float direction;
 
-    float RollerTowardsWallShotYValue = drivesubsystem->rightFrontIRSensor.GetDistance();
-    float BackTowardsWallShotYValue = drivesubsystem->rightBackIRSensor.GetDistance();
+    float RollerTowardsWallShotYValueRight = drivesubsystem->rightFrontIRSensor.GetDistance();
+    float RollerTowardsWallShotYValueLeft  = drivesubsystem->leftFrontIRSensor.GetDistance();
+    
+    float BackTowardsWallShotYValueLeft  =   drivesubsystem->leftBackIRSensor.GetDistance();
+    float BackTowardsWallShotYValueRight =   drivesubsystem->rightBackIRSensor.GetDistance();
 	
 	float ShooterXValue = drivesubsystem->shooterIRSensor.GetDistance();
 	
-	if (RollerTowardsWallShotYValue > BackTowardsWallShotYValue)
-	{
-	direction = 90 + ( 1 / ( tanf( (ShooterXValue - 4.5) / (RollerTowardsWallShotYValue - 3.5) ) ) );
-	}
-	else
-	{
-	direction = tanf( (ShooterXValue - 4.5) / (BackTowardsWallShotYValue - 3.5) );
-	}
+	printf("%f ShooterValue", ShooterXValue);
+	//drivesubsystem->driveField(these values will be to go 40 inches to the right);
 	
-	drivesubsystem->polarDrive( 0.5, direction, 0 );
-
+/*	
+	direction = 90 + (180/3.14)*(atan( (BackTowardsWallShotYValue -3.5) / (ShooterXValue -4.5) ) );
+	
+	drivesubsystem->polarDrive( 0.30, direction, 0 );
+	
+	printf("%f Angle", direction);
+	
+*/
 }
 
 	
 // Make this return true when this Command no longer needs to run execute()
 bool DriveToCornerCommand::IsFinished() 
 {
-	if (fabsf (drivesubsystem->rightFrontIRSensor.GetDistance()<4.5) && fabsf(drivesubsystem->leftFrontIRSensor.GetDistance()) < 4.5 && fabsf(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
+	if (fabs (drivesubsystem->rightFrontIRSensor.GetDistance()<4.5) && fabs(drivesubsystem->leftFrontIRSensor.GetDistance()) < 4.5 && fabs(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
 	{
 		printf("Robot Is Positioned to Shoot");
 		return true;
 	}
-	else if ( fabsf(drivesubsystem->rightBackIRSensor.GetDistance()<4.5) && fabsf(drivesubsystem->leftBackIRSensor.GetDistance()) < 4.5 && fabsf(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
+	else if ( fabs(drivesubsystem->rightBackIRSensor.GetDistance()<4.5) && fabs(drivesubsystem->leftBackIRSensor.GetDistance()) < 4.5 && fabs(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
 	{
 		printf("Robot Is Positioned to Shoot");
 		return true;
