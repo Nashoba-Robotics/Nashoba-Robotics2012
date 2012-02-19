@@ -1,6 +1,6 @@
 #include "BallSensor.h"
 
-BallSensor::BallSensor(UINT8 module, UINT32 channel):AnalogChannel(channel){}
+BallSensor::BallSensor(UINT8 module, UINT32 channel):AnalogChannel(module, channel){}
 
 bool BallSensor::IsBallThere()
 {

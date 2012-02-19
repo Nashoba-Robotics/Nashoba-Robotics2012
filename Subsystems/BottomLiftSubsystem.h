@@ -9,12 +9,12 @@ class BottomLiftSubsystem: public Subsystem
 {
 private:
 
-	Relay BottomLiftLeftRelay;
-	Relay BottomLiftRightRelay;
+	Relay bottomLiftLeftRelay;
+	Relay bottomLiftRightRelay;
 
 public:
-	BallSensor BaseBallSensor;
-	BallSensor MiddleBallSensor;
+	BallSensor baseBallSensor;
+	BallSensor middleBallSensor;
 	
 	void InitDefaultCommand();
 	

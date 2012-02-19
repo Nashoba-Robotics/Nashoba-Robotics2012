@@ -24,6 +24,7 @@
 #include "Commands/AllReceiveCommand.h"
 #include "Commands/AllIdleCommand.h"
 #include "Commands/AllRejectCommand.h"
+#include "Commands/ResetCamCommand.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
@@ -31,75 +32,80 @@
 
 OperatorInput *OperatorInput::instance = NULL;
 
-OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT), camStick(CAM_STICK_PORT)
+OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_PORT)
 {
-	driveStickTriggerButton = new JoystickButton( &driveStick, 1 );
-	driveStickTriggerButton->WhenPressed( new JoyStickDriveCommand() );
+	stickOneTriggerButton = new JoystickButton( &stickOne, 1 );
+	stickOneTriggerButton->WhenPressed( new JoyStickDriveCommand() );
 	
-	driveStickButtonTwo = new JoystickButton( &driveStick, 2 );
-	driveStickButtonTwo->WhenPressed( new IntakeReceiveContinuousCommand());
+	stickOneButtonTwo = new JoystickButton( &stickOne, 2 );
+	stickOneButtonTwo->WhenPressed( new IntakeReceiveContinuousCommand());
 	
-	driveStickButtonThree = new JoystickButton( &driveStick, 3 );
-	driveStickButtonThree->WhenPressed( new IntakeIdleCommand() );
+	stickOneButtonThree = new JoystickButton( &stickOne, 3 );
+	stickOneButtonThree->WhenPressed( new IntakeIdleCommand() );
 	
-	driveStickButtonFour = new JoystickButton( &driveStick, 4 );
-	driveStickButtonFour->WhenPressed( new IntakeRejectContinuousCommand() );
+	stickOneButtonFour = new JoystickButton( &stickOne, 4 );
+	stickOneButtonFour->WhenPressed( new IntakeRejectContinuousCommand() );
 	
-	driveStickButtonFive = new JoystickButton( &driveStick, 5 );
-	driveStickButtonFive->WhenPressed( new TopLiftReceiveContinuousCommand() );
+	stickOneButtonFive = new JoystickButton( &stickOne, 5 );
+	stickOneButtonFive->WhenPressed( new TopLiftReceiveContinuousCommand() );
 	
-	driveStickButtonSix = new JoystickButton( &driveStick, 6 );
-	driveStickButtonSix->WhenPressed( new TopLiftIdleCommand()  );
+	stickOneButtonSix = new JoystickButton( &stickOne, 6 );
+	stickOneButtonSix->WhenPressed( new TopLiftIdleCommand()  );
 	
-	driveStickButtonSeven = new JoystickButton( &driveStick, 7 );
-	driveStickButtonSeven->WhenPressed( new BottomLiftReceiveContinuousCommand() );
+	stickOneButtonSeven = new JoystickButton( &stickOne, 7 );
+	stickOneButtonSeven->WhenPressed( new BottomLiftReceiveContinuousCommand() );
 	
-	driveStickButtonEight = new JoystickButton( &driveStick, 8 );
-	driveStickButtonEight->WhenPressed( new BottomLiftIdleCommand() );
+	stickOneButtonEight = new JoystickButton( &stickOne, 8 );
+	stickOneButtonEight->WhenPressed( new BottomLiftIdleCommand() );
 	
-	driveStickButtonNine = new JoystickButton( &driveStick, 9 );
-	driveStickButtonNine->WhenPressed( new BottomLiftRejectContinuousCommand() );
+	stickOneButtonNine = new JoystickButton( &stickOne, 9 );
+	stickOneButtonNine->WhenPressed( new BottomLiftRejectContinuousCommand() );
 	
-	driveStickButtonTen = new JoystickButton( &driveStick, 10 );
-	driveStickButtonTen->WhenPressed( new AlignBackWithWallCommand() );
+	stickOneButtonTen = new JoystickButton( &stickOne, 10 );
+	stickOneButtonTen->WhenPressed( new AlignBackWithWallCommand() );
 	
-	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
-	driveStickButtonEleven->WhenPressed( new AlignFrontWithWallCommand() );
+	stickOneButtonEleven = new JoystickButton( &stickOne, 11 );
+	stickOneButtonEleven->WhenPressed( new AlignFrontWithWallCommand() );
 	
-	driveStickButtonTwelve = new JoystickButton( &driveStick, 12 );
-	driveStickButtonTwelve->WhenPressed( new DriveToCornerCommand () );
+	stickOneButtonTwelve = new JoystickButton( &stickOne, 12 );
+	stickOneButtonTwelve->WhenPressed( new DriveToCornerCommand () );
+	 
+	stickTwoButtonTwo = new JoystickButton (&stickTwo, 2 );
+	stickTwoButtonTwo->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0) );
+		
+	stickTwoButtonThree = new JoystickButton( &stickTwo, 3 );
+	stickTwoButtonThree->WhenPressed( new AllReceiveCommand() );
 	
+	stickTwoButtonFour = new JoystickButton( &stickTwo, 4 );
+	stickTwoButtonFour->WhenPressed( new AllIdleCommand() );
 	
-	camStickButtonThree = new JoystickButton( &camStick, 3 );
-	camStickButtonThree->WhenPressed( new AllReceiveCommand() );
+	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
+	stickTwoButtonFive->WhenPressed( new AllRejectCommand() );
 	
-	camStickButtonFour = new JoystickButton( &camStick, 4 );
-	camStickButtonFour->WhenPressed( new AllIdleCommand() );
+//	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
+//	stickTwoButtonFive->WhenPressed( new ResetCamCommand() );
+		
+	stickTwoButtonSix = new JoystickButton( &stickTwo, 6 );
+	stickTwoButtonSix->WhenPressed( new ShooterTakeShotCommand() );
 	
-	camStickButtonFive = new JoystickButton( &camStick, 5 );
-	camStickButtonFive->WhenPressed( new AllRejectCommand() );
+	stickTwoButtonSeven = new JoystickButton( &stickTwo, 7 );
+	stickTwoButtonSeven->WhileHeld( new ShooterReadyShotCommand() );
 	
-	camStickButtonSix = new JoystickButton( &camStick, 6 );
-	camStickButtonSix->WhenPressed( new ShooterTakeShotCommand() );
+	stickTwoButtonEight = new JoystickButton (&stickTwo, 8);
+	stickTwoButtonEight->WhenPressed( new DriveDurationCommand(1.5, 0, 0.5 ) );
 	
-	camStickButtonSeven = new JoystickButton( &camStick, 7 );
-	camStickButtonSeven->WhileHeld( new ShooterReadyShotCommand() );
+	stickTwoButtonNine = new JoystickButton (&stickTwo, 9);
+	stickTwoButtonNine->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0.5) );
+
+	stickTwoButtonTen = new JoystickButton( &stickTwo, 10 );
+	stickTwoButtonTen->WhileHeld( new TensionDecreaseCommand() );
 	
-	camStickButtonTen = new JoystickButton( &camStick, 10 );
-	camStickButtonTen->WhileHeld( new TensionDecreaseCommand() );
+	stickTwoButtonEleven = new JoystickButton( &stickTwo, 11 );
+	stickTwoButtonEleven->WhileHeld( new TensionIncreaseCommand() );
 	
-	camStickButtonEleven = new JoystickButton( &camStick, 11 );
-	camStickButtonEleven->WhileHeld( new TensionIncreaseCommand() );
-	
-	camStickButtonTwo = new JoystickButton (&camStick, 2 );
-	camStickButtonTwo->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0) );
-	
-	camStickButtonEight = new JoystickButton (&camStick, 8);
-	camStickButtonEight->WhenPressed( new DriveDurationCommand(1.5, 0, 0.5 ) );
-	
-	camStickButtonNine = new JoystickButton (&camStick, 9);
-	camStickButtonNine->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0.5) );
-	
+    resetCamButton = new InternalButton();
+    resetCamButton->WhenPressed( new ResetCamCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
 }
 
 

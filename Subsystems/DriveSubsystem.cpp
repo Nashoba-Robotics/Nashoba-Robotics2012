@@ -81,6 +81,7 @@ void DriveSubsystem::UpdateSmartDashboard()
 	SmartDashboard::GetInstance()->PutDouble("rightBackEncoder", rightBackEncoderPosition );
 	
 	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
+	
 }
 
 DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"), 	

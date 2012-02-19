@@ -3,6 +3,7 @@
 #include "../Subsystems/ShooterSubsystem.h"
 #include "../Debug.h"
 
+
 ShooterTakeShotCommand::ShooterTakeShotCommand() : CommandBase("ShooterTakeShotCommand")
 {
 	Requires(shootersubsystem);
@@ -15,40 +16,52 @@ void ShooterTakeShotCommand::Initialize()
 	ResetPrintCounter();
 	printf ("ShooterTakeShotCommand Initialized \n");
 	
-	shootersubsystem->ShooterJaguar.ConfigEncoderCodesPerRev(360);
-	shootersubsystem->ShooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	shotState = SHOT_STATE_SLOW_START;
 	
 	// Get current position from encoder (make it positive)
-	currentPoint = -shootersubsystem->ShooterJaguar.GetPosition();
+	currentPoint = shootersubsystem->GetCamAngle();
 	
 	// Set point at after cam cliff where it is safe to speed up
 	// based off of previous endingPoint
-	speedUpPoint = endingPoint + 0.15;
+	speedUpPoint = 0.15;
 	
-	// Stop rotating after one rotation.
-	// The if checks to see if we need a new endingPoint, 
-	// if it is not true then we have an interrupted turn
-	// and should use the existing endingPoint
-	if( (currentPoint + 1) > endingPoint  ) 
-	    endingPoint  = endingPoint + 1.0;
+	// Stop rotating after almost back to starting point.
+    endingPoint = .95;
 	
-	speed = 0.3;
+	speed = 0.5;
 }
 
 void ShooterTakeShotCommand::Execute()
 {
 
-	currentPoint = -shootersubsystem->ShooterJaguar.GetPosition();
-	SmartDashboard::GetInstance()->PutDouble("Cam Encoder", currentPoint);	
-	SmartDashboard::GetInstance()->PutDouble("Ending Point", endingPoint);	
+	currentPoint = shootersubsystem->GetCamAngle();
+	
+	SmartDashboard::GetInstance()->PutDouble("Cam Value", currentPoint);	
 	printf("Cam Encoder %f \n", (float)currentPoint);
 	
-	// is it time to speed up yet?
-	if( currentPoint >= speedUpPoint )
+	switch ( shotState )
 	{
-		speed = 1.0;  // full speed ahead
+	case SHOT_STATE_UNKNOWN:
+	case SHOT_STATE_SLOW_START:
+		if( currentPoint >= endingPoint )
+			speed = 0.2;  // slow speed going over cliff
+		else if ( speed >= speedUpPoint )
+			shotState = SHOT_STATE_FAST_MIDDLE;
+		else 
+			speed = 0.2;
+		break;
+		
+	case SHOT_STATE_FAST_MIDDLE:
+		// is it time to speed up yet?
+		speed = 0.8;
+		if( currentPoint >= endingPoint )
+		{
+			shotState = SHOT_STATE_READY;
+		}
+		break;
+	case SHOT_STATE_READY:
+		speed = 0; // keep stopped
 	}
-	
 	shootersubsystem->Shoot( speed );
 		
 }

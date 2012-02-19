@@ -9,11 +9,11 @@
 class BallIntakeSubsystem: public Subsystem 
 {
 private:
-Victor BallIntakeVictor;
+Victor ballIntakeVictor;
 
 public:
 
-	BallSensor IntakeBallSensor;
+	BallSensor intakeBallSensor;
 	
 	void InitDefaultCommand();
 	
