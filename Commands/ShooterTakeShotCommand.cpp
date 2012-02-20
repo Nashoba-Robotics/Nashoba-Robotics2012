@@ -13,6 +13,10 @@ ShooterTakeShotCommand::ShooterTakeShotCommand() : CommandBase("ShooterTakeShotC
 
 void ShooterTakeShotCommand::Initialize()
 {
+	
+	shootersubsystem->shooterJaguar.ConfigEncoderCodesPerRev(360) ;
+	shootersubsystem->shooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
 	ResetPrintCounter();
 	printf ("ShooterTakeShotCommand Initialized \n");
 	

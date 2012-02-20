@@ -48,7 +48,7 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
 	stickOneButtonFour->WhenPressed( new IntakeRejectContinuousCommand() );
 	
 	stickOneButtonFive = new JoystickButton( &stickOne, 5 );
-	stickOneButtonFive->WhenPressed( new TopLiftReceiveContinuousCommand() );
+//	stickOneButtonFive->WhenPressed( new TopLiftReceiveContinuousCommand() );
 	
 	stickOneButtonSix = new JoystickButton( &stickOne, 6 );
 	stickOneButtonSix->WhenPressed( new TopLiftIdleCommand()  );

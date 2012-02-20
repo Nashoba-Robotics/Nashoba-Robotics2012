@@ -130,7 +130,8 @@ ShooterBallState ShooterSubsystem::GetShooterBallState()
 
 bool ShooterSubsystem::IsShooterCamReadyToShoot()
 {
-	return ( GetCamAngle() > 0.9 );
+	return (true);
+//	return ( GetCamAngle() > 0.9 );
 }
 
 void ShooterSubsystem::ResetBallState()
@@ -178,7 +179,7 @@ void ShooterSubsystem::UpdateBallStateMachine()
 	
 	case SBS_ARMED:
 		// check sensor to see if ball is missing
-		if( shooterBallSensor.IsBallThere() )
+		if( false == shooterBallSensor.IsBallThere() )
 		{
 		    shooterBallState = SBS_EMPTY_NOT_READY;
 		}

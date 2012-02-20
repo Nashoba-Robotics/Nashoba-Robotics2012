@@ -60,6 +60,10 @@ void CommandBasedRobot::RobotInit()
 		CommandBase::ballintakesubsystem->UpdateSmartDashboard();
 		
 		CommandBase::shootersubsystem->UpdateBallStateMachine();
+		CommandBase::topliftsubsystem->UpdateBallStateMachine();
+		CommandBase::bottomliftsubsystem->UpdateBallStateMachine();
+//		CommandBase::ballintakesubsystem->UpdateBallStateMachine();
+		
 		Scheduler::GetInstance()->Run();
 	}
 	

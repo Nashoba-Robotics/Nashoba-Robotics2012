@@ -50,7 +50,9 @@ public:
 	void              UpdateSmartDashboard();
 	
 	void              UpdateBallStateMachine();
+	
 	ShooterBallState  GetShooterBallState();	
+	
 	void              ResetBallState();
 	
 	void 			  ResetTime();
