@@ -16,6 +16,24 @@ char *bls_state_name[] =
 		"INCOMING",
 		"OUTGOING"
 };
+
+BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
+  bottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
+  bottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
+  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
+  middleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
+{
+	ResetBallState();
+	ResetTime();	
+	liftUpCommand = new BottomLiftReceiveContinuousCommand();
+}
+
+
+void BottomLiftSubsystem::ResetTime()
+{
+	time_ms = 0;	
+}
+
 void BottomLiftSubsystem::InitDefaultCommand()
 {
 	SetDefaultCommand( new BottomLiftIdleCommand() );
@@ -114,12 +132,4 @@ void BottomLiftSubsystem::UpdateBallStateMachine()
 			bottomLiftBallState = BLS_EMPTY_READY;
 		break;
 	}
-}
-BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
-  bottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
-  bottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
-  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
-  middleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
-{
-	
 }

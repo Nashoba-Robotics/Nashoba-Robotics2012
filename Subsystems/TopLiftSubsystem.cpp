@@ -23,7 +23,6 @@ TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
   topLiftJaguar( TOP_LIFT_JAGUAR_CANID ),
   topLiftBallSensor( BALL_SENSOR_MODULE, TOP_LIFT_BALL_SENSOR_CHANNEL )
 {
-	// we do not know what the initial ball state is.
 	ResetBallState();
 	ResetTime();	
 	liftUpCommand = new TopLiftReceiveContinuousCommand();
