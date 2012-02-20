@@ -16,6 +16,8 @@ void BottomLiftIdleCommand::Initialize()
 
 void BottomLiftIdleCommand::Execute()
 {
+	if( IsTimeToPrint() )
+		printf ("BottomLiftIdleCommand Executed \n");
 	bottomliftsubsystem->LiftIdle();
 }
 
@@ -26,10 +28,13 @@ bool BottomLiftIdleCommand::IsFinished()
 
 void BottomLiftIdleCommand::End()
 {
+	printf ("BottomLiftIdleCommand End \n");
+
 	bottomliftsubsystem->LiftIdle();
 }
 
 void BottomLiftIdleCommand::Interrupted()
 {
+	printf ("BottomLiftIdleCommand interrupted \n");
 	bottomliftsubsystem->LiftIdle();
 }

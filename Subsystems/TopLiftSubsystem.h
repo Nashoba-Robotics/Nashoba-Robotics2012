@@ -3,17 +3,31 @@
 #include "WPILib.h"
 #include "../BallSensor.h"
 
+class TopLiftReceiveContinuousCommand;
 
+typedef enum {
+	TLS_UNKNOWN,
+	TLS_ERROR,
+	TLS_BALL_AT_REST,
+	TLS_EMPTY_READY,
+	TLS_INCOMING,
+	TLS_OUTGOING	
+} TopLiftBallState;
 
 class TopLiftSubsystem: public Subsystem 
 {
 private:
-	CANJaguar topLiftJaguar;
-	
-
-
+	CANJaguar        topLiftJaguar;
+    TopLiftBallState topLiftBallState;
+    
+    unsigned int     time_ms;
+    
+    TopLiftReceiveContinuousCommand*  liftUpCommand;
+    
 public:
 	BallSensor topLiftBallSensor;
+	
+	TopLiftSubsystem();
 	
 	void InitDefaultCommand();
 	
@@ -21,9 +35,16 @@ public:
 	void LiftBallDown();
 	void LiftIdle();
 	
-	void UpdateSmartDashboard();
+	void              UpdateSmartDashboard();
 	
-	TopLiftSubsystem();
+	void              UpdateBallStateMachine();
+	
+	TopLiftBallState  GetTopLiftBallState();
+	
+	void              ResetBallState();
+	
+	void 			  ResetTime();
+	
 };
 
 #endif

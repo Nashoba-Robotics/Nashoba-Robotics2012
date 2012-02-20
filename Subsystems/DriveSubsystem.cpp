@@ -81,6 +81,11 @@ void DriveSubsystem::UpdateSmartDashboard()
 	SmartDashboard::GetInstance()->PutDouble("leftBackEncoder", leftBackEncoderPosition );	
 	SmartDashboard::GetInstance()->PutDouble("rightFrontEncoder", rightFrontEncoderPosition );	
 	SmartDashboard::GetInstance()->PutDouble("rightBackEncoder", rightBackEncoderPosition );
+	SmartDashboard::GetInstance()->PutDouble("rightBackIRSensor", rightBackIRSensor.GetDistance() );
+	SmartDashboard::GetInstance()->PutDouble("leftBackIRSensor",leftBackIRSensor.GetDistance()  );
+	SmartDashboard::GetInstance()->PutDouble("rightFrontIRSensor", rightFrontIRSensor.GetDistance() );
+	SmartDashboard::GetInstance()->PutDouble("leftFrontIRSensor",leftFrontIRSensor.GetDistance()  );
+	SmartDashboard::GetInstance()->PutDouble("shooterIRSensor",shooterIRSensor.GetDistance()  );
 	
 	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
 	

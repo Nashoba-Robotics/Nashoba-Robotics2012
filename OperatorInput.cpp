@@ -84,8 +84,8 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
 	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
 	stickTwoButtonFive->WhenPressed( new AllRejectCommand() );
 	
-//	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
-//	stickTwoButtonFive->WhenPressed( new ResetCamCommand() );
+	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
+	stickTwoButtonFive->WhenPressed( new ResetCamCommand() );
 		
 	stickTwoButtonSix = new JoystickButton( &stickTwo, 6 );
 	stickTwoButtonSix->WhenPressed( new ShooterTakeShotCommand() );

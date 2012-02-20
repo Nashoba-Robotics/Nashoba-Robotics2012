@@ -16,19 +16,23 @@ void BottomLiftReceiveContinuousCommand::Initialize()
 void BottomLiftReceiveContinuousCommand::Execute()
 {
 	bottomliftsubsystem->LiftBallUp();
+	printf ("BottomLiftReceiveContinuousCommand Executing \n");
 }
 
 bool BottomLiftReceiveContinuousCommand::IsFinished()
 {
+	printf ("BottomLiftReceiveContinuousCommand IsFinished \n");
 	return false;
 }
 
 void BottomLiftReceiveContinuousCommand::End()
 {
+	printf ("BottomLiftReceiveContinuousCommand End \n");
 	bottomliftsubsystem->LiftIdle();
 }
 
 void BottomLiftReceiveContinuousCommand::Interrupted()
 {
+	printf ("BottomLiftReceiveContinuousCommand Interrupted \n");
 	bottomliftsubsystem->LiftIdle();
 }
