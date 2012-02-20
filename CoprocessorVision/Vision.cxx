@@ -16,9 +16,12 @@
 
 #define BUFFERSIZE		1024
 
-#define GUI
-//#define GUIALL
-#define PROCESS_CAM
+#define GUI                      // Normal case
+//#define PROCESS_CAM            // Normal case
+//#define CRIO_NETWORK           // Normal case
+
+//#define GUIALL                 // For debugging
+#define WPI_IMAGES               // For debugging with WPI images
 
 using namespace cv;
 using namespace std;
@@ -151,6 +154,10 @@ struct TargetData {
   float angleX;
 };
 
+float computeLowYOffset(float distance) {
+  return 0.0;
+}
+
 // For each of target compute size, distance, angle
 void getTargetData(Mat &image, const vector<vector<Point> > &targetQuads, vector<TargetData> &targets) {
   for (int i=0; i < targetQuads.size(); i++) {
@@ -240,8 +247,15 @@ void processImageCallback(int, void* ) {
   
   // Keep the color that we are intested in and substract off the other planes
   // RED - .5 * BLUE - .5 * GREEN
+  #ifdef WPI_IMAGES
+  // This is for working with WPI sample images
+  addWeighted(planes[RED_PLANE], 1, planes[GREEN_PLANE], -.5, 0, src_color);
+  addWeighted(src_color, 1, planes[BLUE_PLANE], -.5, 0, src_color);
+  #else
+  // This is the normal case
   addWeighted(planes[GREEN_PLANE], 1, planes[RED_PLANE], -.5, 0, src_color);
   addWeighted(src_color, 1, planes[BLUE_PLANE], -.5, 0, src_color);
+  #endif
   
   // Dilation + Erosion = Close
   int dilation_type;
@@ -373,9 +387,11 @@ void processImageCallback(int, void* ) {
     putText( finalDrawing, angle.str(), angleXAlign, CV_FONT_HERSHEY_PLAIN, .7, color );
   }
   // If we have a target then send it to the cRio
+  #ifdef CRIO_NETWORK
   if (targets.size()) {
    sendMessage(targets[0].distanceY, targets[0].angleX);
   }
+  #endif
   
   imshow( "Final", finalDrawing );
 }
@@ -409,8 +425,16 @@ int main( int argc, char** argv ) {
     cap.grab();
     cap >> src;
 #endif
+
     processImageCallback( 0, 0 );
+
+#ifdef PROCESS_CAM
     char c = waitKey(1);
+#else
+    // Non realtime images
+    char c = waitKey(1000);
+#endif
+
     if (c == 'q') return 0;
     // see how much time has elapsed
     time(&end);
