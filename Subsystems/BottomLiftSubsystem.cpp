@@ -14,35 +14,51 @@ void BottomLiftSubsystem::InitDefaultCommand()
 
 void BottomLiftSubsystem::LiftBallUp()
 {
-	BottomLiftLeftRelay.Set( Relay::kForward );
-	BottomLiftRightRelay.Set( Relay::kForward );
+	bottomLiftLeftRelay.Set( Relay::kForward );
+	bottomLiftRightRelay.Set( Relay::kForward );
 }
 
 void BottomLiftSubsystem::LiftBallDown()
 {
-	BottomLiftLeftRelay.Set( Relay::kReverse );
-	BottomLiftRightRelay.Set( Relay::kReverse );
+	bottomLiftLeftRelay.Set( Relay::kReverse );
+	bottomLiftRightRelay.Set( Relay::kReverse );
 }
 
 void BottomLiftSubsystem::LiftIdle()
 {
-	BottomLiftLeftRelay.Set( Relay::kOff );
-	BottomLiftRightRelay.Set( Relay::kOff );
+	bottomLiftLeftRelay.Set( Relay::kOff );
+	bottomLiftRightRelay.Set( Relay::kOff );
 }
 void BottomLiftSubsystem::UpdateSmartDashboard()
 {
-	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", BaseBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", BaseBallSensor.GetVoltage() );	
-	SmartDashboard::GetInstance()->PutBoolean("MiddleBallSensor", MiddleBallSensor.IsBallThere() );
-	SmartDashboard::GetInstance()->PutDouble("MiddleBallSensorV", MiddleBallSensor.GetVoltage() );	
+	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
+//	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
+
+	SmartDashboard::GetInstance()->PutBoolean("MiddleBallSensor", middleBallSensor.IsBallThere() );
+	SmartDashboard::GetInstance()->PutDouble("MiddleBallSensorV", middleBallSensor.GetVoltage() );	
+//	SmartDashboard::GetInstance()->PutInt("MiddleBallSensorI", middleBallSensor.GetValue() );
 
 }
 
+void BottomLiftSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
+//	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
+
+	SmartDashboard::GetInstance()->PutBoolean("MiddleBallSensor", middleBallSensor.IsBallThere() );
+	SmartDashboard::GetInstance()->PutDouble("MiddleBallSensorV", middleBallSensor.GetVoltage() );	
+//	SmartDashboard::GetInstance()->PutInt("MiddleBallSensorI", middleBallSensor.GetValue() );
+
+}
+
+
 BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
-  BottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
-  BottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
-  BaseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
-  MiddleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
+  bottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
+  bottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
+  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
+  middleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
 {
 	
 }

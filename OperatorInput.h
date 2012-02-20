@@ -11,50 +11,52 @@ class OperatorInput
 {
 private:
 	static OperatorInput *instance;
-	Joystick driveStick;
-	Joystick camStick;
+	Joystick stickOne;
+	Joystick stickTwo;
 	
-	JoystickButton *driveStickTriggerButton;
-	JoystickButton *driveStickdriveStickButtonTwo;
-	JoystickButton *driveStickButtonTwo;
-	JoystickButton *driveStickButtonThree;
-	JoystickButton *driveStickButtonFour;
-	JoystickButton *driveStickButtonFive;
-	JoystickButton *driveStickButtonSix;
-	JoystickButton *driveStickButtonSeven;
-	JoystickButton *driveStickButtonEight;
-	JoystickButton *driveStickButtonNine;
-	JoystickButton *driveStickButtonTen;
-	JoystickButton *driveStickButtonEleven;
-	JoystickButton *driveStickButtonTwelve;
+	JoystickButton *stickOneTriggerButton;
+	JoystickButton *stickOnestickOneButtonTwo;
+	JoystickButton *stickOneButtonTwo;
+	JoystickButton *stickOneButtonThree;
+	JoystickButton *stickOneButtonFour;
+	JoystickButton *stickOneButtonFive;
+	JoystickButton *stickOneButtonSix;
+	JoystickButton *stickOneButtonSeven;
+	JoystickButton *stickOneButtonEight;
+	JoystickButton *stickOneButtonNine;
+	JoystickButton *stickOneButtonTen;
+	JoystickButton *stickOneButtonEleven;
+	JoystickButton *stickOneButtonTwelve;
 	
-	JoystickButton *camStickTriggerButton;
-	JoystickButton *camStickButtonOne;
-	JoystickButton *camStickButtonTwo;
-	JoystickButton *camStickButtonThree;
-	JoystickButton *camStickButtonFour;
-	JoystickButton *camStickButtonFive;
-	JoystickButton *camStickButtonSix;
-	JoystickButton *camStickButtonSeven;
-	JoystickButton *camStickButtonEight;
-	JoystickButton *camStickButtonNine;
-	JoystickButton *camStickButtonTen;
-	JoystickButton *camStickButtonEleven;
-	JoystickButton *camStickButtonTwelve;
+	JoystickButton *stickTwoTriggerButton;
+	JoystickButton *stickTwoButtonOne;
+	JoystickButton *stickTwoButtonTwo;
+	JoystickButton *stickTwoButtonThree;
+	JoystickButton *stickTwoButtonFour;
+	JoystickButton *stickTwoButtonFive;
+	JoystickButton *stickTwoButtonSix;
+	JoystickButton *stickTwoButtonSeven;
+	JoystickButton *stickTwoButtonEight;
+	JoystickButton *stickTwoButtonNine;
+	JoystickButton *stickTwoButtonTen;
+	JoystickButton *stickTwoButtonEleven;
+	JoystickButton *stickTwoButtonTwelve;
 
+	InternalButton *resetCamButton;
+	
 public:
 	static OperatorInput& getInstance();
 
 	OperatorInput();
 	
-	Joystick& getDriveStick()
+	Joystick& getDriveStickOne()
 	{
-		return driveStick;
+		return stickOne;
 	}
 	
-	Joystick& getCamStick()
+	Joystick& getDriveStickTwo()
 	{
-		return camStick;
+		return stickTwo;
 	}
 };
 

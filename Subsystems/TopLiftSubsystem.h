@@ -8,13 +8,12 @@
 class TopLiftSubsystem: public Subsystem 
 {
 private:
-	CANJaguar TopLiftJaguar;
+	CANJaguar topLiftJaguar;
 	
 
 
 public:
-
-	BallSensor TopLiftBallSensor;
+	BallSensor topLiftBallSensor;
 	
 	void InitDefaultCommand();
 	

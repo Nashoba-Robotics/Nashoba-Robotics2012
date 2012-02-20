@@ -9,36 +9,55 @@
 
 typedef enum {
 	SBS_UNKNOWN,
+	SBS_ERROR,
 	SBS_EMPTY_NOT_READY,
 	SBS_EMPTY_READY,
 	SBS_ARMED,
 	SBS_UNSTABLE	
 } ShooterBallState;
 
+
 //This is the Shooter class of the robot. Controls the shooter. 
 
 class ShooterSubsystem: public Subsystem
 {
 private:
+    ShooterBallState  shooterBallState;
+    double            adjustmentAngle;
+    
+    bool              IsShooterCamReadyToShoot();
 
+	unsigned int      time_ms;
+    
 public:	
-	CANJaguar ShooterJaguar;
-	CANJaguar TensionerJaguar;
+	CANJaguar         shooterJaguar;
+	CANJaguar         tensionerJaguar;
 	
-	BallSensor ShooterBallSensor;
+	BallSensor        shooterBallSensor;
+	AnalogChannel     tensionerPot;
 	
 	ShooterSubsystem();
 	
-	void Shoot( float );
-	void Rearm();
-	void Stop();
-	void Tensioner( float );
-	
-	void UpdateSmartDashboard();
-	
-	void InitDefaultCommand();
+	void              Shoot( float );
 
-	ShooterBallState    getShooterBallState();	
+	void              Stop();
+	
+	void              Tensioner( float );
+	
+	float             GetCamAngle( );
+	void              ResetCamAngle( );
+	
+	void              UpdateSmartDashboard();
+	
+	void              UpdateBallStateMachine();
+	ShooterBallState  GetShooterBallState();	
+	void              ResetBallState();
+	
+	void 			  ResetTime();
+	
+	void              InitDefaultCommand();
+
+
 
 };
 

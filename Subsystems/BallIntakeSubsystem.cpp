@@ -15,28 +15,29 @@ void BallIntakeSubsystem::InitDefaultCommand()
 
 void BallIntakeSubsystem::IntakeIdle()
 {
-	BallIntakeVictor.Set(0.0);
+	ballIntakeVictor.Set(0.0);
 }
 
 void BallIntakeSubsystem::IntakeIn()
 {
-	BallIntakeVictor.Set(-1.0);
+	ballIntakeVictor.Set(-1.0);
 }
 
 void BallIntakeSubsystem::IntakeOut()
 {
-	BallIntakeVictor.Set(1.0);
+	ballIntakeVictor.Set(1.0);
 }
 
 void BallIntakeSubsystem::UpdateSmartDashboard()
 {
-	SmartDashboard::GetInstance()->PutBoolean("IntakeBallSensor", IntakeBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("IntakeBallSensorV", IntakeBallSensor.GetVoltage() );
+	SmartDashboard::GetInstance()->PutBoolean("IntakeBallSensor", intakeBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("IntakeBallSensorV", intakeBallSensor.GetVoltage() );
+//	SmartDashboard::GetInstance()->PutInt("IntakeBallSensorI", intakeBallSensor.GetValue() );
 }
 
 BallIntakeSubsystem::BallIntakeSubsystem(): Subsystem("BallIntakeSubsyetm"),
-  BallIntakeVictor( BALL_INTAKE_VICTOR_CHANNEL ),
-  IntakeBallSensor( BALL_SENSOR_MODULE, INTAKE_BALL_SENSOR_CHANNEL )
+  ballIntakeVictor( BALL_INTAKE_VICTOR_CHANNEL ),
+  intakeBallSensor( BALL_SENSOR_MODULE, INTAKE_BALL_SENSOR_CHANNEL )
 {
 	
 }

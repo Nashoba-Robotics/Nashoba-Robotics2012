@@ -14,27 +14,34 @@ void TopLiftSubsystem::InitDefaultCommand()
 
 void TopLiftSubsystem::LiftBallUp()
 {
-	TopLiftJaguar.Set(1.0);
+	topLiftJaguar.Set(1.0);
 }
 
 void TopLiftSubsystem::LiftBallDown()
 {
-	TopLiftJaguar.Set(-1.0);
+	topLiftJaguar.Set(-1.0);
 }
 
 void TopLiftSubsystem::LiftIdle()
 {
-	TopLiftJaguar.Set(0.0);
+	topLiftJaguar.Set(0.0);
+}
+void TopLiftSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
+//	SmartDashboard::GetInstance()->PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );	
 }
 void TopLiftSubsystem::UpdateSmartDashboard()
 {
 	SmartDashboard::GetInstance()->PutBoolean("TopLiftBallSensor", TopLiftBallSensor.IsBallThere() );	
 	SmartDashboard::GetInstance()->PutDouble("TopLiftBallSensorV", TopLiftBallSensor.GetVoltage() );	
+ //	SmartDashboard::GetInstance()->PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );
 }
 
 TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
-  TopLiftJaguar( TOP_LIFT_JAGUAR_CANID ),
-  TopLiftBallSensor( BALL_SENSOR_MODULE, TOP_LIFT_BALL_SENSOR_CHANNEL )
+  topLiftJaguar( TOP_LIFT_JAGUAR_CANID ),
+  topLiftBallSensor( BALL_SENSOR_MODULE, TOP_LIFT_BALL_SENSOR_CHANNEL )
 {
 	
 }

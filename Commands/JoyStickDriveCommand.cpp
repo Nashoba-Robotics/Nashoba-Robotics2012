@@ -27,8 +27,8 @@ void JoyStickDriveCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void JoyStickDriveCommand::Execute() 
 {
-	Joystick& driveStick = OperatorInput::getInstance().getDriveStick();
-	Joystick& fieldStick = OperatorInput::getInstance().getCamStick();
+	Joystick& driveStick = OperatorInput::getInstance().getDriveStickOne();
+	Joystick& fieldStick = OperatorInput::getInstance().getDriveStickTwo();
 	
 	float driveX = driveStick.GetX();
 	float driveY = driveStick.GetY();
