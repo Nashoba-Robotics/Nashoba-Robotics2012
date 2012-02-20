@@ -43,6 +43,7 @@ private:
 	JoystickButton *stickTwoButtonTwelve;
 
 	InternalButton *resetCamButton;
+	InternalButton *resetGyroButton;
 	
 public:
 	static OperatorInput& getInstance();
