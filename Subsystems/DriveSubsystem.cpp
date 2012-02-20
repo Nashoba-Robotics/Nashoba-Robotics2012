@@ -65,6 +65,8 @@ void DriveSubsystem::initialize()
 	
 	backRightJaguar.ConfigEncoderCodesPerRev(250);
 	backRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	gyro.Reset();
 
 }
 

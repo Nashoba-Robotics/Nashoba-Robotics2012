@@ -25,6 +25,7 @@
 #include "Commands/AllIdleCommand.h"
 #include "Commands/AllRejectCommand.h"
 #include "Commands/ResetCamCommand.h"
+#include "Commands/ResetGyroCommand.h"
 #include "Subsystems/DriveSubsystem.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
@@ -106,6 +107,10 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
     SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
+    
+    resetGyroButton = new InternalButton();
+    resetGyroButton->WhenPressed( new ResetGyroCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "ResetGyro", resetGyroButton );
 }
 
 

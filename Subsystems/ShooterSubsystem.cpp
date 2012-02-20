@@ -42,14 +42,12 @@ void ShooterSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new ShooterIdleCommand() );
 	shooterJaguar.ConfigEncoderCodesPerRev(360) ;
 	shooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
-
 }
 
 //right now this is just being used for testing purposes, will be changed at later date ....
 void ShooterSubsystem::Shoot( float speed )
 {
 	shooterJaguar.Set( speed );
-	//TODO Find out how to instance and use encoder to shoot and rearm with 1 360 degree motion
 }
 
 
@@ -163,7 +161,7 @@ void ShooterSubsystem::UpdateBallStateMachine()
 	case SBS_EMPTY_NOT_READY:
 		// we are empty check to see if is stopped cam is in
 		// position
-		if( true ) //check if cam is in right position )
+		if( IsShooterCamReadyToShoot() ) //check if cam is in right position )
 		{
 			shooterBallState = SBS_EMPTY_READY;
 		}
