@@ -20,6 +20,8 @@ private:
 	
 	virtual void TeleopPeriodic();
 	
+	Task * coprocessorvisiontask;
+	
 public:
 	
 	CommandBasedRobot();	

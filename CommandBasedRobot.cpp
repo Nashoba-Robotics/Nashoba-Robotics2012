@@ -1,5 +1,6 @@
 #include "CommandBasedRobot.h"
 #include "Subsystems/DriveSubsystem.h"
+#include "CoprocessorVision.h"
 
 START_ROBOT_CLASS(CommandBasedRobot);
 
@@ -8,15 +9,17 @@ void CommandBasedRobot::RobotInit()
 		CommandBase::init();
 //		autonomousCommand = new ExampleCommand();
 //		NetworkTable::Initialize();
-//		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
+		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
-
+		
 		
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 		OperatorInput::getInstance();
+		coprocessorvisiontask = new Task ("Coprocessor", (FUNCPTR)CoprocessorVision::run);
+		coprocessorvisiontask->Start();
 	}
 	
 	void CommandBasedRobot::AutonomousInit() 
@@ -53,6 +56,12 @@ void CommandBasedRobot::RobotInit()
 //		SmartDashboard::GetInstance()->PutDouble(drivesubsystem->gyro.GetAngle());
 		
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
+		CommandBase::drivesubsystem->UpdateSmartDashboard();
+		CommandBase::shootersubsystem->UpdateSmartDashboard();
+		CommandBase::topliftsubsystem->UpdateSmartDashboard();
+		CommandBase::bottomliftsubsystem->UpdateSmartDashboard();
+		CommandBase::ballintakesubsystem->UpdateSmartDashboard();
+		
 		Scheduler::GetInstance()->Run();
 	}
 	

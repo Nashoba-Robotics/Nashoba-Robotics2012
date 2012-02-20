@@ -14,10 +14,15 @@ void DriveSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new JoyStickDriveCommand() );
 }
 
-void DriveSubsystem::drive (float x, float y, float z )
+void DriveSubsystem::driveField (float x, float y, float z )
 {
-	//float angle = gyro.GetAngle();
-	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0 /*gyro.GetAngle*/ );
+	float angle = gyro.GetAngle();
+	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), angle );
+}
+
+void DriveSubsystem::drive (float x, float y, float z)
+{
+	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0);
 }
 
 void DriveSubsystem::polarDrive (float mag, float dir, float rot)
@@ -42,7 +47,42 @@ void DriveSubsystem::backRightJaguarDrive (float speed)
 	backRightJaguar.Set (speed);
 }
 
+void DriveSubsystem::initialize()
+{
+	frontLeftJaguar.ConfigNeutralMode (CANJaguar::kNeutralMode_Coast );
+	frontRightJaguar.ConfigNeutralMode(CANJaguar::kNeutralMode_Coast );
+	backLeftJaguar.ConfigNeutralMode  (CANJaguar::kNeutralMode_Coast );
+	backRightJaguar.ConfigNeutralMode (CANJaguar::kNeutralMode_Coast );
+	
+	frontLeftJaguar.ConfigEncoderCodesPerRev(250);
+	frontLeftJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	frontRightJaguar.ConfigEncoderCodesPerRev(250);
+	frontRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	backLeftJaguar.ConfigEncoderCodesPerRev(250);
+	backLeftJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	
+	backRightJaguar.ConfigEncoderCodesPerRev(250);
+	backRightJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 
+}
+
+void DriveSubsystem::UpdateSmartDashboard()
+{
+	float leftFrontEncoderPosition  = frontLeftJaguar.GetPosition();
+	float leftBackEncoderPosition   = backLeftJaguar.GetPosition();
+	float rightFrontEncoderPosition = frontRightJaguar.GetPosition();
+	float rightBackEncoderPosition  = backRightJaguar.GetPosition();
+		
+	SmartDashboard::GetInstance()->PutDouble("leftFrontEncoder", leftFrontEncoderPosition);	
+	SmartDashboard::GetInstance()->PutDouble("leftBackEncoder", leftBackEncoderPosition );	
+	SmartDashboard::GetInstance()->PutDouble("rightFrontEncoder", rightFrontEncoderPosition );	
+	SmartDashboard::GetInstance()->PutDouble("rightBackEncoder", rightBackEncoderPosition );
+	
+	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
+	
+}
 
 DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"), 	
 		frontLeftJaguar  ( FRONT_LEFT_JAGUAR_CANID  ),
@@ -66,6 +106,7 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 	myWPIdrive.SetInvertedMotor(( RobotDrive::kFrontRightMotor ), true );
 	myWPIdrive.SetInvertedMotor(( RobotDrive::kRearRightMotor ), true );
 #endif
+	initialize();
 }
 
 

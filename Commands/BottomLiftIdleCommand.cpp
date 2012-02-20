@@ -21,7 +21,7 @@ void BottomLiftIdleCommand::Execute()
 
 bool BottomLiftIdleCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void BottomLiftIdleCommand::End()

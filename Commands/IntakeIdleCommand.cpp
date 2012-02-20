@@ -20,7 +20,7 @@ void IntakeIdleCommand::Execute()
 
 bool IntakeIdleCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void IntakeIdleCommand::End()

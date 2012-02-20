@@ -22,11 +22,20 @@ BottomLiftSubsystem* CommandBase::bottomliftsubsystem = NULL;
 void CommandBase::init() {
     // Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
-	drivesubsystem = new DriveSubsystem();
-	shootersubsystem = new ShooterSubsystem();
-	ballintakesubsystem = new BallIntakeSubsystem();
-	topliftsubsystem = new TopLiftSubsystem();
-	bottomliftsubsystem = new BottomLiftSubsystem();
+	if( drivesubsystem == NULL )
+		drivesubsystem = new DriveSubsystem();
+	
+	if( shootersubsystem == NULL )
+		shootersubsystem = new ShooterSubsystem();
+	
+	if( ballintakesubsystem == NULL )
+		ballintakesubsystem = new BallIntakeSubsystem();
+	
+	if( topliftsubsystem == NULL )
+	    topliftsubsystem = new TopLiftSubsystem();
+	
+	if( bottomliftsubsystem == NULL )
+		bottomliftsubsystem = new BottomLiftSubsystem();
 
 }
 

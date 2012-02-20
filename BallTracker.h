@@ -1,24 +1,26 @@
+
 #ifndef BALL_TRACKER_H
 #define BALL_TRACKER_H
 
-#include "WPILib.h"
-
+enum {
+	
+};
 class BallTracker
 {
-public:
-	int ballCount;
+public:	
+	BallTracker();
 	
+	void HandleLift();
+	void BallShot();
+	static BallTracker* GetInstance();
+	
+	int ballCount;
+	bool hasBeenCounted;
 	
 private:
-	bool isBallCounted;
-	
-	bool IsBallPastIntake();
-	bool IsBallInBotLift();
-	bool IsBallInTopLift();
-	bool IsBallInShooter();
-	
-	//NEED TO ADD IN DIGIGTAL IR SENSORS FOR ABOVE FUNCTIONS AND THEN 
+	static	BallTracker *_instance;
 };
 
 
 #endif
+

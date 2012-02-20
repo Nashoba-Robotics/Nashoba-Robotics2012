@@ -28,7 +28,7 @@ void AlignFrontWithWallCommand::Execute()
 	float turnSpeed = 0.3;
 	if (nearFarSensorDistanceDelta < 0)
 	{
-		turnSpeed= -1 * turnSpeed;
+		turnSpeed= -1 * turnSpeed; 
 	}
 
 
@@ -43,7 +43,7 @@ void AlignFrontWithWallCommand::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool AlignFrontWithWallCommand::IsFinished() 
 {
-	if (fabsf (drivesubsystem->rightFrontIRSensor.GetDistance() - drivesubsystem->leftFrontIRSensor.GetDistance()) < 0.5 )
+	if (fabs/*f*/ (drivesubsystem->rightFrontIRSensor.GetDistance() - drivesubsystem->leftFrontIRSensor.GetDistance()) < 0.5 )
 	{
 		printf("Robot Is Aligned with Wall");
 		return true;

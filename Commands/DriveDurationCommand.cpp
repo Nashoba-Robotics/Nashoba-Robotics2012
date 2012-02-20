@@ -50,7 +50,6 @@ void DriveDurationCommand::End()
 						   0,
 						   0
 						   );
-//	drivesubsystem->Disable();
 }
 
 // Called when another command which requires one or more of the same
@@ -62,5 +61,4 @@ void DriveDurationCommand::Interrupted()
 						   0,
 						   0
 						   );
-//	drivesubsystem->Disable();
 }

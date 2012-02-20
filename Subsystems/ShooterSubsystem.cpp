@@ -12,12 +12,13 @@
 void ShooterSubsystem::InitDefaultCommand()
 {
 	SetDefaultCommand( new ShooterIdleCommand() );
+	ShooterJaguar.ConfigEncoderCodesPerRev(360) ;
 }
 
 //right now this is just being used for testing purposes, will be changed at later date ....
 void ShooterSubsystem::Shoot( float speed )
 {
-	shooterJaguar.Set( speed );
+	ShooterJaguar.Set( speed );
 	//TODO Find out how to instance and use encoder to shoot and rearm with 1 360 degree motion
 }
 
@@ -28,20 +29,27 @@ void ShooterSubsystem::Rearm()
 
 void ShooterSubsystem::Stop()
 {
-	shooterJaguar.Set( 0 );
-	tensionerJaguar.Set ( 0 );
+	ShooterJaguar.Set( 0 );
+	TensionerJaguar.Set ( 0 );
 }
 
 void ShooterSubsystem::Tensioner( float speed )
 {
-	tensionerJaguar.Set( speed );
+	TensionerJaguar.Set( speed );
+}
+
+void ShooterSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("ShooterBallSensor", ShooterBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("ShooterBallSensorV", ShooterBallSensor.GetVoltage() );	
 }
 
 
 
 ShooterSubsystem::ShooterSubsystem(): Subsystem("ShooterSubsystem"),
-  shooterJaguar( SHOOTER_JAGUAR_CANID ),
-  tensionerJaguar( TENSIONER_JAGUAR_CANID )
+  ShooterJaguar( SHOOTER_JAGUAR_CANID ),
+  TensionerJaguar( TENSIONER_JAGUAR_CANID ),
+  ShooterBallSensor( BALL_SENSOR_MODULE, SHOOTER_BALL_SENSOR_CHANNEL)
 {
 	
 }

@@ -1,7 +1,7 @@
 #ifndef BOTTOM_LIFT_SUBSYSTEM_H
 #define BOTTOM_LIFT_SUBSYSTEM_H
 #include "WPILib.h"
-
+#include "../BallSensor.h"
 
 
 
@@ -11,14 +11,17 @@ private:
 
 	Relay BottomLiftLeftRelay;
 	Relay BottomLiftRightRelay;
-	
-public:
 
+public:
+	BallSensor BaseBallSensor;
+	BallSensor MiddleBallSensor;
+	
 	void InitDefaultCommand();
 	
 	void LiftBallUp();
 	void LiftBallDown();
 	void LiftIdle();
+	void UpdateSmartDashboard();
 	
 	BottomLiftSubsystem();
 };

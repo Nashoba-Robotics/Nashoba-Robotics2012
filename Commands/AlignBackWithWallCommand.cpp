@@ -44,7 +44,7 @@ void AlignBackWithWallCommand::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool AlignBackWithWallCommand::IsFinished() 
 {
-	if (fabsf (drivesubsystem->rightBackIRSensor.GetDistance() - drivesubsystem->leftBackIRSensor.GetDistance()) < 0.5 )
+	if (fabs/*f*/ (drivesubsystem->rightBackIRSensor.GetDistance() - drivesubsystem->leftBackIRSensor.GetDistance()) < 0.5 )
 	{
 		printf("Robot Is Aligned with Wall");
 		return true;

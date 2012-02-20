@@ -14,14 +14,14 @@ void ShooterReadyShotCommand::Initialize()
 
 void ShooterReadyShotCommand::Execute()
 {
-	
+	shootersubsystem->Shoot( 0.5 );
 	if ( IsTimeToPrint() )
 		 printf ("ShooterReadyShotCommand is Executing!\n");
 }
 
 bool ShooterReadyShotCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void ShooterReadyShotCommand::End()

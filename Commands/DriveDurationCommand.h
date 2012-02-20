@@ -11,9 +11,9 @@
 
 class DriveDurationCommand: public CommandBase {
 private:
-	double m_duration;
-	double m_bearingX;
-	double m_bearingY;
+	float m_duration;
+	float m_bearingX;
+	float m_bearingY;
 public:
 	DriveDurationCommand(double duration, double bearingX, double bearingY);
 	virtual void Initialize();

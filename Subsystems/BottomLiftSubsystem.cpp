@@ -29,11 +29,20 @@ void BottomLiftSubsystem::LiftIdle()
 	BottomLiftLeftRelay.Set( Relay::kOff );
 	BottomLiftRightRelay.Set( Relay::kOff );
 }
+void BottomLiftSubsystem::UpdateSmartDashboard()
+{
+	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", BaseBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", BaseBallSensor.GetVoltage() );	
+	SmartDashboard::GetInstance()->PutBoolean("MiddleBallSensor", MiddleBallSensor.IsBallThere() );
+	SmartDashboard::GetInstance()->PutDouble("MiddleBallSensorV", MiddleBallSensor.GetVoltage() );	
+
+}
 
 BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
-//will be changed to spike relays or something at somepoint
   BottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
-  BottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL )
+  BottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
+  BaseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
+  MiddleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
 {
 	
 }
