@@ -1,0 +1,96 @@
+#ifndef OPERATORINPUT_H
+#define OPERATORINPUT_H
+
+#include "WPILib.h"
+
+
+#define SNAP_TO_VALUE( snapValue, plusMinus, actualValue ) ( (((actualValue) > ((snapValue)-(plusMinus))) && ( (actualValue) < ((snapValue)+(plusMinus))))  ? (snapValue) : (actualValue) )
+
+//! The operator input class 
+class OperatorInput 
+{
+private:
+	static OperatorInput *instance;
+<<<<<<< HEAD
+	Joystick driveStick;
+	Joystick camStick;
+	
+	JoystickButton *driveStickTriggerButton;
+	JoystickButton *driveStickdriveStickButtonTwo;
+	JoystickButton *driveStickButtonTwo;
+	JoystickButton *driveStickButtonThree;
+	JoystickButton *driveStickButtonFour;
+	JoystickButton *driveStickButtonFive;
+	JoystickButton *driveStickButtonSix;
+	JoystickButton *driveStickButtonSeven;
+	JoystickButton *driveStickButtonEight;
+	JoystickButton *driveStickButtonNine;
+	JoystickButton *driveStickButtonTen;
+	JoystickButton *driveStickButtonEleven;
+	JoystickButton *driveStickButtonTwelve;
+	
+	JoystickButton *camStickTriggerButton;
+	JoystickButton *camStickButtonOne;
+	JoystickButton *camStickButtonTwo;
+	JoystickButton *camStickButtonThree;
+	JoystickButton *camStickButtonFour;
+	JoystickButton *camStickButtonFive;
+	JoystickButton *camStickButtonSix;
+	JoystickButton *camStickButtonSeven;
+	JoystickButton *camStickButtonEight;
+	JoystickButton *camStickButtonNine;
+	JoystickButton *camStickButtonTen;
+	JoystickButton *camStickButtonEleven;
+	JoystickButton *camStickButtonTwelve;
+=======
+	Joystick stickOne;
+	Joystick stickTwo;
+	
+	JoystickButton *stickOneTriggerButton;
+	JoystickButton *stickOnestickOneButtonTwo;
+	JoystickButton *stickOneButtonTwo;
+	JoystickButton *stickOneButtonThree;
+	JoystickButton *stickOneButtonFour;
+	JoystickButton *stickOneButtonFive;
+	JoystickButton *stickOneButtonSix;
+	JoystickButton *stickOneButtonSeven;
+	JoystickButton *stickOneButtonEight;
+	JoystickButton *stickOneButtonNine;
+	JoystickButton *stickOneButtonTen;
+	JoystickButton *stickOneButtonEleven;
+	JoystickButton *stickOneButtonTwelve;
+	
+	JoystickButton *stickTwoTriggerButton;
+	JoystickButton *stickTwoButtonOne;
+	JoystickButton *stickTwoButtonTwo;
+	JoystickButton *stickTwoButtonThree;
+	JoystickButton *stickTwoButtonFour;
+	JoystickButton *stickTwoButtonFive;
+	JoystickButton *stickTwoButtonSix;
+	JoystickButton *stickTwoButtonSeven;
+	JoystickButton *stickTwoButtonEight;
+	JoystickButton *stickTwoButtonNine;
+	JoystickButton *stickTwoButtonTen;
+	JoystickButton *stickTwoButtonEleven;
+	JoystickButton *stickTwoButtonTwelve;
+>>>>>>> sam
+
+	InternalButton *resetCamButton;
+	
+public:
+	static OperatorInput& getInstance();
+
+	OperatorInput();
+	
+	Joystick& getDriveStickOne()
+	{
+		return stickOne;
+	}
+	
+	Joystick& getDriveStickTwo()
+	{
+		return stickTwo;
+	}
+};
+
+#endif
