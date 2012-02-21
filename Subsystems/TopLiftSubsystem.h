@@ -8,9 +8,11 @@ class TopLiftReceiveContinuousCommand;
 typedef enum {
 	TLS_UNKNOWN,
 	TLS_ERROR,
-	TLS_BALL_AT_REST,
-	TLS_EMPTY_READY,
+	TLS_GOT_BALL,
+	TLS_NEEDS_BALL,
+	TLS_START_INCOMING,
 	TLS_INCOMING,
+	TLS_START_OUTGOING,
 	TLS_OUTGOING	
 } TopLiftBallState;
 
@@ -42,6 +44,8 @@ public:
 	TopLiftBallState  GetTopLiftBallState();
 	
 	void              ResetBallState();
+	
+	void              DisableBallState();
 	
 	void 			  ResetTime();
 	

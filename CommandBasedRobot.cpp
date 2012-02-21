@@ -44,10 +44,10 @@ void CommandBasedRobot::RobotInit()
 	
 		GetWatchdog().Feed();
 //		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
-		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
-		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
-		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
 //		SmartDashboard::GetInstance()->PutDouble(drivesubsystem->gyro.GetAngle());
@@ -62,7 +62,7 @@ void CommandBasedRobot::RobotInit()
 		CommandBase::shootersubsystem->UpdateBallStateMachine();
 		CommandBase::topliftsubsystem->UpdateBallStateMachine();
 		CommandBase::bottomliftsubsystem->UpdateBallStateMachine();
-//		CommandBase::ballintakesubsystem->UpdateBallStateMachine();
+		CommandBase::ballintakesubsystem->UpdateBallStateMachine();
 		
 		Scheduler::GetInstance()->Run();
 	}

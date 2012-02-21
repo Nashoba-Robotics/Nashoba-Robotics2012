@@ -11,7 +11,7 @@ typedef enum {
 	SBS_UNKNOWN,
 	SBS_ERROR,
 	SBS_EMPTY_NOT_READY,
-	SBS_EMPTY_READY,
+	SBS_NEEDS_BALL,
 	SBS_ARMED,
 	SBS_UNSTABLE	
 } ShooterBallState;
@@ -54,6 +54,8 @@ public:
 	ShooterBallState  GetShooterBallState();	
 	
 	void              ResetBallState();
+	
+	void              DisableBallState();
 	
 	void 			  ResetTime();
 	

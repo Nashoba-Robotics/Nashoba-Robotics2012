@@ -10,6 +10,9 @@ void ShooterReadyShotCommand::Initialize()
 {
 	ResetPrintCounter();
 	printf ("ShooterReadyShotCommand Initialized");
+	
+	shootersubsystem->shooterJaguar.ConfigEncoderCodesPerRev(360) ;
+	shootersubsystem->shooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 }
 
 void ShooterReadyShotCommand::Execute()
