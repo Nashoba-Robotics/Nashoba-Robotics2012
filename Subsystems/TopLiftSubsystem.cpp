@@ -13,9 +13,11 @@ char *tls_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",
-		"BALL_AT_REST",
-		"EMPTY_READY",
+		"GOT_BALL",
+		"NEEDS_BALL",
+		"START_INCOMING"
 		"INCOMING",
+		"START_OUTGOING"
 		"OUTGOING"
 };
 
@@ -25,7 +27,6 @@ TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
 {
 	ResetBallState();
 	ResetTime();	
-	liftUpCommand = new TopLiftReceiveContinuousCommand();
 }
 
 void TopLiftSubsystem::ResetTime()
@@ -36,6 +37,7 @@ void TopLiftSubsystem::ResetTime()
 void TopLiftSubsystem::InitDefaultCommand()
 {
 	SetDefaultCommand( new TopLiftIdleCommand() );
+	liftUpCommand = new TopLiftReceiveContinuousCommand();
 }
 
 void TopLiftSubsystem::LiftBallUp()
@@ -71,6 +73,12 @@ void TopLiftSubsystem::ResetBallState()
 	topLiftBallState = TLS_UNKNOWN;
 }
 
+void TopLiftSubsystem::DisableBallState()
+{
+	topLiftBallState = TLS_ERROR;
+	liftUpCommand->Cancel();
+}
+
 void TopLiftSubsystem::UpdateBallStateMachine()
 {
 	time_ms += 20; // keep time for use by state machine
@@ -82,54 +90,67 @@ void TopLiftSubsystem::UpdateBallStateMachine()
 	case TLS_UNKNOWN:
 		// figure out if a ball is at the sensor to set proper state
 		if( topLiftBallSensor.IsBallThere( ))
-			topLiftBallState = TLS_BALL_AT_REST;
+			topLiftBallState = TLS_GOT_BALL;
 		else
-			topLiftBallState = TLS_EMPTY_READY;
+			topLiftBallState = TLS_NEEDS_BALL;
 		break;
 		
 	case TLS_ERROR:
 		break;
 		
-	case TLS_BALL_AT_REST:
-		if( SBS_EMPTY_READY == CommandBase::shootersubsystem->GetShooterBallState() )
+	case TLS_GOT_BALL:
+		// stay in this state until shooter needs a ball.
+		if( SBS_NEEDS_BALL == CommandBase::shootersubsystem->GetShooterBallState() )
 		{
-			topLiftBallState = TLS_OUTGOING;
-			liftUpCommand->Start();
+			topLiftBallState = TLS_START_OUTGOING;
 		}
 		else
 		{
+			// the shooter is not ready for us, stop the lift and wait for shooter
 			liftUpCommand->Cancel();
 		}
 		break;
 		
-	case TLS_EMPTY_READY:
+	case TLS_NEEDS_BALL:
 		liftUpCommand->Cancel();
-		// normally if the lower lift is sending us a ball...
-		// turn on the lift and go to the incoming state.
+		// if the lower lift is sending us a ball...
+		// turn on the lift and go to the incoming state until it gets here
 		if( BLS_OUTGOING == CommandBase::bottomliftsubsystem->GetBottomLiftBallState() )
 		{
-			liftUpCommand->Start();
-			topLiftBallState = TLS_BALL_AT_REST;
+			topLiftBallState = TLS_START_INCOMING;
+			break;
 		}
 		// sometimes when testing we want to just stick a ball directly in
 		// so if it shows up change state.
 		if( topLiftBallSensor.IsBallThere( ))
 		{
-			topLiftBallState = TLS_BALL_AT_REST;
+			topLiftBallState = TLS_GOT_BALL;
 		}
+		break;
+		
+	case TLS_START_INCOMING:
+		liftUpCommand->Start();
+		topLiftBallState = TLS_INCOMING;
 		break;
 		
 	case TLS_INCOMING:
-		liftUpCommand->Start();
+		// stay in this state until we have a ball.
 		if( topLiftBallSensor.IsBallThere( ))
 		{
-			topLiftBallState = TLS_BALL_AT_REST;
+			topLiftBallState = TLS_GOT_BALL;
 		}
 		break;
 		
+	case TLS_START_OUTGOING:
+		liftUpCommand->Start();
+		// after starting the lift go into the outgoing state.
+		topLiftBallState = TLS_OUTGOING;
+		break;
+		
 	case TLS_OUTGOING:
+		// stay in the outgoing state until shooter gets ball.
 		if( SBS_ARMED == CommandBase::shootersubsystem->GetShooterBallState() )
-			topLiftBallState = TLS_EMPTY_READY;
+			topLiftBallState = TLS_NEEDS_BALL;
 		break;
 	}
 }

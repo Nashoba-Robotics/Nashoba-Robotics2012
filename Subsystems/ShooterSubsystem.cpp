@@ -15,7 +15,7 @@ char *sbs_state_name[] =
 		"UNKNOWN",
 		"ERROR",
 		"EMPTY_NOT_READY",
-		"EMPTY_READY",
+		"NEEDS_BALL",
 		"ARMED",
 		"UNSTABLE"
 };
@@ -139,6 +139,11 @@ void ShooterSubsystem::ResetBallState()
 	shooterBallState = SBS_UNKNOWN;
 }
 
+void ShooterSubsystem::DisableBallState()
+{
+	shooterBallState = SBS_ERROR;
+}
+
 void ShooterSubsystem::UpdateBallStateMachine()
 {
 	time_ms += 20; // keep time for use by state machine
@@ -164,11 +169,11 @@ void ShooterSubsystem::UpdateBallStateMachine()
 		// position
 		if( IsShooterCamReadyToShoot() ) //check if cam is in right position )
 		{
-			shooterBallState = SBS_EMPTY_READY;
+			shooterBallState = SBS_NEEDS_BALL;
 		}
 		break;
 	
-	case SBS_EMPTY_READY:
+	case SBS_NEEDS_BALL:
 		// check to see if the sensor indicates a ball
 		if( shooterBallSensor.IsBallThere() )
 		{

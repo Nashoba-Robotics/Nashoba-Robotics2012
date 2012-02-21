@@ -44,6 +44,9 @@ private:
 
 	InternalButton *resetCamButton;
 	InternalButton *resetGyroButton;
+	InternalButton *resetBallStatesButton;
+	InternalButton *disableBallStatesButton;
+	InternalButton *pukeBallsButton;
 	
 public:
 	static OperatorInput& getInstance();

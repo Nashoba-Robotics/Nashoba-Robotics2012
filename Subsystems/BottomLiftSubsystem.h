@@ -8,9 +8,11 @@ class BottomLiftReceiveContinuousCommand;
 typedef enum {
 	BLS_UNKNOWN,
 	BLS_ERROR,
-	BLS_BALL_AT_REST,
-	BLS_EMPTY_READY,
+	BLS_GOT_BALL,
+	BLS_NEEDS_BALL,
+	BLS_START_INCOMING,
 	BLS_INCOMING,
+	BLS_START_OUTGOING,
 	BLS_OUTGOING	
 } BottomLiftBallState;
 
@@ -28,7 +30,7 @@ private:
     BottomLiftReceiveContinuousCommand*  liftUpCommand;
     
 public:
-	BallSensor baseBallSensor;
+//	BallSensor baseBallSensor;
 	BallSensor middleBallSensor;
 	
 	void InitDefaultCommand();
@@ -44,6 +46,8 @@ public:
 	BottomLiftBallState  GetBottomLiftBallState();
 	
 	void              ResetBallState();
+	
+	void              DisableBallState();
 	
 	void 			  ResetTime();
 	

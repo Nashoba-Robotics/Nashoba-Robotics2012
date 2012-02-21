@@ -28,6 +28,8 @@
 #include "Commands/ResetCamCommand.h"
 #include "Commands/ResetGyroCommand.h"
 #include "Subsystems/DriveSubsystem.h"
+#include "Commands/ResetBallStatesCommand.h"
+#include "Commands/DisableBallStatesCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
 
@@ -112,6 +114,20 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
     resetGyroButton = new InternalButton();
     resetGyroButton->WhenPressed( new ResetGyroCommand( ) );
     SmartDashboard::GetInstance()->PutData( "ResetGyro", resetGyroButton );
+
+    resetBallStatesButton = new InternalButton();
+    resetBallStatesButton->WhenPressed( new ResetBallStatesCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "ResetBallStates", resetBallStatesButton );
+    
+    disableBallStatesButton = new InternalButton();
+    disableBallStatesButton->WhenPressed( new DisableBallStatesCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DisableBallStates", disableBallStatesButton );
+ 
+    pukeBallsButton = new InternalButton();
+    pukeBallsButton->WhenPressed( new AllRejectCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "PUKE", pukeBallsButton );
+   
+
 }
 
 
