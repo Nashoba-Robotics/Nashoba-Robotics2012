@@ -14,23 +14,17 @@ ShooterTakeShotCommand::ShooterTakeShotCommand() : CommandBase("ShooterTakeShotC
 void ShooterTakeShotCommand::Initialize()
 {
 	
-	shootersubsystem->shooterJaguar.ConfigEncoderCodesPerRev(360) ;
-	shootersubsystem->shooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
-	
 	ResetPrintCounter();
 	printf ("ShooterTakeShotCommand Initialized \n");
 	
 	shotState = SHOT_STATE_SLOW_START;
-	
-	// Get current position from encoder (make it positive)
-	currentPoint = shootersubsystem->GetCamAngle();
-	
+
 	// Set point at after cam cliff where it is safe to speed up
 	// based off of previous endingPoint
-	speedUpPoint = 0.15;
+	speedUpPoint = 0.25;
 	
 	// Stop rotating after almost back to starting point.
-    endingPoint = .95;
+    endingPoint = 0.90;
 	
 	speed = 0.5;
 }
@@ -47,22 +41,34 @@ void ShooterTakeShotCommand::Execute()
 	{
 	case SHOT_STATE_UNKNOWN:
 	case SHOT_STATE_SLOW_START:
-		if( currentPoint >= endingPoint )
-			speed = 0.2;  // slow speed going over cliff
-		else if ( currentPoint >= speedUpPoint )
+	    speed = 0.3;  // slow speed going over cliff
+		if ( currentPoint >= speedUpPoint || currentPoint >=endingPoint )
 			shotState = SHOT_STATE_FAST_MIDDLE;
-		else 
-			speed = 0.2;
 		break;
 		
 	case SHOT_STATE_FAST_MIDDLE:
 		// is it time to speed up yet?
-		speed = 0.5;
-		if( currentPoint >= endingPoint )
+		speed = 0.7;
+		if( shootersubsystem->ShooterArmReady() )
 		{
+			shootersubsystem->ResetCamAngle();
 			shotState = SHOT_STATE_READY;
+			break;
+		}
+		if( currentPoint >= endingPoint)
+			shotState = SHOT_STATE_SLOW_FINISH;
+		
+		break;
+	case SHOT_STATE_SLOW_FINISH:
+		speed = 0.5;
+		if( shootersubsystem->ShooterArmReady() )
+		{
+			shootersubsystem->ResetCamAngle();
+			shotState = SHOT_STATE_READY;
+			break;
 		}
 		break;
+		
 	case SHOT_STATE_READY:
 		speed = 0; // keep stopped
 	}

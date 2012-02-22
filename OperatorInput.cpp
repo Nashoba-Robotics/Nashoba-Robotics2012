@@ -2,6 +2,7 @@
 #include "HardwareSettings.h"
 #include "Commands/DriveToForwardWallCommand.h"
 #include "Commands/TensionToGivenValueCommand.h"
+#include "Commands/TensionToBankShotCommand.h"
 #include "Commands/DriveIntoFrontWallCommand.h"
 #include "Commands/CameraRotateToTargetCommand.h"
 #include "Commands/ShooterReadyShotCommand.h"
@@ -36,6 +37,7 @@
 #include "Commands/DriveIntoSideWallCommand.h"
 #include "Commands/DriveIntoCornerContinuousCommand.h"
 #include "Commands/AutonomousCommand.h"
+#include "Commands/ShootWithTensionerAndCameraValuesCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
 
@@ -160,6 +162,14 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
     tensionToGivenValueButton = new InternalButton();
     tensionToGivenValueButton->WhenPressed( new TensionToGivenValueCommand() );
     SmartDashboard::GetInstance()->PutData( "TensionToGivenValueCommand", tensionToGivenValueButton );
+    
+    tensionToBankShotButton = new InternalButton();
+    tensionToBankShotButton->WhenPressed( new TensionToBankShotCommand() );
+    SmartDashboard::GetInstance()->PutData( "TensionBankShotCommand", tensionToBankShotButton );
+    
+    shootWithTensionerAndCameraValuesButton = new InternalButton();
+    shootWithTensionerAndCameraValuesButton->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
+    SmartDashboard::GetInstance()->PutData( "ShootWithTensionerAndCameraValuesCommand", shootWithTensionerAndCameraValuesButton );
 }
 
 

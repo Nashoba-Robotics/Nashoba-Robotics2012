@@ -61,8 +61,8 @@ void BottomLiftSubsystem::LiftIdle()
 }
 void BottomLiftSubsystem::UpdateSmartDashboard()
 {
-//	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
-//	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
+	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
+	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
 //	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
 
 	SmartDashboard::GetInstance()->PutBoolean("MiddleBallSensor", middleBallSensor.IsBallThere() );

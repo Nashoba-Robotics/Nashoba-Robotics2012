@@ -153,6 +153,9 @@ void TopLiftSubsystem::UpdateBallStateMachine()
 		// stay in the outgoing state until shooter gets ball.
 		if( SBS_ARMED == CommandBase::shootersubsystem->GetShooterBallState() )
 			topLiftBallState = TLS_NEEDS_BALL;
+		// if some one shoots prematurely go back to the GOT_BALL state
+		if( SBS_EMPTY_NOT_READY == CommandBase::shootersubsystem->GetShooterBallState() )
+			topLiftBallState = TLS_GOT_BALL;
 		break;
 	}
 }

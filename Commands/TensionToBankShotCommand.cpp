@@ -1,4 +1,4 @@
-#include "TensionToGivenValueCommand.h"
+#include "TensionToBankShotCommand.h"
 #include "../Debug.h"
 #include "../Subsystems/ShooterSubsystem.h"
 #include "TensionDecreaseCommand.h"
@@ -6,21 +6,21 @@
 #include "../CoprocessorVision.h"
 #include <math.h>
 
-TensionToGivenValueCommand::TensionToGivenValueCommand() : CommandBase("TensionToGivenValueCommand")
+TensionToBankShotCommand::TensionToBankShotCommand() : CommandBase("TensionToBankShotCommand")
 {
 	Requires( shootersubsystem );
 	SetReportPeriod(200);
 }
 
-void TensionToGivenValueCommand::Initialize()
+void TensionToBankShotCommand::Initialize()
 {
 	SetTimeout(6);
-	printf ("TensionToGivenValueCommand Initialized");
-	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
+	printf ("TensionToBankShotCommand Initialized");
+	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension") + 40;
 	ResetPrintCounter();
 }
 
-void TensionToGivenValueCommand::Execute()
+void TensionToBankShotCommand::Execute()
 {	
 	currentTension = shootersubsystem->tensionerPot.GetValue();
 	if (currentTension > tensionValue)
@@ -29,7 +29,7 @@ void TensionToGivenValueCommand::Execute()
 		shootersubsystem->Tensioner(1.00);
 }
 
-bool TensionToGivenValueCommand::IsFinished()
+bool TensionToBankShotCommand::IsFinished()
 {
 	if (IsTimedOut())
 		return true;
@@ -39,13 +39,13 @@ bool TensionToGivenValueCommand::IsFinished()
 	return false;
 }
 
-void TensionToGivenValueCommand::End()
+void TensionToBankShotCommand::End()
 {
 	shootersubsystem->Tensioner(0.00);
-	printf ("TensionToGivenValueCommand Finished!");
+	printf ("TensionToBankShotCommand Finished!");
 }
 
-void TensionToGivenValueCommand::Interrupted()
+void TensionToBankShotCommand::Interrupted()
 {
-	printf ("TensionToGivenValueCommand Interrupted!");
+	printf ("TensionToBankShotCommand Interrupted!");
 }

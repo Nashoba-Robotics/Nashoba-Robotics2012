@@ -54,6 +54,8 @@ private:
 	InternalButton *autonomousButton;
 	InternalButton *cameraRotateToTargetButton;
 	InternalButton *tensionToGivenValueButton;
+	InternalButton *tensionToBankShotButton;
+	InternalButton *shootWithTensionerAndCameraValuesButton;
 	
 public:
 	static OperatorInput& getInstance();

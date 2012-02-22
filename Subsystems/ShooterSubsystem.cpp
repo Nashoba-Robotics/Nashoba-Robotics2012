@@ -84,8 +84,8 @@ bool ShooterSubsystem::ShooterArmReady()
 	// use limit switch connected to tensioner jaguar to tell
 	// if arm is in ready position
 	// Analog value
-	return (tensionerJaguar.GetPosition() > .5)
-			|| (( GetCamAngle() > 0.9 ) || (GetCamAngle() <.1)) ;
+	return (tensionerJaguar.GetPosition() > .5);
+//			|| (( GetCamAngle() > 0.9 ) || (GetCamAngle() <.1)) ;
 }
 void ShooterSubsystem::ResetCamAngle()
 {
@@ -119,7 +119,7 @@ void ShooterSubsystem::UpdateSmartDashboard()
 	SmartDashboard::GetInstance()->PutDouble ("TensionerPotDial",  tensionerPot.GetValue() );	
 	SmartDashboard::GetInstance()->PutInt    ("TensionerPot",      tensionerPot.GetValue() );
 	
-	SmartDashboard::GetInstance()->PutDouble ("JAQ 10 position",  tensionerJaguar.GetPosition() );
+	SmartDashboard::GetInstance()->PutDouble ("JAG 10 position",  tensionerJaguar.GetPosition() );
     SmartDashboard::GetInstance()->PutBoolean("Shooter Arm Ready", ShooterArmReady() );
 	// send state name out to dashboard.
 	SmartDashboard::GetInstance()->PutString ( "ShooterBallState",  sbs_state_name[shooterBallState] );	
@@ -194,7 +194,8 @@ void ShooterSubsystem::UpdateBallStateMachine()
 	
 	case SBS_ARMED:
 		// check sensor to see if ball is missing
-		if( false == shooterBallSensor.IsBallThere() )
+		if( false == shooterBallSensor.IsBallThere() &&
+				!ShooterArmReady() )
 		{
 		    shooterBallState = SBS_EMPTY_NOT_READY;
 		}

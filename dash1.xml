@@ -1,5 +1,34 @@
 <?xml version="1.0"?>
 <dashboard>
+	<widget field="Tension" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="493"/>
+	</widget>
+	<widget field="JAG 10 position" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="253"/>
+	</widget>
+	<widget field="ShootWithTensionerAndCameraValuesCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="0" y="154"/>
+	</widget>
+	<widget field="JAQ 10 position" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="545" y="40"/>
+		<width>127</width>
+	</widget>
+	<widget field="Shooter Arm Ready" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="546" y="19"/>
+		<height>16</height>
+	</widget>
+	<widget field="TensionBankShotCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="1068" y="146"/>
+	</widget>
+	<widget field="Distance" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="1015" y="330"/>
+	</widget>
+	<widget field="TensionToGivenValueCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="1072" y="107"/>
+	</widget>
+	<widget field="Subsystem" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="1008" y="292"/>
+	</widget>
 	<widget field="Cam Encoder SH" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
 		<location x="546" y="192"/>
 	</widget>
@@ -31,7 +60,7 @@
 		<location x="860" y="183"/>
 	</widget>
 	<widget field="Gyro" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.Compass">
-		<location x="576" y="51"/>
+		<location x="589" y="39"/>
 		<width>222</width>
 		<height>143</height>
 	</widget>
@@ -76,7 +105,7 @@
 		<location x="888" y="283"/>
 	</widget>
 	<widget field="TensionerPotDial" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.SimpleDial">
-		<location x="354" y="189"/>
+		<location x="356" y="179"/>
 		<width>176</width>
 		<height>119</height>
 		<property name="Upper Limit" value="800.0"/>
@@ -197,14 +226,12 @@
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
 		<location x="760" y="10"/>
 	</static-widget>
-	<hidden field="Subsystem"/>
 	<hidden field="MiddleBallSensorI"/>
 	<hidden field="TopLiftBallSensorI"/>
 	<hidden field="TopLiftSubsystem"/>
-	<hidden field="Distance"/>
 	<hidden field="BaseBallSensorI"/>
-	<hidden field="TensionerPotI"/>
 	<hidden field="TensionerPotV"/>
+	<hidden field="TensionerPotI"/>
 	<hidden field="Cam Value"/>
 	<hidden field="ShooterSubsystem"/>
 	<hidden field="BottomLiftSubsystem"/>
