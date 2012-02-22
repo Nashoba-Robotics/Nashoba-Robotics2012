@@ -1,4 +1,4 @@
-#ifndef POTENTIOMETERSENSOR_H_
+/*#ifndef POTENTIOMETERSENSOR_H_
 #define POTENTIOMETERSENSOR_H_
 
 #include "WPILib.h"
@@ -16,3 +16,4 @@ private:
 };
 
 #endif
+*/

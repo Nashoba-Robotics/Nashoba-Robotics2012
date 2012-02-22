@@ -47,6 +47,13 @@ private:
 	InternalButton *resetBallStatesButton;
 	InternalButton *disableBallStatesButton;
 	InternalButton *pukeBallsButton;
+	InternalButton *driveToForwardWallButton;
+	InternalButton *driveIntoSideWallButton;
+	InternalButton *driveIntoFrontWallButton;
+	InternalButton *driveIntoCornerContinuousButton;
+	InternalButton *autonomousButton;
+	InternalButton *cameraRotateToTargetButton;
+	InternalButton *tensionToGivenValueButton;
 	
 public:
 	static OperatorInput& getInstance();

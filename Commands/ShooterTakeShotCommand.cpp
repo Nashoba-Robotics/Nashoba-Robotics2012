@@ -8,7 +8,7 @@ ShooterTakeShotCommand::ShooterTakeShotCommand() : CommandBase("ShooterTakeShotC
 {
 	Requires(shootersubsystem);
 	SetReportPeriod ( 500 );
-	endingPoint = 0;
+
 }
 
 void ShooterTakeShotCommand::Initialize()
@@ -49,7 +49,7 @@ void ShooterTakeShotCommand::Execute()
 	case SHOT_STATE_SLOW_START:
 		if( currentPoint >= endingPoint )
 			speed = 0.2;  // slow speed going over cliff
-		else if ( speed >= speedUpPoint )
+		else if ( currentPoint >= speedUpPoint )
 			shotState = SHOT_STATE_FAST_MIDDLE;
 		else 
 			speed = 0.2;
@@ -57,7 +57,7 @@ void ShooterTakeShotCommand::Execute()
 		
 	case SHOT_STATE_FAST_MIDDLE:
 		// is it time to speed up yet?
-		speed = 0.8;
+		speed = 0.5;
 		if( currentPoint >= endingPoint )
 		{
 			shotState = SHOT_STATE_READY;
@@ -72,9 +72,9 @@ void ShooterTakeShotCommand::Execute()
 
 bool ShooterTakeShotCommand::IsFinished()
 {
-	return (currentPoint >= endingPoint);
+	return ( shotState == SHOT_STATE_READY );
 }
-
+ 
 void ShooterTakeShotCommand::End()
 {
 	printf ("ShooterTakeShotCommand Finished! \n");

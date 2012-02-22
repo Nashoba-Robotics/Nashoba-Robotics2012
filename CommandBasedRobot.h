@@ -8,7 +8,7 @@
 
 class CommandBasedRobot : public IterativeRobot {
 private:
-	//Command *autonomousCommand;
+	Command *autonomousCommand;
 	
 	virtual void RobotInit(); 
 

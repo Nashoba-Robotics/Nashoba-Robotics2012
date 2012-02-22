@@ -22,7 +22,7 @@ char *bls_state_name[] =
 BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
   bottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
   bottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
-//  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
+  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
   middleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
 {
 	ResetBallState();
@@ -98,8 +98,9 @@ void BottomLiftSubsystem::UpdateBallStateMachine()
 	switch( bottomLiftBallState )
 	{
 	case BLS_UNKNOWN:
-		// figure out if a ball is at the sensor to set proper state
-		if( middleBallSensor.IsBallThere( ))
+		// figure out if a ball is at either sensor to set proper state
+		if( middleBallSensor.IsBallThere( ) ||
+				baseBallSensor.IsBallThere( ) )
 			bottomLiftBallState = BLS_GOT_BALL;
 		else
 			bottomLiftBallState = BLS_NEEDS_BALL;
@@ -131,7 +132,8 @@ void BottomLiftSubsystem::UpdateBallStateMachine()
 		}
 		// sometimes when testing we want to just stick a ball directly in
 		// so if it shows up change state.
-		if( middleBallSensor.IsBallThere( ))
+		if( middleBallSensor.IsBallThere( ) || 
+				baseBallSensor.IsBallThere( ) )
 			bottomLiftBallState = BLS_GOT_BALL;
 		break;
 		
@@ -143,7 +145,8 @@ void BottomLiftSubsystem::UpdateBallStateMachine()
 		
 	case BLS_INCOMING:
 		// stay in the incoming state until the  
-		if( middleBallSensor.IsBallThere( ))
+		if( middleBallSensor.IsBallThere( ) ||
+				baseBallSensor.IsBallThere() )
 		{
 			bottomLiftBallState = BLS_GOT_BALL;
 			liftUpCommand->Cancel();

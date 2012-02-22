@@ -36,7 +36,7 @@ private:
 public:
 
 	BallSensor intakeBallSensor;
-	BallSensor baseBallSensor;
+//	BallSensor baseBallSensor;
 	
 	void InitDefaultCommand();
 	

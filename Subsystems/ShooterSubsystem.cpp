@@ -42,6 +42,7 @@ void ShooterSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new ShooterIdleCommand() );
 	shooterJaguar.ConfigEncoderCodesPerRev(360) ;
 	shooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
+	tensionerJaguar.SetPositionReference(CANJaguar::kPosRef_Potentiometer);
 }
 
 //right now this is just being used for testing purposes, will be changed at later date ....
@@ -78,6 +79,14 @@ float  ShooterSubsystem::GetCamAngle()
 	return currentAngle;
 }
 
+bool ShooterSubsystem::ShooterArmReady()
+{
+	// use limit switch connected to tensioner jaguar to tell
+	// if arm is in ready position
+	// Analog value
+	return (tensionerJaguar.GetPosition() > .5)
+			|| (( GetCamAngle() > 0.9 ) || (GetCamAngle() <.1)) ;
+}
 void ShooterSubsystem::ResetCamAngle()
 {
 	// set adjustment angle to present value to make new offset
@@ -110,7 +119,9 @@ void ShooterSubsystem::UpdateSmartDashboard()
 	SmartDashboard::GetInstance()->PutDouble ("TensionerPotDial",  tensionerPot.GetValue() );	
 	SmartDashboard::GetInstance()->PutInt    ("TensionerPot",      tensionerPot.GetValue() );
 	
-    // send state name out to dashboard.
+	SmartDashboard::GetInstance()->PutDouble ("JAQ 10 position",  tensionerJaguar.GetPosition() );
+    SmartDashboard::GetInstance()->PutBoolean("Shooter Arm Ready", ShooterArmReady() );
+	// send state name out to dashboard.
 	SmartDashboard::GetInstance()->PutString ( "ShooterBallState",  sbs_state_name[shooterBallState] );	
 
 	float currentPoint;
@@ -130,8 +141,7 @@ ShooterBallState ShooterSubsystem::GetShooterBallState()
 
 bool ShooterSubsystem::IsShooterCamReadyToShoot()
 {
-	return (true);
-//	return ( GetCamAngle() > 0.9 );
+	return ShooterArmReady();
 }
 
 void ShooterSubsystem::ResetBallState()

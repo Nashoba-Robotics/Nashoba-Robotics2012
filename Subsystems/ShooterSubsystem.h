@@ -46,6 +46,7 @@ public:
 	
 	float             GetCamAngle( );
 	void              ResetCamAngle( );
+	bool              ShooterArmReady();
 	
 	void              UpdateSmartDashboard();
 	

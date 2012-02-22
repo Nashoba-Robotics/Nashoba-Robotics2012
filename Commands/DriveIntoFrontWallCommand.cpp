@@ -1,31 +1,31 @@
-#include "DriveIntoSideWallCommand.h"
+#include "DriveIntoFrontWallCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "math.h"
 
 
-DriveIntoSideWallCommand::DriveIntoSideWallCommand() : CommandBase("DriveIntoSideWallCommand"){
+DriveIntoFrontWallCommand::DriveIntoFrontWallCommand() : CommandBase("DriveIntoFrontWallCommand"){
 	Requires(drivesubsystem);
 }
 
 
-void DriveIntoSideWallCommand::Initialize() 
+void DriveIntoFrontWallCommand::Initialize() 
 {
 	
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveIntoSideWallCommand::Execute() 
+void DriveIntoFrontWallCommand::Execute() 
 {	
 
-	drivesubsystem->drive(0.5, 0, 0);
+	drivesubsystem->drive(0, 0.125, 0);
     
 }
 
 	
 // Make this return true when this Command no longer needs to run execute()
-bool DriveIntoSideWallCommand::IsFinished() 
+bool DriveIntoFrontWallCommand::IsFinished() 
 {
-	if (fabs (drivesubsystem->shooterIRSensor.GetDistance() < 9.5 ) )
+	if (fabs (drivesubsystem->rightBackIRSensor.GetDistance() < 11.5) && fabs(drivesubsystem->leftBackIRSensor.GetDistance()) < 11.5 )
 	{
 		return true;
 	}
@@ -36,7 +36,7 @@ bool DriveIntoSideWallCommand::IsFinished()
 }
 
 // Called once after isFinished returns true
-void DriveIntoSideWallCommand::End()
+void DriveIntoFrontWallCommand::End()
 {
 	drivesubsystem->drive (0, //Stop motors
 						   0,
@@ -46,7 +46,7 @@ void DriveIntoSideWallCommand::End()
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveIntoSideWallCommand::Interrupted() 
+void DriveIntoFrontWallCommand::Interrupted() 
 {
 	drivesubsystem->drive (0, //Stop motors
 						   0,

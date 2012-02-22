@@ -14,21 +14,23 @@ void DriveSubsystem::InitDefaultCommand()
 	SetDefaultCommand( new JoyStickDriveCommand() );
 }
 
+
 void DriveSubsystem::driveField (float x, float y, float z )
 {
 	float angle = gyro.GetAngle();
 	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), angle );
 }
 
+
 void DriveSubsystem::drive (float x, float y, float z)
 {
 	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0);
 }
 
-void DriveSubsystem::polarDrive (float mag, float dir, float rot)
+/*void DriveSubsystem::polarDrive (float mag, float dir, float rot)
 {
 	myWPIdrive.MecanumDrive_Polar(mag, dir, rot);
-}
+}*/
 
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
 {
@@ -98,7 +100,7 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 		backRightJaguar  ( BACK_RIGHT_JAGUAR_CANID  ),
 		gyro ( GYRO_PORT ),
 		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar),
-		shooterIRSensor   (	SHOOTER_IR_SENSOR_PORT    ),
+		shooterIRSensor   ( SHOOTER_IR_SENSOR_PORT ),
 		leftFrontIRSensor (	LEFT_FRONT_IR_SENSOR_PORT ),
 		leftBackIRSensor  (	LEFT_BACK_IR_SENSOR_PORT  ),
 		rightFrontIRSensor(	RIGHT_FRONT_IR_SENSOR_PORT),

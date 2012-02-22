@@ -22,8 +22,8 @@ char *bis_state_name[] =
 
 BallIntakeSubsystem::BallIntakeSubsystem(): Subsystem("BallIntakeSubsyetm"),
   ballIntakeVictor( BALL_INTAKE_VICTOR_CHANNEL ),
-  intakeBallSensor( BALL_SENSOR_MODULE, INTAKE_BALL_SENSOR_CHANNEL ),
-  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  )
+  intakeBallSensor( BALL_SENSOR_MODULE, INTAKE_BALL_SENSOR_CHANNEL )
+//  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  )
 {
 	ResetBallState();
 	ResetTime();	
@@ -75,9 +75,8 @@ void BallIntakeSubsystem::IntakeOut()
 
 void BallIntakeSubsystem::UpdateSmartDashboard()
 {
-	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
-	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
+//	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
+//	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
 
 	SmartDashboard::GetInstance()->PutBoolean("IntakeBallSensor", intakeBallSensor.IsBallThere() );	
 	SmartDashboard::GetInstance()->PutDouble("IntakeBallSensorV", intakeBallSensor.GetVoltage() );
@@ -94,7 +93,7 @@ void BallIntakeSubsystem::UpdateBallStateMachine()
 	switch( ballIntakeBallState )
 	{
 	case BIS_UNKNOWN:
-		if( baseBallSensor.IsBallThere() )
+		if( intakeBallSensor.IsBallThere() )
 		{
 			ballIntakeBallState = BIS_GOT_BALL;
 		}
@@ -134,7 +133,7 @@ void BallIntakeSubsystem::UpdateBallStateMachine()
 		break;
 		
     case BIS_RECEIVING:
-		if( baseBallSensor.IsBallThere() )
+		if( intakeBallSensor.IsBallThere() )
 		{
 			intakeReceiveCommand->Cancel();
 			ballIntakeBallState = BIS_GOT_BALL;

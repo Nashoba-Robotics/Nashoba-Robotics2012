@@ -8,6 +8,7 @@ ShooterReadyShotCommand::ShooterReadyShotCommand() : CommandBase("ShooterReadySh
 
 void ShooterReadyShotCommand::Initialize()
 {
+	SetTimeout(0.15);
 	ResetPrintCounter();
 	printf ("ShooterReadyShotCommand Initialized");
 	
@@ -24,7 +25,7 @@ void ShooterReadyShotCommand::Execute()
 
 bool ShooterReadyShotCommand::IsFinished()
 {
-	return false;
+	return IsTimedOut();
 }
 
 void ShooterReadyShotCommand::End()

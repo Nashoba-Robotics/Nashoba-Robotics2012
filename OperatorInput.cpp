@@ -1,5 +1,8 @@
 #include "OperatorInput.h"
 #include "HardwareSettings.h"
+#include "Commands/DriveToForwardWallCommand.h"
+#include "Commands/TensionToGivenValueCommand.h"
+#include "Commands/DriveIntoFrontWallCommand.h"
 #include "Commands/CameraRotateToTargetCommand.h"
 #include "Commands/ShooterReadyShotCommand.h"
 #include "Commands/ShooterTakeShotCommand.h"
@@ -30,6 +33,9 @@
 #include "Subsystems/DriveSubsystem.h"
 #include "Commands/ResetBallStatesCommand.h"
 #include "Commands/DisableBallStatesCommand.h"
+#include "Commands/DriveIntoSideWallCommand.h"
+#include "Commands/DriveIntoCornerContinuousCommand.h"
+#include "Commands/AutonomousCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
 
@@ -126,8 +132,34 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
     pukeBallsButton = new InternalButton();
     pukeBallsButton->WhenPressed( new AllRejectCommand( ) );
     SmartDashboard::GetInstance()->PutData( "PUKE", pukeBallsButton );
+    
+    driveToForwardWallButton = new InternalButton();
+    driveToForwardWallButton->WhenPressed( new DriveToForwardWallCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveToFowardWall", driveToForwardWallButton );
+    
+    driveIntoSideWallButton = new InternalButton();
+    driveIntoSideWallButton->WhenPressed( new DriveIntoSideWallCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveIntoSideWall", driveIntoSideWallButton );
+    
+    driveIntoFrontWallButton = new InternalButton();
+    driveIntoFrontWallButton->WhenPressed( new DriveIntoFrontWallCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveIntoFrontWall", driveIntoFrontWallButton );
+    
+    driveIntoCornerContinuousButton = new InternalButton();
+    driveIntoCornerContinuousButton->WhenPressed( new DriveIntoCornerContinuousCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveIntoCornerContinuous", driveIntoCornerContinuousButton );
    
+    autonomousButton = new InternalButton();
+    autonomousButton->WhenPressed( new AutonomousCommand() );
+    SmartDashboard::GetInstance()->PutData( "AutonomousCommand", autonomousButton );
+    
+    cameraRotateToTargetButton = new InternalButton();
+    cameraRotateToTargetButton->WhenPressed( new CameraRotateToTargetCommand() );
+    SmartDashboard::GetInstance()->PutData( "CameraRotateToTargetCommand", cameraRotateToTargetButton );
 
+    tensionToGivenValueButton = new InternalButton();
+    tensionToGivenValueButton->WhenPressed( new TensionToGivenValueCommand() );
+    SmartDashboard::GetInstance()->PutData( "TensionToGivenValueCommand", tensionToGivenValueButton );
 }
 
 

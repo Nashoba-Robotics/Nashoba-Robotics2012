@@ -30,7 +30,7 @@ private:
     BottomLiftReceiveContinuousCommand*  liftUpCommand;
     
 public:
-//	BallSensor baseBallSensor;
+	BallSensor baseBallSensor;
 	BallSensor middleBallSensor;
 	
 	void InitDefaultCommand();

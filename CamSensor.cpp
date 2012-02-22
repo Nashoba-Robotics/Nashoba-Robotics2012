@@ -1,4 +1,4 @@
-#include "CamSensor.h"
+/*#include "CamSensor.h"
 
 CamSensor::CamSensor(UINT32 channel) : AnalogChannel(channel)
 {
@@ -16,3 +16,4 @@ float CamSensor::Rotations()
 	float x = (y - initialturns) / m;
 	return x;
 }
+*/

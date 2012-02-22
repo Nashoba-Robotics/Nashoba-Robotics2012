@@ -1,5 +1,6 @@
 #include "CommandBasedRobot.h"
 #include "Subsystems/DriveSubsystem.h"
+#include "Commands/AutonomousCommand.h"
 #include "CoprocessorVision.h"
 
 START_ROBOT_CLASS(CommandBasedRobot);
@@ -7,7 +8,7 @@ START_ROBOT_CLASS(CommandBasedRobot);
 void CommandBasedRobot::RobotInit() 
 	{
 		CommandBase::init();
-//		autonomousCommand = new ExampleCommand();
+		autonomousCommand = new AutonomousCommand();
 //		NetworkTable::Initialize();
 		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
@@ -24,7 +25,7 @@ void CommandBasedRobot::RobotInit()
 	
 	void CommandBasedRobot::AutonomousInit() 
 	{
-//		autonomousCommand->Start();
+		autonomousCommand->Start();
 		GetWatchdog().SetEnabled( false );
 	}
 	

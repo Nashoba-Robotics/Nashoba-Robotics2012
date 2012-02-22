@@ -36,7 +36,7 @@ public:
 
 	void drive(float x, float rotation, float z);
 	void driveField(float x, float rotation, float z);
-	void polarDrive (float magnitiude, float direction, float rotation);
+/*	void polarDrive (float magnitiude, float direction, float rotation);*/
 	
 	void initialize();
 	
