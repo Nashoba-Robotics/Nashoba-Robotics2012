@@ -10,7 +10,8 @@ TopLiftIdleCommand::TopLiftIdleCommand() : CommandBase ("TopLiftIdleCommand")
 
 void TopLiftIdleCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("TopLiftIdleCommand Initialized \n");
 }
 
 void TopLiftIdleCommand::Execute()

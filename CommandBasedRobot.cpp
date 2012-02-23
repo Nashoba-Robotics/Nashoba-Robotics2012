@@ -1,22 +1,31 @@
 #include "CommandBasedRobot.h"
-
+#include "Subsystems/DriveSubsystem.h"
+#include "Commands/AutonomousCommand.h"
+#include "CoprocessorVision.h"
 
 START_ROBOT_CLASS(CommandBasedRobot);
 
 void CommandBasedRobot::RobotInit() 
 	{
 		CommandBase::init();
-//		autonomousCommand = new ExampleCommand();
-		NetworkTable::Initialize();
-//		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
-		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
-//		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
+		autonomousCommand = new AutonomousCommand();
+//		NetworkTable::Initialize();
+		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
+		
+		
+//		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 		OperatorInput::getInstance();
+		coprocessorvisiontask = new Task ("Coprocessor", (FUNCPTR)CoprocessorVision::run);
+		coprocessorvisiontask->Start();
 	}
 	
 	void CommandBasedRobot::AutonomousInit() 
 	{
-//		autonomousCommand->Start();
+		autonomousCommand->Start();
 		GetWatchdog().SetEnabled( false );
 	}
 	
@@ -38,21 +47,28 @@ void CommandBasedRobot::RobotInit()
 	void CommandBasedRobot::TeleopPeriodic() {
 	
 		GetWatchdog().Feed();
-		Scheduler::GetInstance()->Run();
 //		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
-//		SmartDashboard::GetInstance()->PutInt("Hello World",1768);
-//		static int i=0;
-//		SmartDashboard::GetInstance()->PutInt("Blair", i++);
-//		SmartDashboard::GetInstance()->PutString("Sam", "1768");
-//		SmartDashboard::GetInstance()->PutString("Brandon", "17234");
-//		SmartDashboard::GetInstance()->PutString("Alex", "171238");
-//		SmartDashboard::GetInstance()->PutString("Zach", "11234");
-//		SmartDashboard::GetInstance()->PutString("Fordiani", "1723268");
-//		SmartDashboard::GetInstance()->PutString("Carpenter", "1721134");
-//		SmartDashboard::GetInstance()->PutString("Ethan", "1762238");
-//		SmartDashboard::GetInstance()->PutString("Hamilton", "17222234");
-//		SmartDashboard::GetInstance()->PutString("Bricknell", "1768342");
-//		SmartDashboard::GetInstance()->PutString("Ursuliak", "17123234");
+//		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::bottomliftsubsystem);		
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ballloadersubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::ramptippersubsystem);
+//		SmartDashboard::GetInstance()->PutDouble(drivesubsystem->gyro.GetAngle());
+		
+//		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
+		CommandBase::drivesubsystem->UpdateSmartDashboard();
+		CommandBase::shootersubsystem->UpdateSmartDashboard();
+		CommandBase::topliftsubsystem->UpdateSmartDashboard();
+		CommandBase::bottomliftsubsystem->UpdateSmartDashboard();
+		CommandBase::ballintakesubsystem->UpdateSmartDashboard();
+		
+		CommandBase::shootersubsystem->UpdateBallStateMachine();
+		CommandBase::topliftsubsystem->UpdateBallStateMachine();
+		CommandBase::bottomliftsubsystem->UpdateBallStateMachine();
+		CommandBase::ballintakesubsystem->UpdateBallStateMachine();
+		
+		Scheduler::GetInstance()->Run();
 	}
 	
 	CommandBasedRobot::CommandBasedRobot()	

@@ -8,6 +8,3 @@ PPC603gnu/
 .csettings/
 .cproject
 .project
-Release/
-Debug/
-*.orig

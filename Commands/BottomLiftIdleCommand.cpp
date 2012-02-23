@@ -10,25 +10,31 @@ BottomLiftIdleCommand::BottomLiftIdleCommand() : CommandBase ("BottomLiftIdleCom
 
 void BottomLiftIdleCommand::Initialize()
 {
-	
+	ResetPrintCounter();
+	printf ("BottomLiftIdleCommand Initialized \n");
 }
 
 void BottomLiftIdleCommand::Execute()
 {
+	if( IsTimeToPrint() )
+		printf ("BottomLiftIdleCommand Executed \n");
 	bottomliftsubsystem->LiftIdle();
 }
 
 bool BottomLiftIdleCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void BottomLiftIdleCommand::End()
 {
+	printf ("BottomLiftIdleCommand End \n");
+
 	bottomliftsubsystem->LiftIdle();
 }
 
 void BottomLiftIdleCommand::Interrupted()
 {
+	printf ("BottomLiftIdleCommand interrupted \n");
 	bottomliftsubsystem->LiftIdle();
 }

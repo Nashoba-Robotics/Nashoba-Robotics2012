@@ -3,6 +3,7 @@
 
 #include "../CommandBase.h"
 
+
 class TopLiftReceiveContinuousCommand : public CommandBase
 {
 private:

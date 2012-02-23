@@ -1,5 +1,5 @@
 #include "JoyStickDriveCommand.h"
-#include "DriveForwardAutoCommand.h"
+#include "DriveDurationCommand.h"
 #include "../OperatorInput.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../Debug.h"
@@ -17,22 +17,56 @@ JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand
 void JoyStickDriveCommand::Initialize() 
 {
 	ResetPrintCounter();
+	printf ("DriveForwardAutoCommand Initialized \n");
 }
+
+#define X_THRESHOLD (0.1)
+#define Y_THRESHOLD (0.1)
+#define Z_THRESHOLD (0.1)
 
 // Called repeatedly when this Command is scheduled to run
 void JoyStickDriveCommand::Execute() 
 {
-	Joystick& driveStick = OperatorInput::getInstance().getDriveStick();
+	Joystick& driveStick = OperatorInput::getInstance().getDriveStickOne();
+	Joystick& fieldStick = OperatorInput::getInstance().getDriveStickTwo();
+	
+	float driveX = driveStick.GetX();
+	float driveY = driveStick.GetY();
+	float driveZ = driveStick.GetZ();
+	
+	float fieldX = fieldStick.GetX();
+	float fieldY = fieldStick.GetY();
+	float fieldZ = 0; // fieldStick.GetZ();
+	
+	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive X", driveX);	
+	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Y", driveY);	
+	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Z", driveZ);	
+
+	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive X", fieldX);	
+	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Y", fieldY);	
+	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Z", fieldZ);	
 	
 	if( IsTimeToPrint() )
 		printf( "JoyStickDriveCommand::Execute\n");
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
+	if (   ( SNAP_TO_VALUE( 0, X_THRESHOLD, driveX)  != 0 )
+		|| ( SNAP_TO_VALUE( 0, Y_THRESHOLD, driveY)  != 0 )
+		|| ( SNAP_TO_VALUE( 0, Z_THRESHOLD, driveZ)  != 0 )  )
+	{
 	drivesubsystem->drive (
-					SNAP_TO_VALUE( 0, 0.05, driveStick.GetX() ), 
-					SNAP_TO_VALUE( 0, 0.05, driveStick.GetY() ),
-					SNAP_TO_VALUE( 0, 0.05, driveStick.GetZ() ) 
-					// gyro (when uncommenting, add comma above)
+					SNAP_TO_VALUE( 0, X_THRESHOLD, driveX ), 
+					SNAP_TO_VALUE( 0, Y_THRESHOLD, driveY ),
+					SNAP_TO_VALUE( 0, Z_THRESHOLD, driveZ )
 						   );
+	}
+	else 
+	{
+	drivesubsystem->driveField (
+					SNAP_TO_VALUE( 0, X_THRESHOLD, fieldX ),
+					SNAP_TO_VALUE( 0, Y_THRESHOLD, fieldY ),
+					SNAP_TO_VALUE( 0, Z_THRESHOLD, fieldZ )
+							);
+	}
 	
 }
 

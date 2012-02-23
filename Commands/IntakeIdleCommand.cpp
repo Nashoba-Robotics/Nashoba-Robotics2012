@@ -1,5 +1,6 @@
 #include "IntakeIdleCommand.h"
 #include "../Debug.h"
+#include "../Subsystems/BallIntakeSubsystem.h"
 
 IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
 {
@@ -8,7 +9,8 @@ IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
 
 void IntakeIdleCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("IntakeIdleCommand Initialized \n");
 }
 
 void IntakeIdleCommand::Execute()
@@ -18,7 +20,7 @@ void IntakeIdleCommand::Execute()
 
 bool IntakeIdleCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void IntakeIdleCommand::End()

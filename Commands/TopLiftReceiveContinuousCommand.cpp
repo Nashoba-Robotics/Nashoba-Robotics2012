@@ -9,13 +9,15 @@ TopLiftReceiveContinuousCommand::TopLiftReceiveContinuousCommand() : CommandBase
 
 void TopLiftReceiveContinuousCommand::Initialize()
 {
-
+	ResetPrintCounter();
+	printf ("TopLiftReceiveContinuousCommand Initialized \n");
 }
 
 void TopLiftReceiveContinuousCommand::Execute()
 {
 	topliftsubsystem->LiftBallUp();
-
+	if( IsTimeToPrint( ) )
+		printf ("TopLiftReceiveContinuousCommand Executed \n");
 }
 
 bool TopLiftReceiveContinuousCommand::IsFinished()
@@ -25,10 +27,13 @@ bool TopLiftReceiveContinuousCommand::IsFinished()
 
 void TopLiftReceiveContinuousCommand::End()
 {
+	printf ("TopLiftReceiveContinuousCommand End \n");
+
 	topliftsubsystem->LiftIdle();
 }
 
 void TopLiftReceiveContinuousCommand::Interrupted()
 {
+	printf ("TopLiftReceiveContinuousCommand End \n");
 	topliftsubsystem->LiftIdle();
 }
