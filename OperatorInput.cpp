@@ -1,58 +1,178 @@
 #include "OperatorInput.h"
 #include "HardwareSettings.h"
-#include "Commands/ShootCommand.h"
-#include "Commands/DriveForwardAutoCommand.h"
+#include "Commands/DriveToForwardWallCommand.h"
+#include "Commands/TensionToGivenValueCommand.h"
+#include "Commands/TensionToBankShotCommand.h"
+#include "Commands/DriveIntoFrontWallCommand.h"
+#include "Commands/CameraRotateToTargetCommand.h"
+#include "Commands/ShooterReadyShotCommand.h"
+#include "Commands/ShooterTakeShotCommand.h"
+#include "Commands/ShooterIdleCommand.h"
+#include "Commands/DriveDurationCommand.h"
 #include "Commands/RightTurnCommand.h"
-#include "Commands/PrintfOneSecInterval.h"
 #include "Commands/StraightThenRightTurnCommand.h"
-#include "Commands/AddParallelTestingCommand.h"
+#include "Commands/IntakeIdleCommand.h"
+#include "Commands/IntakeReceiveContinuousCommand.h"
+#include "Commands/IntakeRejectContinuousCommand.h"
+#include "Commands/TensionIncreaseCommand.h"
+#include "Commands/TensionDecreaseCommand.h"
+#include "Commands/TopLiftReceiveContinuousCommand.h"
+#include "Commands/TopLiftRejectContinuousCommand.h"
+#include "Commands/TopLiftIdleCommand.h"
+#include "Commands/BottomLiftIdleCommand.h"
+#include "Commands/BottomLiftReceiveContinuousCommand.h"
+#include "Commands/BottomLiftRejectContinuousCommand.h"
+#include "Commands/AlignFrontWithWallCommand.h"
+#include "Commands/AlignBackWithWallCommand.h"
+#include "Commands/DriveToCornerCommand.h"
+#include "Commands/JoyStickDriveCommand.h"
+#include "Commands/AllReceiveCommand.h"
+#include "Commands/AllIdleCommand.h"
+#include "Commands/AllRejectCommand.h"
+#include "Commands/ResetCamCommand.h"
+#include "Commands/ResetGyroCommand.h"
 #include "Subsystems/DriveSubsystem.h"
+#include "Commands/ResetBallStatesCommand.h"
+#include "Commands/DisableBallStatesCommand.h"
+#include "Commands/DriveIntoSideWallCommand.h"
+#include "Commands/DriveIntoCornerContinuousCommand.h"
+#include "Commands/AutonomousCommand.h"
+#include "Commands/ShootWithTensionerAndCameraValuesCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
 
 
 OperatorInput *OperatorInput::instance = NULL;
 
-OperatorInput::OperatorInput() :driveStick(DRIVE_STICK_PORT)
+OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_PORT)
 {
-	driveStickTriggerButton = new JoystickButton( &driveStick, 1 );
-	driveStickTriggerButton->WhenPressed( new DriveForwardAutoCommand );
+	stickOneTriggerButton = new JoystickButton( &stickOne, 1 );
+	stickOneTriggerButton->WhenPressed( new JoyStickDriveCommand() );
 	
-	driveStickButtonTwo = new JoystickButton( &driveStick, 2 );
-	driveStickButtonTwo->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 2\n ") );
+	stickOneButtonTwo = new JoystickButton( &stickOne, 2 );
+	stickOneButtonTwo->WhenPressed( new IntakeReceiveContinuousCommand());
 	
-	driveStickButtonThree = new JoystickButton( &driveStick, 3 );
-	driveStickButtonThree->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 3\n ") );
+	stickOneButtonThree = new JoystickButton( &stickOne, 3 );
+	stickOneButtonThree->WhenPressed( new IntakeIdleCommand() );
 	
-	driveStickButtonFour = new JoystickButton( &driveStick, 4 );
-	driveStickButtonFour->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 4\n ") );
+	stickOneButtonFour = new JoystickButton( &stickOne, 4 );
+	stickOneButtonFour->WhenPressed( new IntakeRejectContinuousCommand() );
 	
-	driveStickButtonFive = new JoystickButton( &driveStick, 5 );
-	driveStickButtonFive->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 5\n ") );
+	stickOneButtonFive = new JoystickButton( &stickOne, 5 );
+	stickOneButtonFive->WhenPressed( new TopLiftReceiveContinuousCommand() );
 	
-	driveStickButtonSix = new JoystickButton( &driveStick, 6 );
-	driveStickButtonSix->WhenPressed( new RightTurnCommand() );
+	stickOneButtonSix = new JoystickButton( &stickOne, 6 );
+	stickOneButtonSix->WhenPressed( new TopLiftIdleCommand()  );
 	
-	driveStickButtonSeven = new JoystickButton( &driveStick, 7 );
-	driveStickButtonSeven->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 7\n ") );
+	stickOneButtonSeven = new JoystickButton( &stickOne, 7 );
+	stickOneButtonSeven->WhenPressed( new BottomLiftReceiveContinuousCommand() );
 	
-	driveStickButtonEight = new JoystickButton( &driveStick, 8 );
-	driveStickButtonEight->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 8\n ") );
+	stickOneButtonEight = new JoystickButton( &stickOne, 8 );
+	stickOneButtonEight->WhenPressed( new BottomLiftIdleCommand() );
 	
-	driveStickButtonNine = new JoystickButton( &driveStick, 9 );
-	driveStickButtonNine->WhenPressed( new PrintCommand("Drive Stick Button Pressed: 9\n ") );
+	stickOneButtonNine = new JoystickButton( &stickOne, 9 );
+	stickOneButtonNine->WhenPressed( new BottomLiftRejectContinuousCommand() );
 	
-	driveStickButtonTen = new JoystickButton( &driveStick, 10 );
-	driveStickButtonTen->WhenPressed( new ShootCommand() );
+	stickOneButtonTen = new JoystickButton( &stickOne, 10 );
+	stickOneButtonTen->WhenPressed( new AlignBackWithWallCommand() );
 	
-	driveStickButtonEleven = new JoystickButton( &driveStick, 11 );
-	driveStickButtonEleven->WhenPressed( new StraightThenRightTurnCommand());
+	stickOneButtonEleven = new JoystickButton( &stickOne, 11 );
+	stickOneButtonEleven->WhenPressed( new AlignFrontWithWallCommand() );
 	
-	driveStickButtonTwelve = new JoystickButton( &driveStick, 12 );
-	driveStickButtonTwelve->WhenPressed( new AddParallelTestingCommand() );
+	stickOneButtonTwelve = new JoystickButton( &stickOne, 12 );
+	stickOneButtonTwelve->WhenPressed( new DriveToCornerCommand () );
+	 
+	stickTwoButtonTwo = new JoystickButton (&stickTwo, 2 );
+	stickTwoButtonTwo->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0) );
+		
+	stickTwoButtonThree = new JoystickButton( &stickTwo, 3 );
+	stickTwoButtonThree->WhenPressed( new AllReceiveCommand() );
 	
+	stickTwoButtonFour = new JoystickButton( &stickTwo, 4 );
+	stickTwoButtonFour->WhenPressed( new AllIdleCommand() );
 	
+	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
+	stickTwoButtonFive->WhenPressed( new AllRejectCommand() );
+	
+	stickTwoButtonFive = new JoystickButton( &stickTwo, 5 );
+	stickTwoButtonFive->WhenPressed( new ResetCamCommand() );
+		
+	stickTwoButtonSix = new JoystickButton( &stickTwo, 6 );
+	stickTwoButtonSix->WhenPressed( new ShooterTakeShotCommand() );
+	
+	stickTwoButtonSeven = new JoystickButton( &stickTwo, 7 );
+	stickTwoButtonSeven->WhileHeld( new ShooterReadyShotCommand() );
+	
+	stickTwoButtonEight = new JoystickButton (&stickTwo, 8);
+	stickTwoButtonEight->WhenPressed( new DriveDurationCommand(1.5, 0, 0.5 ) );
+	
+	stickTwoButtonNine = new JoystickButton (&stickTwo, 9);
+	stickTwoButtonNine->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0.5) );
+
+	stickTwoButtonTen = new JoystickButton( &stickTwo, 10 );
+	stickTwoButtonTen->WhileHeld( new TensionDecreaseCommand() );
+	
+	stickTwoButtonEleven = new JoystickButton( &stickTwo, 11 );
+	stickTwoButtonEleven->WhileHeld( new TensionIncreaseCommand() );
+	
+    resetCamButton = new InternalButton();
+    resetCamButton->WhenPressed( new ResetCamCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
+    
+    resetGyroButton = new InternalButton();
+    resetGyroButton->WhenPressed( new ResetGyroCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "ResetGyro", resetGyroButton );
+
+    resetBallStatesButton = new InternalButton();
+    resetBallStatesButton->WhenPressed( new ResetBallStatesCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "ResetBallStates", resetBallStatesButton );
+    
+    disableBallStatesButton = new InternalButton();
+    disableBallStatesButton->WhenPressed( new DisableBallStatesCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DisableBallStates", disableBallStatesButton );
+ 
+    pukeBallsButton = new InternalButton();
+    pukeBallsButton->WhenPressed( new AllRejectCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "PUKE", pukeBallsButton );
+    
+    driveToForwardWallButton = new InternalButton();
+    driveToForwardWallButton->WhenPressed( new DriveToForwardWallCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveToFowardWall", driveToForwardWallButton );
+    
+    driveIntoSideWallButton = new InternalButton();
+    driveIntoSideWallButton->WhenPressed( new DriveIntoSideWallCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveIntoSideWall", driveIntoSideWallButton );
+    
+    driveIntoFrontWallButton = new InternalButton();
+    driveIntoFrontWallButton->WhenPressed( new DriveIntoFrontWallCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveIntoFrontWall", driveIntoFrontWallButton );
+    
+    driveIntoCornerContinuousButton = new InternalButton();
+    driveIntoCornerContinuousButton->WhenPressed( new DriveIntoCornerContinuousCommand( ) );
+    SmartDashboard::GetInstance()->PutData( "DriveIntoCornerContinuous", driveIntoCornerContinuousButton );
+   
+    autonomousButton = new InternalButton();
+    autonomousButton->WhenPressed( new AutonomousCommand() );
+    SmartDashboard::GetInstance()->PutData( "AutonomousCommand", autonomousButton );
+    
+    cameraRotateToTargetButton = new InternalButton();
+    cameraRotateToTargetButton->WhenPressed( new CameraRotateToTargetCommand() );
+    SmartDashboard::GetInstance()->PutData( "CameraRotateToTargetCommand", cameraRotateToTargetButton );
+
+    tensionToGivenValueButton = new InternalButton();
+    tensionToGivenValueButton->WhenPressed( new TensionToGivenValueCommand() );
+    SmartDashboard::GetInstance()->PutData( "TensionToGivenValueCommand", tensionToGivenValueButton );
+    
+    tensionToBankShotButton = new InternalButton();
+    tensionToBankShotButton->WhenPressed( new TensionToBankShotCommand() );
+    SmartDashboard::GetInstance()->PutData( "TensionBankShotCommand", tensionToBankShotButton );
+    
+    shootWithTensionerAndCameraValuesButton = new InternalButton();
+    shootWithTensionerAndCameraValuesButton->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
+    SmartDashboard::GetInstance()->PutData( "ShootWithTensionerAndCameraValuesCommand", shootWithTensionerAndCameraValuesButton );
 }
+
+
 
 OperatorInput& OperatorInput::getInstance()
 {

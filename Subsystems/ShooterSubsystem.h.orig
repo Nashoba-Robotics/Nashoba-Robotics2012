@@ -1,46 +1,80 @@
 #ifndef SHOOTER_SUBSYSTEM_H
 #define SHOOTER_SUBSYSTEM_H
-<<<<<<< HEAD
 
 #include "WPILib.h"
-#include "Commands/PIDSubsystem.h"
 #include "../OperatorInput.h"
+#include "Commands/PIDSubsystem.h"
 #include "../HardwareSettings.h"
+#include "../BallSensor.h"
+
+typedef enum {
+	SBS_UNKNOWN,
+	SBS_ERROR,
+	SBS_EMPTY_NOT_READY,
+	SBS_EMPTY_READY,
+	SBS_ARMED,
+	SBS_UNSTABLE	
+} ShooterBallState;
 
 //This is the Shooter class of the robot. Controls the shooter. 
 
 class ShooterSubsystem: public Subsystem
 {
 private:
-public:
-	void load();
-	void shoot();
-	void IsLoaded();
-	ShooterSubsystem(
-		
-					  );
+
+public:	
+	CANJaguar ShooterJaguar;
+	CANJaguar TensionerJaguar;
+	
+	BallSensor ShooterBallSensor;
+	
+	ShooterSubsystem();
+	
+	void Shoot( float );
+	void Rearm();
+	void Stop();
+	void Tensioner( float );
+	
+	void UpdateSmartDashboard();
 	
 	void InitDefaultCommand();
-};
-=======
-#include "WPILib.h"
 
+	ShooterBallState    getShooterBallState();	
+    ShooterBallState  shooterBallState;
+    double            adjustmentAngle;
+    
+    bool              IsShooterCamReadyToShoot();
 
-
-
-class ShooterSubsystem: public Subsystem 
-{
-private:
-
-
-public:
-
-	void InitDefaultCommand();
+	unsigned int      time_ms;
+    
+public:	
+	CANJaguar         shooterJaguar;
+	CANJaguar         tensionerJaguar;
 	
-	ShooterSubsystem( 
-		   
-					);
+	BallSensor        shooterBallSensor;
+	AnalogChannel     tensionerPot;
+	
+	ShooterSubsystem();
+	
+	void              Shoot( float );
+
+	void              Stop();
+	
+	void              Tensioner( float );
+	
+	float             GetCamAngle( );
+	void              ResetCamAngle( );
+	
+	void              UpdateSmartDashboard();
+	
+	void              UpdateBallStateMachine();
+	ShooterBallState  GetShooterBallState();	
+	void              ResetBallState();
+	
+	void 			  ResetTime();
+	
+	void              InitDefaultCommand();
+
 };
 
->>>>>>> sam
 #endif
