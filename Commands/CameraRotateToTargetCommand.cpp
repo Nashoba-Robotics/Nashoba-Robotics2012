@@ -20,9 +20,9 @@ void CameraRotateToTargetCommand::Execute()
 	float magnitude = 0;
 	cameraAngle = SmartDashboard::GetInstance()->GetDouble("Angle");
 	if (fabs(cameraAngle) > 5)
-		magnitude = .4;
+		magnitude = .6;
 	else
-		magnitude = .3;
+		magnitude = .5;
 	if (cameraAngle > 0)
 		rotate = -(magnitude);
 	else
@@ -36,7 +36,7 @@ void CameraRotateToTargetCommand::Execute()
 
 bool CameraRotateToTargetCommand::IsFinished()
 {
-	if(cameraAngle < 1 && cameraAngle > -1)
+	if(cameraAngle < .3 && cameraAngle > -.3)
 		return true;
 	return false;
 }
