@@ -56,6 +56,7 @@ private:
 	InternalButton *tensionToGivenValueButton;
 	InternalButton *tensionToBankShotButton;
 	InternalButton *shootWithTensionerAndCameraValuesButton;
+	InternalButton *driveToTensionRangeButton;
 	
 public:
 	static OperatorInput& getInstance();

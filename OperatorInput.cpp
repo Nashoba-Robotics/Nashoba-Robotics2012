@@ -38,6 +38,7 @@
 #include "Commands/DriveIntoCornerContinuousCommand.h"
 #include "Commands/AutonomousCommand.h"
 #include "Commands/ShootWithTensionerAndCameraValuesCommand.h"
+#include "Commands/DriveToTensionRangeCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
 
@@ -170,6 +171,10 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
     shootWithTensionerAndCameraValuesButton = new InternalButton();
     shootWithTensionerAndCameraValuesButton->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
     SmartDashboard::GetInstance()->PutData( "ShootWithTensionerAndCameraValuesCommand", shootWithTensionerAndCameraValuesButton );
+
+    driveToTensionRangeButton = new InternalButton();
+    driveToTensionRangeButton->WhenPressed( new DriveToTensionRangeCommand() );
+    SmartDashboard::GetInstance()->PutData( "DriveToTensionRangeCommand", driveToTensionRangeButton );
 }
 
 

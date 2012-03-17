@@ -1,10 +1,6 @@
 #include "ShootWithTensionerAndCameraValuesCommand.h"
 
-
 #include "ShooterTakeShotCommand.h"
-#include "ShooterReadyShotCommand.h"
-#include "TopIdleDurationCommand.h"
-#include "TopReceiveDurationCommand.h"
 #include "DisableBallStatesCommand.h"
 #include "ResetBallStatesCommand.h"
 #include "CameraRotateToTargetCommand.h"
