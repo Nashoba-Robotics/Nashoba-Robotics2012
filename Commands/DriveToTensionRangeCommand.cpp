@@ -2,6 +2,8 @@
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../CoprocessorVision.h"
+#include <math.h>
+
 
 DriveToTensionRangeCommand::DriveToTensionRangeCommand() : CommandBase("DriveToTensionRangeCommand")
 {
@@ -12,7 +14,9 @@ DriveToTensionRangeCommand::DriveToTensionRangeCommand() : CommandBase("DriveToT
 void DriveToTensionRangeCommand::Initialize()
 {
 	SetTimeout(10);
+#ifdef _DEBUG
 	printf ("DriveToTensionRangeCommand Initialized");
+#endif
 	ResetPrintCounter();
 }
 
@@ -29,9 +33,9 @@ bool DriveToTensionRangeCommand::IsFinished()
 {
 	if (IsTimedOut())
 		return true;
-//	float deltaTension = fabs(currentTension - tensionValue);
-//	if(deltaTension < 2 && deltaTension > -2)
-//		return true;
+	float deltaTension = fabs(currentTension - tensionValue);
+	if(deltaTension < 2 && deltaTension > -2)
+		return true;
 	return false;
 }
 
@@ -43,5 +47,7 @@ void DriveToTensionRangeCommand::End()
 
 void DriveToTensionRangeCommand::Interrupted()
 {
+#ifdef _DEBUG
 	printf ("DriveToTensionRangeCommand Interrupted!");
+#endif
 }
