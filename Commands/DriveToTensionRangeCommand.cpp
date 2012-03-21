@@ -2,6 +2,8 @@
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../CoprocessorVision.h"
+#include <math.h>
+
 
 DriveToTensionRangeCommand::DriveToTensionRangeCommand() : CommandBase("DriveToTensionRangeCommand")
 {
@@ -30,6 +32,9 @@ void DriveToTensionRangeCommand::Execute()
 bool DriveToTensionRangeCommand::IsFinished()
 {
 	if (IsTimedOut())
+		return true;
+	float deltaTension = fabs(currentTension - tensionValue);
+	if(deltaTension < 2 && deltaTension > -2)
 		return true;
 	return false;
 }
