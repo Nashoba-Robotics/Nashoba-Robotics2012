@@ -1,5 +1,6 @@
 #include "DriveOneWheelCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
+#include "../Debug.h"
 
 DriveOneWheelCommand::DriveOneWheelCommand() : CommandBase("DriveOneWheelCommand")
 {
@@ -12,7 +13,9 @@ DriveOneWheelCommand::DriveOneWheelCommand() : CommandBase("DriveOneWheelCommand
 void DriveOneWheelCommand::Initialize() 
 {
 	ResetPrintCounter();
+#ifndef _DEBUG
 	printf ("IntakeIdleCommand Initialized \n");
+#endif
 }
 
 // Called repeatedly when this Command is scheduled to run

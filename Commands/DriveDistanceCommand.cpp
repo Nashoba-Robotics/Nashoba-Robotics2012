@@ -64,7 +64,9 @@ void DriveDistanceCommand::End()
 // subsystems is scheduled to run
 void DriveDistanceCommand::Interrupted() 
 {
+#ifndef _DEBUG
 	printf( "DriveDistanceCommand Interrupt\n");
+#endif
 	drivesubsystem->drive (0, //Stop motors
 						   0,
 						   0

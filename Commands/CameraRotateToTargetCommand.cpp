@@ -10,7 +10,9 @@ CameraRotateToTargetCommand::CameraRotateToTargetCommand() : CommandBase("Camera
 
 void CameraRotateToTargetCommand::Initialize()
 {
+#ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Initialized");
+#endif
 	ResetPrintCounter();
 }
 
@@ -48,10 +50,14 @@ void CameraRotateToTargetCommand::End()
 							0,
 							0
 							);
+#ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Finished!");
+#endif
 }
 
 void CameraRotateToTargetCommand::Interrupted()
 {
+#ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Interrupted!");
+#endif
 }

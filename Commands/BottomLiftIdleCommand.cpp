@@ -11,13 +11,17 @@ BottomLiftIdleCommand::BottomLiftIdleCommand() : CommandBase ("BottomLiftIdleCom
 void BottomLiftIdleCommand::Initialize()
 {
 	ResetPrintCounter();
+#ifndef _DEBUG
 	printf ("BottomLiftIdleCommand Initialized \n");
+#endif
 }
 
 void BottomLiftIdleCommand::Execute()
 {
+#ifndef _DEBUG
 	if( IsTimeToPrint() )
 		printf ("BottomLiftIdleCommand Executed \n");
+#endif
 	bottomliftsubsystem->LiftIdle();
 }
 
@@ -28,13 +32,16 @@ bool BottomLiftIdleCommand::IsFinished()
 
 void BottomLiftIdleCommand::End()
 {
+#ifndef _DEBUG
 	printf ("BottomLiftIdleCommand End \n");
-
+#endif
 	bottomliftsubsystem->LiftIdle();
 }
 
 void BottomLiftIdleCommand::Interrupted()
 {
+#ifndef _DEBUG
 	printf ("BottomLiftIdleCommand interrupted \n");
+#endif
 	bottomliftsubsystem->LiftIdle();
 }

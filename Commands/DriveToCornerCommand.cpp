@@ -1,5 +1,6 @@
 #include "DriveToCornerCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
+#include "../Debug.h"
 #include "math.h"
 
 
@@ -28,8 +29,9 @@ void DriveToCornerCommand::Execute()
     float BackTowardsWallShotYValueRight =   drivesubsystem->rightBackIRSensor.GetDistance();
 	
 	float ShooterXValue = drivesubsystem->shooterIRSensor.GetDistance();
-	
+#ifndef _DEBUG
 	printf("%f ShooterValue", ShooterXValue);
+#endif
 	//drivesubsystem->driveField(these values will be to go 40 inches to the right);
 	
 /*	
@@ -48,12 +50,16 @@ bool DriveToCornerCommand::IsFinished()
 {
 	if (fabs (drivesubsystem->rightFrontIRSensor.GetDistance()<4.5) && fabs(drivesubsystem->leftFrontIRSensor.GetDistance()) < 4.5 && fabs(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
 	{
+#ifndef _DEBUG
 		printf("Robot Is Positioned to Shoot");
+#endif
 		return true;
 	}
 	else if ( fabs(drivesubsystem->rightBackIRSensor.GetDistance()<4.5) && fabs(drivesubsystem->leftBackIRSensor.GetDistance()) < 4.5 && fabs(drivesubsystem->shooterIRSensor.GetDistance() ) < 5.5 )
 	{
+#ifndef _DEBUG
 		printf("Robot Is Positioned to Shoot");
+#endif
 		return true;
 	}
 	else

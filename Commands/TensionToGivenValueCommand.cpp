@@ -15,7 +15,9 @@ TensionToGivenValueCommand::TensionToGivenValueCommand() : CommandBase("TensionT
 void TensionToGivenValueCommand::Initialize()
 {
 	SetTimeout(6);
+#ifndef _DEBUG
 	printf ("TensionToGivenValueCommand Initialized");
+#endif
 	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
 	ResetPrintCounter();
 }
@@ -42,10 +44,14 @@ bool TensionToGivenValueCommand::IsFinished()
 void TensionToGivenValueCommand::End()
 {
 	shootersubsystem->Tensioner(0.00);
+#ifndef _DEBUG
 	printf ("TensionToGivenValueCommand Finished!");
+#endif
 }
 
 void TensionToGivenValueCommand::Interrupted()
 {
+#ifndef _DEBUG
 	printf ("TensionToGivenValueCommand Interrupted!");
+#endif
 }

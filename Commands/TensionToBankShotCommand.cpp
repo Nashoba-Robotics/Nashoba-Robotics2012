@@ -15,7 +15,9 @@ TensionToBankShotCommand::TensionToBankShotCommand() : CommandBase("TensionToBan
 void TensionToBankShotCommand::Initialize()
 {
 	SetTimeout(6);
+#ifndef _DEBUG
 	printf ("TensionToBankShotCommand Initialized");
+#endif
 	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension") + 40;
 	ResetPrintCounter();
 }
@@ -42,10 +44,14 @@ bool TensionToBankShotCommand::IsFinished()
 void TensionToBankShotCommand::End()
 {
 	shootersubsystem->Tensioner(0.00);
+#ifndef _DEBUG
 	printf ("TensionToBankShotCommand Finished!");
+#endif
 }
 
 void TensionToBankShotCommand::Interrupted()
 {
+#ifndef _DEBUG
 	printf ("TensionToBankShotCommand Interrupted!");
+#endif
 }

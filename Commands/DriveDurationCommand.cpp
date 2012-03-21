@@ -18,7 +18,9 @@ void DriveDurationCommand::Initialize()
 	SetTimeout(m_duration);			//Sets a timer 
 	
 //	drivesubsystem->Enable();
+#ifndef _DEBUG
 	printf("%s Driving Forward at 1/5 speed for %f seconds\n", __FUNCTION__, m_duration );
+#endif
 	
 	ResetPrintCounter();
 	
@@ -27,8 +29,10 @@ void DriveDurationCommand::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveDurationCommand::Execute() 
 {
+#ifndef _DEBUG
 	if( IsTimeToPrint() )
 		printf( "DriveDurationCommand::Execute\n");
+#endif
 	
 	drivesubsystem->drive (m_bearingY, 
 						   m_bearingX, 
@@ -56,7 +60,9 @@ void DriveDurationCommand::End()
 // subsystems is scheduled to run
 void DriveDurationCommand::Interrupted() 
 {
+#ifndef _DEBUG
 	printf( "DriveDurationCommand Interrupt\n");
+#endif
 	drivesubsystem->drive (0, //Stop motors
 						   0,
 						   0

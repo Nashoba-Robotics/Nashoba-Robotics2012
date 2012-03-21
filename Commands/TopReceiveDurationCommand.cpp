@@ -15,8 +15,10 @@ void TopReceiveDurationCommand::Initialize()
 void TopReceiveDurationCommand::Execute()
 {
 	topliftsubsystem->LiftBallUp();
+#ifndef _DEBUG
 	if( IsTimeToPrint( ) )
 		printf ("TopReceiveDurationCommand Executed \n");
+#endif
 }
 
 bool TopReceiveDurationCommand::IsFinished()
@@ -26,13 +28,17 @@ bool TopReceiveDurationCommand::IsFinished()
 
 void TopReceiveDurationCommand::End()
 {
+#ifndef _DEBUG
 	printf ("TopReceiveDurationCommand End \n");
+#endif
 
 	topliftsubsystem->LiftIdle();
 }
 
 void TopReceiveDurationCommand::Interrupted()
 {
+#ifndef _DEBUG
 	printf ("TopReceiveDurationCommand End \n");
+#endif
 	topliftsubsystem->LiftIdle();
 }
