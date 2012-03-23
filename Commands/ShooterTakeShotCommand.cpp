@@ -15,9 +15,7 @@ void ShooterTakeShotCommand::Initialize()
 {
 	
 	ResetPrintCounter();
-#ifndef _DEBUG
 	printf ("ShooterTakeShotCommand Initialized \n");
-#endif
 	
 	shotState = SHOT_STATE_SLOW_START;
 
@@ -36,10 +34,8 @@ void ShooterTakeShotCommand::Execute()
 
 	currentPoint = shootersubsystem->GetCamAngle();
 	
-	SmartDashboard::GetInstance()->PutDouble("Cam Value", currentPoint);
-#ifndef _DEBUG
+	SmartDashboard::GetInstance()->PutDouble("Cam Value", currentPoint);	
 	printf("Cam Encoder %f \n", (float)currentPoint);
-#endif
 	
 	switch ( shotState )
 	{
@@ -87,17 +83,13 @@ bool ShooterTakeShotCommand::IsFinished()
  
 void ShooterTakeShotCommand::End()
 {
-#ifndef _DEBUG
 	printf ("ShooterTakeShotCommand Finished! \n");
-#endif
 	shootersubsystem->Stop();
 //	BallTracker::GetInstance()->BallShot();
 }
 
 void ShooterTakeShotCommand::Interrupted()
 {
-#ifndef _DEBUG
 	printf ("ShooterTakeShotCommand Interrupted! \n");
-#endif
 	shootersubsystem->Stop();
 }

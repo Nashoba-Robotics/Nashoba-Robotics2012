@@ -11,9 +11,7 @@ TopLiftIdleCommand::TopLiftIdleCommand() : CommandBase ("TopLiftIdleCommand")
 void TopLiftIdleCommand::Initialize()
 {
 	ResetPrintCounter();
-#ifndef _DEBUG
 	printf ("TopLiftIdleCommand Initialized \n");
-#endif
 }
 
 void TopLiftIdleCommand::Execute()

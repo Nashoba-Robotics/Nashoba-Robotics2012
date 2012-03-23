@@ -10,9 +10,7 @@ IntakeRejectContinuousCommand::IntakeRejectContinuousCommand() : CommandBase ("I
 void IntakeRejectContinuousCommand::Initialize()
 {
 	ResetPrintCounter();
-#ifndef _DEBUG
 	printf ("IntakeRejectContinuousCommand Initialized \n");
-#endif
 }
 
 void IntakeRejectContinuousCommand::Execute()

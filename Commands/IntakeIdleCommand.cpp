@@ -10,9 +10,7 @@ IntakeIdleCommand::IntakeIdleCommand() : CommandBase ("IntakeIdleCommand")
 void IntakeIdleCommand::Initialize()
 {
 	ResetPrintCounter();
-#ifndef _DEBUG
 	printf ("IntakeIdleCommand Initialized \n");
-#endif
 }
 
 void IntakeIdleCommand::Execute()

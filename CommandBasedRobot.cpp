@@ -2,6 +2,7 @@
 #include "Subsystems/DriveSubsystem.h"
 #include "Commands/AutonomousCommand.h"
 #include "CoprocessorVision.h"
+#include "Commands/CancelAllCommand.h"
 
 START_ROBOT_CLASS(CommandBasedRobot);
 
@@ -10,7 +11,7 @@ void CommandBasedRobot::RobotInit()
 		CommandBase::init();
 		autonomousCommand = new AutonomousCommand();
 //		NetworkTable::Initialize();
-		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
+//		SmartDashboard::GetInstance()->PutData(CommandBase::drivesubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::shootersubsystem);		
 //		SmartDashboard::GetInstance()->PutData(CommandBase::ballintakesubsystem);
 //		SmartDashboard::GetInstance()->PutData(CommandBase::topliftsubsystem);		
@@ -40,6 +41,8 @@ void CommandBasedRobot::RobotInit()
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 //		autonomousCommand->Cancel();
+//		cancelAllCommand = new CancelAllCommand();
+//		cancelAllCommand->Start();
 		GetWatchdog().SetEnabled( false );
 //		SmartDashboard::GetInstance()->PutData(Scheduler::GetInstance());
 	}

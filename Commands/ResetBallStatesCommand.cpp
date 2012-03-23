@@ -1,5 +1,4 @@
 #include "ResetBallStatesCommand.h"
-#include "../Debug.h"
 
 
 ResetBallStatesCommand::ResetBallStatesCommand() : CommandBase("ResetBallStatesCommand")
@@ -8,18 +7,14 @@ ResetBallStatesCommand::ResetBallStatesCommand() : CommandBase("ResetBallStatesC
 
 void ResetBallStatesCommand::Initialize()
 {
-#ifndef _DEBUG
 	printf ("ResetBallStatesCommand Initialized");
-#endif
 	ResetPrintCounter();
 }
 
 void ResetBallStatesCommand::Execute()
 {
-#ifndef _DEBUG
 	if ( IsTimeToPrint() )
 		 printf ("ResetBallStatesCommand is Executing!\n");
-#endif
 	// reset BallStates 
 	bottomliftsubsystem->ResetBallState();
 	topliftsubsystem->ResetBallState();
@@ -35,14 +30,10 @@ bool ResetBallStatesCommand::IsFinished()
 
 void ResetBallStatesCommand::End()
 {
-#ifndef _DEBUG
 	printf ("ResetBallStatesCommand Finished!");
-#endif
 }
 
 void ResetBallStatesCommand::Interrupted()
 {
-#ifndef _DEBUG
 	printf ("ResetBallStatesCommand Interrupted!");
-#endif
 }

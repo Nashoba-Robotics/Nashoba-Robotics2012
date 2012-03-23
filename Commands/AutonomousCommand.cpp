@@ -16,18 +16,18 @@
 
 AutonomousCommand::AutonomousCommand() : CommandGroup("AutonomousCommand")
 {
-	/*AddSequential( new DriveDurationCommand(.5, 0, -0.5) );
+	AddSequential( new DriveDurationCommand(2, 0, -0.5) );
 	AddSequential( new DriveToForwardWallCommand() );
 	AddSequential( new DriveIntoSideWallCommand()  );
 	AddSequential( new DriveIntoFrontWallCommand() );
-	AddSequential( new DriveIntoCornerContinuousCommand() );*/
+	AddSequential( new DriveIntoCornerContinuousCommand() );
 	
-	AddSequential( new DisableBallStatesCommand()    );
-	AddSequential( new ShooterReadyShotCommand()     );
+//	AddSequential( new DisableBallStatesCommand()    );
+//	AddSequential( new ShooterReadyShotCommand()     );
 	AddSequential( new ShooterTakeShotCommand()      );
-	AddSequential( new ResetBallStatesCommand()      );
-	AddSequential( new WaitCommand (1) );
-	AddSequential( new ShooterReadyShotCommand()     );
+//	AddSequential( new ResetBallStatesCommand()      );
+	AddSequential( new WaitCommand (2) );
+//	AddSequential( new ShooterReadyShotCommand()     );
 	AddSequential( new ShooterTakeShotCommand()      );
 
 	

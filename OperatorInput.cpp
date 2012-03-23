@@ -39,13 +39,14 @@
 #include "Commands/AutonomousCommand.h"
 #include "Commands/ShootWithTensionerAndCameraValuesCommand.h"
 #include "Commands/DriveToTensionRangeCommand.h"
+#include "Commands/CancelAllCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
 
 
 OperatorInput *OperatorInput::instance = NULL;
 
-OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_PORT)
+OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_PORT), stickThree(DASH_BOARD_PORT)
 {
 	stickOneTriggerButton = new JoystickButton( &stickOne, 1 );
 	stickOneTriggerButton->WhenPressed( new JoyStickDriveCommand() );
@@ -82,7 +83,7 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
 	
 	stickOneButtonTwelve = new JoystickButton( &stickOne, 12 );
 	stickOneButtonTwelve->WhenPressed( new DriveToCornerCommand () );
-	 
+		
 	stickTwoButtonTwo = new JoystickButton (&stickTwo, 2 );
 	stickTwoButtonTwo->WhenPressed( new DriveDurationCommand(1.5, 0.5, 0) );
 		
@@ -116,6 +117,30 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
 	stickTwoButtonEleven = new JoystickButton( &stickTwo, 11 );
 	stickTwoButtonEleven->WhileHeld( new TensionIncreaseCommand() );
 	
+	stickThreeTriggerButton = new JoystickButton (&stickThree, 1 );
+	stickThreeTriggerButton->WhenPressed( new CancelAllCommand() );
+	
+	stickThreeButtonTwo = new JoystickButton (&stickThree, 2);
+	stickThreeButtonTwo->WhenPressed( new AutonomousCommand() );
+	
+	stickThreeButtonSix = new JoystickButton( &stickThree, 6 );
+	stickThreeButtonSix->WhenPressed( new CameraRotateToTargetCommand() );
+	
+	stickThreeButtonSeven = new JoystickButton( &stickThree, 7);
+	stickThreeButtonSeven->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
+	
+	stickThreeButtonEight = new JoystickButton( &stickThree, 8 );
+	stickThreeButtonEight->WhenPressed( new TensionToGivenValueCommand() );
+	
+	stickThreeButtonNine = new JoystickButton( &stickThree, 9 );
+	stickThreeButtonNine->WhenPressed( new TensionToBankShotCommand() );
+	
+	stickThreeButtonTen = new JoystickButton( &stickThree, 10 );
+	stickThreeButtonTen->WhenPressed( new ResetBallStatesCommand() );
+	
+	stickThreeButtonEleven = new JoystickButton( &stickThree, 11 );
+	stickThreeButtonEleven->WhenPressed( new AllRejectCommand() );
+	/*
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
     SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
@@ -175,6 +200,7 @@ OperatorInput::OperatorInput() :stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_P
     driveToTensionRangeButton = new InternalButton();
     driveToTensionRangeButton->WhenPressed( new DriveToTensionRangeCommand() );
     SmartDashboard::GetInstance()->PutData( "DriveToTensionRangeCommand", driveToTensionRangeButton );
+    */
 }
 
 

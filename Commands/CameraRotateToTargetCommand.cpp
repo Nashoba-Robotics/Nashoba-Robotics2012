@@ -21,10 +21,11 @@ void CameraRotateToTargetCommand::Execute()
 	float rotate = 0;
 	float magnitude = 0;
 	cameraAngle = SmartDashboard::GetInstance()->GetDouble("Angle");
+	printf ("Getting Angle And Moving!");
 	if (fabs(cameraAngle) > 5)
-		magnitude = .6;
+		magnitude = .3;
 	else
-		magnitude = .5;
+		magnitude = .2;
 	if (cameraAngle > 0)
 		rotate = -(magnitude);
 	else

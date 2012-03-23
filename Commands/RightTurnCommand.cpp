@@ -1,6 +1,5 @@
 #include "RightTurnCommand.h"
 #include "../Subsystems/DriveSubsystem.h"
-#include "../Debug.h"
 
 
 RightTurnCommand::RightTurnCommand() : CommandBase("RightTurnCommand"){
@@ -15,12 +14,11 @@ RightTurnCommand::RightTurnCommand() : CommandBase("RightTurnCommand"){
 void RightTurnCommand::Initialize() 
 {
 	SetTimeout(2.0);			//Sets a timer (2 secs for testing)
-#ifndef _DEBUG
 	
 	printf("%s Drive Stick Button Pressed : 6\n ", __FUNCTION__ );
 	printf("%s Making a 90 Degree Right Turn", __FUNCTION__ );
 	
-#endif
+	
 }
 
 // Called repeatedly when this Command is scheduled to run

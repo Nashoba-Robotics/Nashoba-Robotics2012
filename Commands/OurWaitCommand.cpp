@@ -1,4 +1,3 @@
-#ifdef OUR_WAIT_COMMAND
 #include "OurWaitCommand.h"
 #include "../Debug.h"
 
@@ -42,4 +41,3 @@ void OurWaitCommand::Interrupted()
 {
 
 }
-#endif

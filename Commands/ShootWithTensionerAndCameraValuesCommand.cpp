@@ -10,7 +10,7 @@
 
 ShootWithTensionerAndCameraValuesCommand::ShootWithTensionerAndCameraValuesCommand() : CommandGroup("ShootWithTensionerAndCameraValuesCommand")
 {
-	AddSequential( new DriveToTensionRangeCommand() );
+	//AddSequential( new DriveToTensionRangeCommand() );
 	AddSequential( new CameraRotateToTargetCommand() );
 	AddSequential( new CameraRotateToTargetCommand() );
 	AddSequential( new CameraRotateToTargetCommand() );

@@ -1,4 +1,4 @@
-#ifdef OUR_WAIT_COMMAND_H
+#ifndef OUR_WAIT_COMMAND_H
 #define OUR_WAIT_COMMAND_H
 
 #include "../CommandBase.h"

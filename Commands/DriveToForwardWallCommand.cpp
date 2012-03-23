@@ -17,7 +17,7 @@ void DriveToForwardWallCommand::Initialize()
 void DriveToForwardWallCommand::Execute() 
 {	
 
-	drivesubsystem->drive(0, 0.125, 0);
+	drivesubsystem->drive(0, 0.25, 0);
     
 }
 

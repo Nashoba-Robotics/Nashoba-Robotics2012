@@ -6,35 +6,32 @@
 #include "../Commands/DriveOneWheelCommand.h"
 #include "../Commands/DriveDurationCommand.h"
 #include "../HardwareSettings.h"
-#include "../Debug.h"
 
 
 void DriveSubsystem::InitDefaultCommand()
 {
-#ifndef _DEBUG
 	printf("%s entering", __FUNCTION__);
-#endif
 	SetDefaultCommand( new JoyStickDriveCommand() );
 }
 
-#ifndef _FIELD_CENTRIC
-void DriveSubsystem::driveField (float mag, float dir, float rot )
+
+void DriveSubsystem::driveField (float x, float y, float z )
 {
 	float angle = gyro.GetAngle();
-	myWPIdrive.MecanumDrive_Polar(mag, dir, rot);
+	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), angle );
 }
-#endif
+
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
 	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0);
 }
-/*
-void DriveSubsystem::polarDrive (float mag, float dir, float rot)
+
+/*void DriveSubsystem::polarDrive (float mag, float dir, float rot)
 {
 	myWPIdrive.MecanumDrive_Polar(mag, dir, rot);
-}
-*/
+}*/
+
 void DriveSubsystem::frontLeftJaguarDrive (float speed)
 {
 	frontLeftJaguar.Set (speed);
@@ -77,6 +74,7 @@ void DriveSubsystem::initialize()
 
 void DriveSubsystem::UpdateSmartDashboard()
 {
+	/*
 	float leftFrontEncoderPosition  = frontLeftJaguar.GetPosition();
 	float leftBackEncoderPosition   = backLeftJaguar.GetPosition();
 	float rightFrontEncoderPosition = frontRightJaguar.GetPosition();
@@ -93,7 +91,7 @@ void DriveSubsystem::UpdateSmartDashboard()
 	SmartDashboard::GetInstance()->PutDouble("shooterIRSensor",shooterIRSensor.GetDistance()  );
 	
 	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
-	
+	*/
 }
 
 DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"), 	

@@ -1,9 +1,13 @@
+//#define _DRIVE_TO_TENSION
+#ifdef _DRIVE_TO_TENSION
 #include "DriveToTensionRangeCommand.h"
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../CoprocessorVision.h"
 #include <math.h>
 
+//#define AUTONOMOUS
+#define TELEOP
 
 DriveToTensionRangeCommand::DriveToTensionRangeCommand() : CommandBase("DriveToTensionRangeCommand")
 {
@@ -12,7 +16,7 @@ DriveToTensionRangeCommand::DriveToTensionRangeCommand() : CommandBase("DriveToT
 }
 
 void DriveToTensionRangeCommand::Initialize()
-{
+{	
 	SetTimeout(10);
 #ifndef _DEBUG
 	printf ("DriveToTensionRangeCommand Initialized");
@@ -21,20 +25,23 @@ void DriveToTensionRangeCommand::Initialize()
 }
 
 void DriveToTensionRangeCommand::Execute()
-{	
-	currentTension = shootersubsystem->tensionerPot.GetValue();
-	if (currentTension > 430)
-		drivesubsystem->drive(.3, .5, .3);
-	else
-		drivesubsystem->drive(-.3, -.5, -.3);
+{
+#ifdef TELEOP
+	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
+	if (tensionValue > 430)
+		drivesubsystem->drive(0, .25, 0);
+#endif
+	
+#ifdef AUTONOMOUS
+	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
+	if (tensionValue > 350)
+		drivesubsystem->drive(0, .25, 0);
+#endif
 }
 
 bool DriveToTensionRangeCommand::IsFinished()
 {
 	if (IsTimedOut())
-		return true;
-	float deltaTension = fabs(currentTension - tensionValue);
-	if(deltaTension < 2 && deltaTension > -2)
 		return true;
 	return false;
 }
@@ -53,3 +60,4 @@ void DriveToTensionRangeCommand::Interrupted()
 	printf ("DriveToTensionRangeCommand Interrupted!");
 #endif
 }
+#endif

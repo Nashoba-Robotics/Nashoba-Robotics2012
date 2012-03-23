@@ -17,9 +17,7 @@ JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand
 void JoyStickDriveCommand::Initialize() 
 {
 	ResetPrintCounter();
-#ifndef _DEBUG
 	printf ("DriveForwardAutoCommand Initialized \n");
-#endif
 }
 
 #define X_THRESHOLD (0.1)
@@ -47,10 +45,9 @@ void JoyStickDriveCommand::Execute()
 	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive X", fieldX);	
 	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Y", fieldY);	
 	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Z", fieldZ);	
-#ifndef _DEBUG
+	
 	if( IsTimeToPrint() )
 		printf( "JoyStickDriveCommand::Execute\n");
-#endif
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
 	if (   ( SNAP_TO_VALUE( 0, X_THRESHOLD, driveX)  != 0 )
 		|| ( SNAP_TO_VALUE( 0, Y_THRESHOLD, driveY)  != 0 )
@@ -89,7 +86,5 @@ void JoyStickDriveCommand::End()
 // subsystems is scheduled to run
 void JoyStickDriveCommand::Interrupted() 
 {
-#ifndef _DEBUG
 	printf("JoyStickDriveCommand has been Interrupted");
-#endif
 }

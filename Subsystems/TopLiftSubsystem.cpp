@@ -25,6 +25,7 @@ TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
   topLiftJaguar( TOP_LIFT_JAGUAR_CANID ),
   topLiftBallSensor( BALL_SENSOR_MODULE, TOP_LIFT_BALL_SENSOR_CHANNEL )
 {
+	liftUpCommand = NULL;
 	ResetBallState();
 	ResetTime();	
 }
