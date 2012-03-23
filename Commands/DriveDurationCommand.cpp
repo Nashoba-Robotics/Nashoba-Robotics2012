@@ -14,6 +14,7 @@ DriveDurationCommand::DriveDurationCommand(double duration, double bearingX, dou
 // Called just before this Command runs the first time
 void DriveDurationCommand::Initialize() 
 {
+	
 	SetTimeout(m_duration);			//Sets a timer 
 	
 //	drivesubsystem->Enable();
@@ -30,9 +31,9 @@ void DriveDurationCommand::Execute()
 		printf( "DriveDurationCommand::Execute\n");
 	
 	drivesubsystem->drive (m_bearingY, 
-								m_bearingX, 
-								0
-								);
+						   m_bearingX, 
+						   0
+						   );
 	
 }
 

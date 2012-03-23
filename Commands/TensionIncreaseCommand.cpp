@@ -18,7 +18,6 @@ void TensionIncreaseCommand::Execute()
 	if ( IsTimeToPrint() )
 		 printf ("TensionIncreaseCommand is Executing!\n");
 	shootersubsystem->Tensioner(1.00);
-	printf("The tension is: %d\n", shootersubsystem->tensionerPot.GetValue() );
 }
 
 bool TensionIncreaseCommand::IsFinished()

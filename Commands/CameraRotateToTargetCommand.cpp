@@ -10,9 +10,7 @@ CameraRotateToTargetCommand::CameraRotateToTargetCommand() : CommandBase("Camera
 
 void CameraRotateToTargetCommand::Initialize()
 {
-#ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Initialized");
-#endif
 	ResetPrintCounter();
 }
 
@@ -21,11 +19,10 @@ void CameraRotateToTargetCommand::Execute()
 	float rotate = 0;
 	float magnitude = 0;
 	cameraAngle = SmartDashboard::GetInstance()->GetDouble("Angle");
-	printf ("Getting Angle And Moving!");
 	if (fabs(cameraAngle) > 5)
-		magnitude = .3;
+		magnitude = .6;
 	else
-		magnitude = .2;
+		magnitude = .5;
 	if (cameraAngle > 0)
 		rotate = -(magnitude);
 	else
@@ -51,14 +48,10 @@ void CameraRotateToTargetCommand::End()
 							0,
 							0
 							);
-#ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Finished!");
-#endif
 }
 
 void CameraRotateToTargetCommand::Interrupted()
 {
-#ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Interrupted!");
-#endif
 }

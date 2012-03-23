@@ -13,7 +13,6 @@ private:
 	static OperatorInput *instance;
 	Joystick stickOne;
 	Joystick stickTwo;
-	Joystick stickThree;
 	
 	JoystickButton *stickOneTriggerButton;
 	JoystickButton *stickOnestickOneButtonTwo;
@@ -42,15 +41,6 @@ private:
 	JoystickButton *stickTwoButtonTen;
 	JoystickButton *stickTwoButtonEleven;
 	JoystickButton *stickTwoButtonTwelve;
-	
-	JoystickButton *stickThreeTriggerButton;
-	JoystickButton *stickThreeButtonTwo;
-	JoystickButton *stickThreeButtonSix;
-	JoystickButton *stickThreeButtonSeven;
-	JoystickButton *stickThreeButtonEight;
-	JoystickButton *stickThreeButtonNine;
-	JoystickButton *stickThreeButtonTen;
-	JoystickButton *stickThreeButtonEleven;
 
 	InternalButton *resetCamButton;
 	InternalButton *resetGyroButton;
@@ -66,7 +56,6 @@ private:
 	InternalButton *tensionToGivenValueButton;
 	InternalButton *tensionToBankShotButton;
 	InternalButton *shootWithTensionerAndCameraValuesButton;
-	InternalButton *driveToTensionRangeButton;
 	
 public:
 	static OperatorInput& getInstance();
@@ -81,11 +70,6 @@ public:
 	Joystick& getDriveStickTwo()
 	{
 		return stickTwo;
-	}
-	
-	Joystick& getDriveStickThree()
-	{
-		return stickThree;
 	}
 };
 
