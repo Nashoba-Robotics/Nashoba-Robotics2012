@@ -17,7 +17,7 @@ void DriveToForwardWallCommand::Initialize()
 void DriveToForwardWallCommand::Execute() 
 {	
 
-	drivesubsystem->drive(0, 0.125, 0);
+	drivesubsystem->drive(0, 0.25, 0);
     
 }
 
@@ -25,6 +25,7 @@ void DriveToForwardWallCommand::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveToForwardWallCommand::IsFinished() 
 {
+	printf("right = %f left = %f ", drivesubsystem->rightBackIRSensor.GetDistance(),drivesubsystem->leftBackIRSensor.GetDistance());
 	if (fabs (drivesubsystem->rightBackIRSensor.GetDistance() < 15) && fabs(drivesubsystem->leftBackIRSensor.GetDistance()) < 15 )
 	{
 		return true;

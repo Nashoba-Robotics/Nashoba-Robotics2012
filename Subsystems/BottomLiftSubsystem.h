@@ -20,8 +20,13 @@ class BottomLiftSubsystem: public Subsystem
 {
 private:
 
-	Relay bottomLiftLeftRelay;
-	Relay bottomLiftRightRelay;
+	CANJaguar bottomLiftLeftJaguar; 
+	CANJaguar bottomLiftRightJaguar; 
+	
+	
+//  Spike Relay 3:45 replace with jaguars
+//	Relay bottomLiftLeftRelay;
+//	Relay bottomLiftRightRelay;
     
 	BottomLiftBallState bottomLiftBallState;
     

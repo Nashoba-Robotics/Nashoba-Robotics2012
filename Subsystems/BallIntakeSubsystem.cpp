@@ -75,6 +75,7 @@ void BallIntakeSubsystem::IntakeOut()
 
 void BallIntakeSubsystem::UpdateSmartDashboard()
 {
+#ifdef USE_SMART_DASHBOARD
 //	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
 //	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
 
@@ -83,7 +84,8 @@ void BallIntakeSubsystem::UpdateSmartDashboard()
 //	SmartDashboard::GetInstance()->PutInt("IntakeBallSensorI", intakeBallSensor.GetValue() );
 
 	SmartDashboard::GetInstance()->PutString ( "BallIntakeBallState",  bis_state_name[ballIntakeBallState] );	
-
+#endif
+	
 }
 
 void BallIntakeSubsystem::UpdateBallStateMachine()

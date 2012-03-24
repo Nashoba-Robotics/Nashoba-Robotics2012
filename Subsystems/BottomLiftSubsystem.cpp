@@ -20,8 +20,12 @@ char *bls_state_name[] =
 };
 
 BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
-  bottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
-  bottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
+  
+  bottomLiftLeftJaguar( BOTTOM_LIFT_LEFT_JAGUAR_CANID ),
+  bottomLiftRightJaguar( BOTTOM_LIFT_RIGHT_JAGUAR_CANID ),
+		
+//bottomLiftLeftRelay( BOTTOM_LIFT_LEFT_SPIKE_RELAY_CHANNEL ),
+//bottomLiftRightRelay( BOTTOM_LIFT_RIGHT_SPIKE_RELAY_CHANNEL ),
   baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  ),
   middleBallSensor( BALL_SENSOR_MODULE, BOT_LIFT_MIDDLE_BALL_SENSOR_CHANNEL)
 {
@@ -44,23 +48,30 @@ void BottomLiftSubsystem::InitDefaultCommand()
 
 void BottomLiftSubsystem::LiftBallUp()
 {
-	bottomLiftLeftRelay.Set( Relay::kForward );
-	bottomLiftRightRelay.Set( Relay::kForward );
+	bottomLiftLeftJaguar.Set( 1.0 );
+	bottomLiftRightJaguar.Set( 1.0 );
+	//bottomLiftLeftRelay.Set( Relay::kForward );
+	//bottomLiftRightRelay.Set( Relay::kForward );
 }
 
 void BottomLiftSubsystem::LiftBallDown()
 {
-	bottomLiftLeftRelay.Set( Relay::kReverse );
-	bottomLiftRightRelay.Set( Relay::kReverse );
+	bottomLiftLeftJaguar.Set( -1.0 );
+	bottomLiftRightJaguar.Set( -1.0 );
+	//bottomLiftLeftRelay.Set( Relay::kReverse );
+	//bottomLiftRightRelay.Set( Relay::kReverse );
 }
 
 void BottomLiftSubsystem::LiftIdle()
 {
-	bottomLiftLeftRelay.Set( Relay::kOff );
-	bottomLiftRightRelay.Set( Relay::kOff );
+	bottomLiftLeftJaguar.Set( 0 );
+	bottomLiftRightJaguar.Set( 0 );
+	//bottomLiftLeftRelay.Set( Relay::kOff );
+	//bottomLiftRightRelay.Set( Relay::kOff );
 }
 void BottomLiftSubsystem::UpdateSmartDashboard()
 {
+#ifdef USE_SMART_DASHBOARD
 	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
 	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
 //	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
@@ -70,7 +81,7 @@ void BottomLiftSubsystem::UpdateSmartDashboard()
 //	SmartDashboard::GetInstance()->PutInt("MiddleBallSensorI", middleBallSensor.GetValue() );
 
 	SmartDashboard::GetInstance()->PutString ( "BottomLiftBallState",  bls_state_name[bottomLiftBallState] );	
-
+#endif
 }
 
 BottomLiftBallState BottomLiftSubsystem::GetBottomLiftBallState()
