@@ -1,18 +1,20 @@
-#ifndef TENSION_INCREASE_COMMAND_H
-#define TENSION_INCREASE_COMMAND_H
+#ifndef CANCEL_ALL_COMMAND_H
+#define CANCEL_ALL_COMMAND_H
 
 #include "../CommandBase.h"
-#include "../Subsystems/ShooterSubsystem.h"
 
-class TensionIncreaseCommand : public CommandBase
-{
+
+class CancelAllCommand: public CommandBase {
 private:
+	
+
 public:
-	TensionIncreaseCommand();
+	CancelAllCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 };
+
 #endif

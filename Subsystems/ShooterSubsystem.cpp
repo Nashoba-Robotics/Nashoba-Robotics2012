@@ -114,6 +114,7 @@ void ShooterSubsystem::Tensioner( float speed )
 
 void ShooterSubsystem::UpdateSmartDashboard()
 {
+#ifdef USE_SMART_DASHBOARD
 	SmartDashboard::GetInstance()->PutBoolean("ShooterBallSensor",  shooterBallSensor.IsBallThere() );	
 	SmartDashboard::GetInstance()->PutDouble ("ShooterBallSensorV", shooterBallSensor.GetVoltage() );	
 	SmartDashboard::GetInstance()->PutDouble ("TensionerPotDial",  tensionerPot.GetValue() );	
@@ -132,6 +133,8 @@ void ShooterSubsystem::UpdateSmartDashboard()
 	
 	currentPoint = GetCamAngle();
 	SmartDashboard::GetInstance()->PutDouble("Cam Value SH", currentPoint);	
+#endif
+	
 }
 
 ShooterBallState ShooterSubsystem::GetShooterBallState()

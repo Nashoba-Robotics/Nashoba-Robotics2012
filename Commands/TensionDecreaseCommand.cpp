@@ -10,6 +10,7 @@ TensionDecreaseCommand::TensionDecreaseCommand() : CommandBase("TensionDecreaseC
 void TensionDecreaseCommand::Initialize()
 {
 	printf ("TensionDecreaseCommand Initialized\n");
+	printf("The tension is: %d\n", shootersubsystem->tensionerPot.GetValue() );
 	ResetPrintCounter();
 }
 
@@ -18,7 +19,7 @@ void TensionDecreaseCommand::Execute()
 	if ( IsTimeToPrint() )
 		 printf ("TensionDecreaseCommand is Executing!\n");
 	shootersubsystem->Tensioner(-1.00);
-	
+	printf("The tension is: %d\n", shootersubsystem->tensionerPot.GetValue() );
 }
 
 bool TensionDecreaseCommand::IsFinished()

@@ -14,9 +14,8 @@ DriveDurationCommand::DriveDurationCommand(double duration, double bearingX, dou
 // Called just before this Command runs the first time
 void DriveDurationCommand::Initialize() 
 {
-	
 	SetTimeout(m_duration);			//Sets a timer 
-	
+	drivesubsystem->gyro.Reset();
 //	drivesubsystem->Enable();
 	printf("%s Driving Forward at 1/5 speed for %f seconds\n", __FUNCTION__, m_duration );
 	
@@ -30,10 +29,10 @@ void DriveDurationCommand::Execute()
 	if( IsTimeToPrint() )
 		printf( "DriveDurationCommand::Execute\n");
 	
-	drivesubsystem->drive (m_bearingY, 
-						   m_bearingX, 
-						   0
-						   );
+	drivesubsystem->driveField (m_bearingY, 
+								m_bearingX, 
+								0
+								);
 	
 }
 

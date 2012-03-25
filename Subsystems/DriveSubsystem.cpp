@@ -74,6 +74,7 @@ void DriveSubsystem::initialize()
 
 void DriveSubsystem::UpdateSmartDashboard()
 {
+#ifdef USE_SMART_DASHBOARD
 	float leftFrontEncoderPosition  = frontLeftJaguar.GetPosition();
 	float leftBackEncoderPosition   = backLeftJaguar.GetPosition();
 	float rightFrontEncoderPosition = frontRightJaguar.GetPosition();
@@ -90,6 +91,7 @@ void DriveSubsystem::UpdateSmartDashboard()
 	SmartDashboard::GetInstance()->PutDouble("shooterIRSensor",shooterIRSensor.GetDistance()  );
 	
 	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
+#endif
 	
 }
 

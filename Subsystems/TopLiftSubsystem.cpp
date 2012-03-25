@@ -25,6 +25,7 @@ TopLiftSubsystem::TopLiftSubsystem(): Subsystem("TopLiftSubsystem"),
   topLiftJaguar( TOP_LIFT_JAGUAR_CANID ),
   topLiftBallSensor( BALL_SENSOR_MODULE, TOP_LIFT_BALL_SENSOR_CHANNEL )
 {
+	liftUpCommand = NULL;
 	ResetBallState();
 	ResetTime();	
 }
@@ -62,11 +63,13 @@ TopLiftBallState TopLiftSubsystem::GetTopLiftBallState()
 }
 void TopLiftSubsystem::UpdateSmartDashboard()
 {
+#ifdef USE_SMART_DASHBOARD
 	SmartDashboard::GetInstance()->PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
 	SmartDashboard::GetInstance()->PutDouble("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
  //	SmartDashboard::GetInstance()->PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );
     // send state name out to dashboard.
 	SmartDashboard::GetInstance()->PutString ( "TopLiftBallState",  tls_state_name[topLiftBallState] );	
+#endif
 }
 
 

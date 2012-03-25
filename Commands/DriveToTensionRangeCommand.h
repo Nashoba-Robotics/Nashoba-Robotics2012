@@ -1,14 +1,14 @@
-#ifndef TENSION_INCREASE_COMMAND_H
-#define TENSION_INCREASE_COMMAND_H
+#define DRIVE_TO_TENSION_RANGE_COMMAND_H
+#ifndef DRIVE_TO_TENSION_RANGE_COMMAND_H
 
 #include "../CommandBase.h"
-#include "../Subsystems/ShooterSubsystem.h"
 
-class TensionIncreaseCommand : public CommandBase
+class DriveToTensionRangeCommand : public CommandBase
 {
 private:
+	float tensionValue;
 public:
-	TensionIncreaseCommand();
+	DriveToTensionRangeCommand();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
