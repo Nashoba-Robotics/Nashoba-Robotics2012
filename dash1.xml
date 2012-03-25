@@ -221,6 +221,6 @@
 	<hidden field="Cam Value"/>
 	<hidden field="ShooterSubsystem"/>
 	<hidden field="BottomLiftSubsystem"/>
-	<hidden field="Cam Encoder"/>
 	<hidden field="IntakeBallSensorI"/>
+	<hidden field="Cam Encoder"/>
 </dashboard>

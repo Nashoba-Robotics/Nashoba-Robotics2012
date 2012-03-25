@@ -5,42 +5,23 @@
 #include "DriveIntoSideWallCommand.h"
 #include "DriveIntoFrontWallCommand.h"
 #include "DriveIntoCornerContinuousCommand.h"
-#include "OurWaitCommand.h"
 #include "ShooterTakeShotCommand.h"
-#include "ShooterReadyShotCommand.h"
-#include "TopIdleDurationCommand.h"
-#include "TopReceiveDurationCommand.h"
-#include "DisableBallStatesCommand.h"
-#include "ResetBallStatesCommand.h"
+
+//#define AUTONOMOUS_WITH_OUT_SET_CAM
 
 
 AutonomousCommand::AutonomousCommand() : CommandGroup("AutonomousCommand")
-{
-	//AddSequential( new DriveDurationCommand(2, 0, -0.5) );
-	
+{	
 	AddSequential( new DriveDurationCommand(4, 0.5, 0) );
 	AddSequential( new DriveDurationCommand(2, 0, 0.5) );
-	AddSequential( new DriveDurationCommand(1, 0.5, 0.5) );
-	AddSequential( new WaitCommand (1) );
+	AddParallel( new ShooterTakeShotCommand() );
+	AddParallel( new DriveDurationCommand(1, 0.5, 0.5) );
+#ifdef AUTONOMOUS_WITH_OUT_SET_CAM
+	AddSequential (new WaitCommand ( 1.0 ) );
+	AddParallel( new ShooterTakeShotCommand() );
+#endif
+	AddSequential( new WaitCommand (2) );
 	AddSequential( new ShooterTakeShotCommand() );
 	AddSequential( new WaitCommand (2.5) );
 	AddSequential( new ShooterTakeShotCommand() );
-	
-	/*AddSequential( new DriveToForwardWallCommand() );
-	AddSequential( new DriveIntoSideWallCommand()  );
-	AddSequential( new DriveIntoFrontWallCommand() );
-	AddSequential( new DriveIntoCornerContinuousCommand() );*/
-	
-//	AddSequential( new DisableBallStatesCommand()    );
-//	AddSequential( new ShooterReadyShotCommand()     );
-//	AddSequential( new ShooterTakeShotCommand()      );
-//	AddSequential( new ResetBallStatesCommand()      );
-//	AddSequential( new WaitCommand (2) );
-//	AddSequential( new ShooterReadyShotCommand()     );
-//	AddSequential( new ShooterTakeShotCommand()      );
-
-	
-/*	AddSequential( new TopReceiveDurationCommand() );
-	AddSequential( new ShooterTakeShotCommand() );
-	AddSequential( new ShooterReadyShotCommand() );*/
 }
