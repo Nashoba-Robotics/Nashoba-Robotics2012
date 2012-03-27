@@ -1,5 +1,6 @@
 #ifndef OPERATORINPUT_H
 #define OPERATORINPUT_H
+//#define USE_SMART_DASHBOARD
 
 #include "WPILib.h"
 
@@ -51,7 +52,7 @@ private:
 	JoystickButton *stickThreeButtonNine;
 	JoystickButton *stickThreeButtonTen;
 	JoystickButton *stickThreeButtonEleven;
-
+#ifdef USE_SMART_DASHBOARD
 	InternalButton *resetCamButton;
 	InternalButton *resetGyroButton;
 	InternalButton *resetBallStatesButton;
@@ -67,7 +68,7 @@ private:
 	InternalButton *tensionToBankShotButton;
 	InternalButton *shootWithTensionerAndCameraValuesButton;
 	InternalButton *driveToTensionRangeButton;
-	
+#endif	
 public:
 	static OperatorInput& getInstance();
 

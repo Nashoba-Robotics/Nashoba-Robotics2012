@@ -42,6 +42,7 @@
 #include "Commands/CancelAllCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
+//#define USE_SMART_DASHBOARD
 
 OperatorInput *OperatorInput::instance = NULL;
 
@@ -112,10 +113,7 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 
 	stickTwoButtonTen = new JoystickButton( &stickTwo, 10 );
 	stickTwoButtonTen->WhileHeld( new TensionDecreaseCommand() );
-	
-//	stickTwoButtonEleven = new JoystickButton( &stickTwo, 11 );
-//	stickTwoButtonEleven->WhileHeld( new TensionIncreaseCommand() );
-	
+
 	stickThreeTriggerButton = new JoystickButton (&stickThree, 1 );
 	stickThreeTriggerButton->WhenPressed( new CancelAllCommand() );
 	
@@ -140,8 +138,9 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickThreeButtonEleven = new JoystickButton( &stickThree, 11 );
 	stickThreeButtonEleven->WhenPressed( new AllRejectCommand() );
 
+
+
 #ifndef USE_SMART_DASHBOARD
-	
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
     SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
