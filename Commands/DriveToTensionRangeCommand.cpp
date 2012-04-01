@@ -1,4 +1,4 @@
-//#define _DRIVE_TO_TENSION
+#define _DRIVE_TO_TENSION
 #ifdef _DRIVE_TO_TENSION
 #include "DriveToTensionRangeCommand.h"
 #include "../Debug.h"
