@@ -4,7 +4,7 @@
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../CoprocessorVision.h"
-#include <math.h>
+#include <cmath>
 
 //#define AUTONOMOUS
 #define TELEOP

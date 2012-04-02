@@ -140,7 +140,7 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 
 
 
-#ifndef USE_SMART_DASHBOARD
+#ifdef USE_SMART_DASHBOARD
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
     SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
