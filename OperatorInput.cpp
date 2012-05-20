@@ -42,7 +42,7 @@
 #include "Commands/CancelAllCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
-//#define USE_SMART_DASHBOARD
+#define USE_SMART_DASHBOARD 1
 
 OperatorInput *OperatorInput::instance = NULL;
 

@@ -6,13 +6,12 @@
 #include "CameraRotateToTargetCommand.h"
 #include "TensionToBankShotCommand.h"
 #include "DriveToTensionRangeCommand.h"
+#include "CancelAllCommand.h"
 
 
 ShootWithTensionerAndCameraValuesCommand::ShootWithTensionerAndCameraValuesCommand() : CommandGroup("ShootWithTensionerAndCameraValuesCommand")
 {
-	//AddSequential( new DriveToTensionRangeCommand() );
-	AddSequential( new CameraRotateToTargetCommand() );
-	AddSequential( new CameraRotateToTargetCommand() );
+	AddSequential( new DriveToTensionRangeCommand() );
 	AddSequential( new CameraRotateToTargetCommand() );
 	AddSequential( new DisableBallStatesCommand() );
 	AddSequential( new ResetBallStatesCommand() );
@@ -20,4 +19,5 @@ ShootWithTensionerAndCameraValuesCommand::ShootWithTensionerAndCameraValuesComma
 	AddSequential( new CameraRotateToTargetCommand() );
 	AddSequential( new WaitCommand(2) );
 	AddSequential( new ShooterTakeShotCommand() );
+	AddSequential(new CancelAllCommand() );
 }

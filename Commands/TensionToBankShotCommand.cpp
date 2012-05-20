@@ -16,7 +16,7 @@ void TensionToBankShotCommand::Initialize()
 {
 	SetTimeout(6);
 	printf ("TensionToBankShotCommand Initialized");
-	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension") + 40;
+	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension") + 30;
 	ResetPrintCounter();
 }
 

@@ -1,6 +1,6 @@
 #ifndef OPERATORINPUT_H
 #define OPERATORINPUT_H
-//#define USE_SMART_DASHBOARD
+#define USE_SMART_DASHBOARD 1
 
 #include "WPILib.h"
 

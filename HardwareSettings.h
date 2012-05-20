@@ -54,5 +54,4 @@
 #define INCLUDE_BALL_CONTROL 1
 
 
-#define USE_SMART_DASHBOARD
 #endif
