@@ -55,7 +55,7 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickOneButtonTwo->WhenPressed( new IntakeReceiveContinuousCommand());
 	
 	stickOneButtonThree = new JoystickButton( &stickOne, 3 );
-	stickOneButtonThree->WhenPressed( new IntakeIdleCommand() );
+	stickOneButtonThree->WhenPressed( new ResetBallStatesCommand() );
 	
 	stickOneButtonFour = new JoystickButton( &stickOne, 4 );
 	stickOneButtonFour->WhenPressed( new IntakeRejectContinuousCommand() );
@@ -124,10 +124,10 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickThreeButtonSix->WhenPressed( new CameraRotateToTargetCommand() );
 	
 	stickThreeButtonSeven = new JoystickButton( &stickThree, 7);
-	stickThreeButtonSeven->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
+	stickThreeButtonSeven->WhileHeld( new IntakeIdleCommand() );
 	
 	stickThreeButtonEight = new JoystickButton( &stickThree, 8 );
-	stickThreeButtonEight->WhenPressed( new TensionToGivenValueCommand() );
+	stickThreeButtonEight->WhenPressed( new TopLiftReceiveContinuousCommand() );
 	
 	stickThreeButtonNine = new JoystickButton( &stickThree, 9 );
 	stickThreeButtonNine->WhenPressed( new TensionToBankShotCommand() );
