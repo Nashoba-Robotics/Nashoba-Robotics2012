@@ -8,3 +8,7 @@ PPC603gnu/
 .csettings/
 .cproject
 .project
+
+# CMake stuff for testing the vxWorks GCC toolchain on Linux
+
+CMakeLists.txt
