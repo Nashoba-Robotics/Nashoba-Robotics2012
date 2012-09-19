@@ -1,5 +1,5 @@
 #define DRIVE_TO_TENSION_RANGE_COMMAND_H
-#ifndef DRIVE_TO_TENSION_RANGE_COMMAND_H
+#ifdef DRIVE_TO_TENSION_RANGE_COMMAND_H
 
 #include "../CommandBase.h"
 

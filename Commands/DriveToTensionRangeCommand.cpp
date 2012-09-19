@@ -1,10 +1,10 @@
-//#define _DRIVE_TO_TENSION
+#define _DRIVE_TO_TENSION
 #ifdef _DRIVE_TO_TENSION
 #include "DriveToTensionRangeCommand.h"
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
 #include "../CoprocessorVision.h"
-#include <math.h>
+#include <cmath>
 
 //#define AUTONOMOUS
 #define TELEOP
@@ -29,7 +29,7 @@ void DriveToTensionRangeCommand::Execute()
 #ifdef TELEOP
 	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
 	if (tensionValue > 430)
-		drivesubsystem->drive(0, .25, 0);
+		drivesubsystem->drive(0, .3, 0);
 #endif
 	
 #ifdef AUTONOMOUS

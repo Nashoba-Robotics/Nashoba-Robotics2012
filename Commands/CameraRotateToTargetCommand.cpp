@@ -10,6 +10,7 @@ CameraRotateToTargetCommand::CameraRotateToTargetCommand() : CommandBase("Camera
 
 void CameraRotateToTargetCommand::Initialize()
 {
+	SetTimeout(5);
 #ifndef _DEBUG
 	printf ("CameraRotateToTargetCommand Initialized");
 #endif

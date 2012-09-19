@@ -1,7 +1,16 @@
 <?xml version="1.0"?>
 <dashboard>
-	<widget field="Tension" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="482" y="378"/>
+	<widget field="Distance" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="131"/>
+	</widget>
+	<widget field="Tension" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="474" y="218"/>
+	</widget>
+	<widget field="BaseBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="232" y="106"/>
+	</widget>
+	<widget field="ShooterBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="233" y="18"/>
 	</widget>
 	<widget field="ShootWithTensionerAndCameraValuesCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
 		<location x="350" y="347"/>
@@ -15,22 +24,19 @@
 		<height>16</height>
 	</widget>
 	<widget field="TensionBankShotCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
-		<location x="716" y="339"/>
-	</widget>
-	<widget field="Distance" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
-		<location x="1015" y="330"/>
+		<location x="439" y="283"/>
 	</widget>
 	<widget field="TensionToGivenValueCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
-		<location x="708" y="376"/>
+		<location x="461" y="175"/>
 	</widget>
 	<widget field="Subsystem" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
-		<location x="1008" y="292"/>
+		<location x="992" y="248"/>
 	</widget>
 	<widget field="Cam Encoder SH" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
 		<location x="553" y="85"/>
 	</widget>
 	<widget field="Angle" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
-		<location x="1027" y="369"/>
+		<location x="488" y="251"/>
 	</widget>
 	<widget field="Cam Value SH" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
 		<location x="557" y="119"/>
@@ -52,13 +58,13 @@
 		<location x="971" y="99"/>
 	</widget>
 	<widget field="PUKE" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
-		<location x="728" y="190"/>
+		<location x="1087" y="360"/>
 	</widget>
 	<widget field="DisableBallStates" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
-		<location x="700" y="223"/>
+		<location x="1046" y="325"/>
 	</widget>
 	<widget field="ResetBallStates" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
-		<location x="703" y="256"/>
+		<location x="1052" y="291"/>
 	</widget>
 	<widget field="BallIntakeBallState" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="1" y="102"/>
@@ -98,7 +104,7 @@
 		<location x="344" y="235"/>
 	</widget>
 	<widget field="TensionerPot" type="Integer" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="745" y="306"/>
+		<location x="685" y="175"/>
 		<width>110</width>
 		<height>32</height>
 	</widget>
@@ -141,24 +147,10 @@
 		<property name="Color to show when true" value="255.102.0.255"/>
 		<property name="Color to show when false" value="0.0.0.255"/>
 	</widget>
-	<widget field="ShooterBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
-		<location x="233" y="18"/>
-		<width>127</width>
-		<height>22</height>
-		<property name="Color to show when true" value="255.0.0.255"/>
-		<property name="Color to show when false" value="0.0.0.255"/>
-	</widget>
 	<widget field="TopLiftBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
 		<location x="233" y="48"/>
 		<width>121</width>
 		<height>22</height>
-		<property name="Color to show when true" value="255.102.0.255"/>
-		<property name="Color to show when false" value="0.0.0.255"/>
-	</widget>
-	<widget field="BaseBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
-		<location x="232" y="106"/>
-		<width>113</width>
-		<height>21</height>
 		<property name="Color to show when true" value="255.102.0.255"/>
 		<property name="Color to show when false" value="0.0.0.255"/>
 	</widget>

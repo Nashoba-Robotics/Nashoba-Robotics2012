@@ -42,6 +42,7 @@
 #include "Commands/CancelAllCommand.h"
 #include "WPIlib.h"
 #include "CommandBasedRobot.h"
+#define USE_SMART_DASHBOARD 1
 
 OperatorInput *OperatorInput::instance = NULL;
 
@@ -54,7 +55,7 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickOneButtonTwo->WhenPressed( new IntakeReceiveContinuousCommand());
 	
 	stickOneButtonThree = new JoystickButton( &stickOne, 3 );
-	stickOneButtonThree->WhenPressed( new IntakeIdleCommand() );
+	stickOneButtonThree->WhenPressed( new ResetBallStatesCommand() );
 	
 	stickOneButtonFour = new JoystickButton( &stickOne, 4 );
 	stickOneButtonFour->WhenPressed( new IntakeRejectContinuousCommand() );
@@ -112,10 +113,7 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 
 	stickTwoButtonTen = new JoystickButton( &stickTwo, 10 );
 	stickTwoButtonTen->WhileHeld( new TensionDecreaseCommand() );
-	
-//	stickTwoButtonEleven = new JoystickButton( &stickTwo, 11 );
-//	stickTwoButtonEleven->WhileHeld( new TensionIncreaseCommand() );
-	
+
 	stickThreeTriggerButton = new JoystickButton (&stickThree, 1 );
 	stickThreeTriggerButton->WhenPressed( new CancelAllCommand() );
 	
@@ -126,10 +124,10 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickThreeButtonSix->WhenPressed( new CameraRotateToTargetCommand() );
 	
 	stickThreeButtonSeven = new JoystickButton( &stickThree, 7);
-	stickThreeButtonSeven->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
+	stickThreeButtonSeven->WhileHeld( new IntakeIdleCommand() );
 	
 	stickThreeButtonEight = new JoystickButton( &stickThree, 8 );
-	stickThreeButtonEight->WhenPressed( new TensionToGivenValueCommand() );
+	stickThreeButtonEight->WhenPressed( new TopLiftReceiveContinuousCommand() );
 	
 	stickThreeButtonNine = new JoystickButton( &stickThree, 9 );
 	stickThreeButtonNine->WhenPressed( new TensionToBankShotCommand() );
@@ -140,8 +138,9 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickThreeButtonEleven = new JoystickButton( &stickThree, 11 );
 	stickThreeButtonEleven->WhenPressed( new AllRejectCommand() );
 
-#ifndef USE_SMART_DASHBOARD
-	
+
+
+#ifdef USE_SMART_DASHBOARD
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
     SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
