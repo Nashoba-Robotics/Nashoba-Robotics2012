@@ -2,7 +2,7 @@
 #define BALL_INTAKE_SUBSYSTEM_H
 #include "WPILib.h"
 #include "../BallSensor.h"
-
+   
 class IntakeIdleCommand;
 class IntakeReceiveContinuousCommand;
 class IntakeRejectContinuousCommand;

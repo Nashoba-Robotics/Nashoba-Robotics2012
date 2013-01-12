@@ -121,7 +121,9 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickThreeButtonTwo->WhenPressed( new AutonomousCommand() );
 	
 	stickThreeButtonSix = new JoystickButton( &stickThree, 6 );
-	stickThreeButtonSix->WhenPressed( new CameraRotateToTargetCommand() );
+	CameraRotateToTargetCommand * tmp = new CameraRotateToTargetCommand();
+	stickThreeButtonSix->WhenPressed( tmp ); 
+//	SmartDashboard::PutData("PID_TMP", tmp );
 	
 	stickThreeButtonSeven = new JoystickButton( &stickThree, 7);
 	stickThreeButtonSeven->WhileHeld( new IntakeIdleCommand() );
@@ -143,63 +145,65 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 #ifdef USE_SMART_DASHBOARD
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "ResetCam", resetCamButton );
+    //SmartDashboard::PutData( "ResetCam", resetCamButton );
     
     resetGyroButton = new InternalButton();
     resetGyroButton->WhenPressed( new ResetGyroCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "ResetGyro", resetGyroButton );
+    SmartDashboard::PutData( "ResetGyro", resetGyroButton );
 
     resetBallStatesButton = new InternalButton();
     resetBallStatesButton->WhenPressed( new ResetBallStatesCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "ResetBallStates", resetBallStatesButton );
+    SmartDashboard::PutData( "ResetBallStates", resetBallStatesButton );
     
     disableBallStatesButton = new InternalButton();
     disableBallStatesButton->WhenPressed( new DisableBallStatesCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "DisableBallStates", disableBallStatesButton );
+    SmartDashboard::PutData( "DisableBallStates", disableBallStatesButton );
  
     pukeBallsButton = new InternalButton();
     pukeBallsButton->WhenPressed( new AllRejectCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "PUKE", pukeBallsButton );
+    SmartDashboard::PutData( "PUKE", pukeBallsButton );
     
     driveToForwardWallButton = new InternalButton();
     driveToForwardWallButton->WhenPressed( new DriveToForwardWallCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "DriveToFowardWall", driveToForwardWallButton );
+    SmartDashboard::PutData( "DriveToFowardWall", driveToForwardWallButton );
     
     driveIntoSideWallButton = new InternalButton();
     driveIntoSideWallButton->WhenPressed( new DriveIntoSideWallCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "DriveIntoSideWall", driveIntoSideWallButton );
+    SmartDashboard::PutData( "DriveIntoSideWall", driveIntoSideWallButton );
     
     driveIntoFrontWallButton = new InternalButton();
     driveIntoFrontWallButton->WhenPressed( new DriveIntoFrontWallCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "DriveIntoFrontWall", driveIntoFrontWallButton );
+    SmartDashboard::PutData( "DriveIntoFrontWall", driveIntoFrontWallButton );
     
     driveIntoCornerContinuousButton = new InternalButton();
     driveIntoCornerContinuousButton->WhenPressed( new DriveIntoCornerContinuousCommand( ) );
-    SmartDashboard::GetInstance()->PutData( "DriveIntoCornerContinuous", driveIntoCornerContinuousButton );
+    SmartDashboard::PutData( "DriveIntoCornerContinuous", driveIntoCornerContinuousButton );
    
     autonomousButton = new InternalButton();
     autonomousButton->WhenPressed( new AutonomousCommand() );
-    SmartDashboard::GetInstance()->PutData( "AutonomousCommand", autonomousButton );
+    SmartDashboard::PutData( "AutonomousCommand", autonomousButton );
     
+    /*
     cameraRotateToTargetButton = new InternalButton();
     cameraRotateToTargetButton->WhenPressed( new CameraRotateToTargetCommand() );
-    SmartDashboard::GetInstance()->PutData( "CameraRotateToTargetCommand", cameraRotateToTargetButton );
+    SmartDashboard::PutData( "CameraRotateToTargetCommand", cameraRotateToTargetButton );
+	*/
 
     tensionToGivenValueButton = new InternalButton();
     tensionToGivenValueButton->WhenPressed( new TensionToGivenValueCommand() );
-    SmartDashboard::GetInstance()->PutData( "TensionToGivenValueCommand", tensionToGivenValueButton );
+    SmartDashboard::PutData( "TensionToGivenValueCommand", tensionToGivenValueButton );
     
     tensionToBankShotButton = new InternalButton();
     tensionToBankShotButton->WhenPressed( new TensionToBankShotCommand() );
-    SmartDashboard::GetInstance()->PutData( "TensionBankShotCommand", tensionToBankShotButton );
+    SmartDashboard::PutData( "TensionBankShotCommand", tensionToBankShotButton );
     
     shootWithTensionerAndCameraValuesButton = new InternalButton();
     shootWithTensionerAndCameraValuesButton->WhenPressed( new ShootWithTensionerAndCameraValuesCommand() );
-    SmartDashboard::GetInstance()->PutData( "ShootWithTensionerAndCameraValuesCommand", shootWithTensionerAndCameraValuesButton );
+    SmartDashboard::PutData( "ShootWithTensionerAndCameraValuesCommand", shootWithTensionerAndCameraValuesButton );
 
 //    driveToTensionRangeButton = new InternalButton();
 //    driveToTensionRangeButton->WhenPressed( new DriveToTensionRangeCommand() );
-//    SmartDashboard::GetInstance()->PutData( "DriveToTensionRangeCommand", driveToTensionRangeButton );
+//    SmartDashboard::PutData( "DriveToTensionRangeCommand", driveToTensionRangeButton );
 #endif
     
 }

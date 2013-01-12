@@ -76,14 +76,14 @@ void BallIntakeSubsystem::IntakeOut()
 void BallIntakeSubsystem::UpdateSmartDashboard()
 {
 #ifdef USE_SMART_DASHBOARD
-//	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
-//	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
+//	SmartDashboard::PutNumber("BaseBallSensorV", baseBallSensor.GetVoltage() );	
+//	SmartDashboard::PutNumber((double)"BaseBallSensorI", baseBallSensor.GetValue() );	
 
-	SmartDashboard::GetInstance()->PutBoolean("IntakeBallSensor", intakeBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("IntakeBallSensorV", intakeBallSensor.GetVoltage() );
-//	SmartDashboard::GetInstance()->PutInt("IntakeBallSensorI", intakeBallSensor.GetValue() );
+	SmartDashboard::PutBoolean("IntakeBallSensor", intakeBallSensor.IsBallThere() );	
+	SmartDashboard::PutNumber("IntakeBallSensorV", intakeBallSensor.GetVoltage() );
+//	SmartDashboard::PutNumber((double)"IntakeBallSensorI", intakeBallSensor.GetValue() );
 
-	SmartDashboard::GetInstance()->PutString ( "BallIntakeBallState",  bis_state_name[ballIntakeBallState] );	
+	SmartDashboard::PutString ( "BallIntakeBallState",  bis_state_name[ballIntakeBallState] );	
 #endif
 	
 }
