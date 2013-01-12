@@ -64,11 +64,11 @@ TopLiftBallState TopLiftSubsystem::GetTopLiftBallState()
 void TopLiftSubsystem::UpdateSmartDashboard()
 {
 #ifdef USE_SMART_DASHBOARD
-	SmartDashboard::GetInstance()->PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
- //	SmartDashboard::GetInstance()->PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );
+	SmartDashboard::PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
+	SmartDashboard::PutNumber("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
+ //	SmartDashboard::PutNumber((double)"TopLiftBallSensorI", topLiftBallSensor.GetValue() );
     // send state name out to dashboard.
-	SmartDashboard::GetInstance()->PutString ( "TopLiftBallState",  tls_state_name[topLiftBallState] );	
+	SmartDashboard::PutString ( "TopLiftBallState",  tls_state_name[topLiftBallState] );	
 #endif
 }
 

@@ -38,13 +38,13 @@ void JoyStickDriveCommand::Execute()
 	float fieldY = fieldStick.GetY();
 	float fieldZ = 0; // fieldStick.GetZ();
 	
-	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive X", driveX);	
-	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Y", driveY);	
-	SmartDashboard::GetInstance()->PutDouble("RoboCentric Drive Z", driveZ);	
+	SmartDashboard::PutNumber("RoboCentric Drive X", driveX);	
+	SmartDashboard::PutNumber("RoboCentric Drive Y", driveY);	
+	SmartDashboard::PutNumber("RoboCentric Drive Z", driveZ);	
 
-	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive X", fieldX);	
-	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Y", fieldY);	
-	SmartDashboard::GetInstance()->PutDouble("FieldCentric Drive Z", fieldZ);	
+	SmartDashboard::PutNumber("FieldCentric Drive X", fieldX);	
+	SmartDashboard::PutNumber("FieldCentric Drive Y", fieldY);	
+	SmartDashboard::PutNumber("FieldCentric Drive Z", fieldZ);	
 	
 	if( IsTimeToPrint() )
 		printf( "JoyStickDriveCommand::Execute\n");

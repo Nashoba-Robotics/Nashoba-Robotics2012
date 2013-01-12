@@ -29,7 +29,9 @@ public:
 	CommandBase(const char *name);
 	CommandBase();
 	static void init();
+	
 	// Create a single static instance of all of your subsystems
+	
 	static DriveSubsystem *drivesubsystem;
 	static ShooterSubsystem *shootersubsystem;
 	static BallIntakeSubsystem *ballintakesubsystem;
