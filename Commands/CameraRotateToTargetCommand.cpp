@@ -1,17 +1,18 @@
 #include "CameraRotateToTargetCommand.h"
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
-#include <math.h>
+#include <cmath>
 
-CameraRotateToTargetCommand::CameraRotateToTargetCommand() : CommandBase("CameraRotateToTargetCommand")
+CameraRotateToTargetCommand::CameraRotateToTargetCommand() :
+CommandBase("CameraRotateToTargetCommand")
 {
-	Requires( drivesubsystem );
+	Requires( CommandBase::drivesubsystem );
 }
 
 void CameraRotateToTargetCommand::Initialize()
 {
 	SetTimeout(5);
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Initialized");
 #endif
 	ResetPrintCounter();
@@ -21,7 +22,7 @@ void CameraRotateToTargetCommand::Execute()
 {	
 	float rotate = 0;
 	float magnitude = 0;
-	cameraAngle = SmartDashboard::GetInstance()->GetDouble("Angle");
+	cameraAngle = SmartDashboard::GetNumber("Angle");
 	printf ("Getting Angle And Moving!");
 	if (fabs(cameraAngle) > 5)
 		magnitude = .3;
@@ -31,7 +32,7 @@ void CameraRotateToTargetCommand::Execute()
 		rotate = -(magnitude);
 	else
 		rotate = magnitude;
-	drivesubsystem->drive (
+	CommandBase::drivesubsystem->drive (
 						0,
 						0,
 						rotate
@@ -47,19 +48,19 @@ bool CameraRotateToTargetCommand::IsFinished()
 
 void CameraRotateToTargetCommand::End()
 {
-	drivesubsystem->drive(
+	CommandBase::drivesubsystem->drive(
 							0,
 							0,
 							0
 							);
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Finished!");
 #endif
 }
 
 void CameraRotateToTargetCommand::Interrupted()
 {
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Interrupted!");
 #endif
 }

@@ -4,17 +4,6 @@
 #include "../AnalogIRSensor.h"
 #include "WPILib.h"
 
-/*
- *
- * Written by Sam and Brandon with Mr. Bricknell and Mr. Carpenter 1/14/2012
- *
- */
-
-/// This is the drive class for the robot.
-/*
- * The drive class requires four Jaguars upon construction. It implements the subsystem
- * interface as defined in the command-based robot.
- */
 class DriveSubsystem: public Subsystem 
 {
 public:

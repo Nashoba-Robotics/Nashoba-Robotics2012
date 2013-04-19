@@ -68,9 +68,9 @@ int CoprocessorVision::run()
 		{
 			float distance, angle, tension;
 			sscanf(buffer, "Distance=%f:Angle=%f:Tension=%f", &distance, &angle, &tension);
-			SmartDashboard::GetInstance()->PutDouble("Distance", distance);
-			SmartDashboard::GetInstance()->PutDouble("Angle", angle);
-			SmartDashboard::GetInstance()->PutDouble("Tension", tension);
+			SmartDashboard::PutNumber("Distance", distance);
+			SmartDashboard::PutNumber("Angle", angle);
+			SmartDashboard::PutNumber("Tension", tension);
 //			printf("Connect: %s:%d \"%s\"\n", inet_ntoa(addr.sin_addr), ntohs(addr.sin_port), buffer);
 			alltoupper(buffer);
 			if ( sendto(sd, buffer, bytes_read, 0, (struct sockaddr*)&clientaddr, addr_size) == ERROR )

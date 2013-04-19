@@ -34,7 +34,7 @@ void ShooterTakeShotCommand::Execute()
 
 	currentPoint = shootersubsystem->GetCamAngle();
 	
-	SmartDashboard::GetInstance()->PutDouble("Cam Value", currentPoint);	
+	SmartDashboard::PutNumber("Cam Value", currentPoint);	
 	printf("Cam Encoder %f \n", (float)currentPoint);
 	
 	switch ( shotState )

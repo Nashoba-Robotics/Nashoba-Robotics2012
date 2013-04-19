@@ -1,5 +1,5 @@
 #include "DriveSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../Commands/JoyStickDriveCommand.h"
 #include "../CommandBasedRobot.h"
@@ -80,17 +80,17 @@ void DriveSubsystem::UpdateSmartDashboard()
 	float rightFrontEncoderPosition = frontRightJaguar.GetPosition();
 	float rightBackEncoderPosition  = backRightJaguar.GetPosition();
 		
-	SmartDashboard::GetInstance()->PutDouble("leftFrontEncoder", leftFrontEncoderPosition);	
-	SmartDashboard::GetInstance()->PutDouble("leftBackEncoder", leftBackEncoderPosition );	
-	SmartDashboard::GetInstance()->PutDouble("rightFrontEncoder", rightFrontEncoderPosition );	
-	SmartDashboard::GetInstance()->PutDouble("rightBackEncoder", rightBackEncoderPosition );
-	SmartDashboard::GetInstance()->PutDouble("rightBackIRSensor", rightBackIRSensor.GetDistance() );
-	SmartDashboard::GetInstance()->PutDouble("leftBackIRSensor",leftBackIRSensor.GetDistance()  );
-	SmartDashboard::GetInstance()->PutDouble("rightFrontIRSensor", rightFrontIRSensor.GetDistance() );
-	SmartDashboard::GetInstance()->PutDouble("leftFrontIRSensor",leftFrontIRSensor.GetDistance()  );
-	SmartDashboard::GetInstance()->PutDouble("shooterIRSensor",shooterIRSensor.GetDistance()  );
+	SmartDashboard::PutNumber("leftFrontEncoder", leftFrontEncoderPosition);	
+	SmartDashboard::PutNumber("leftBackEncoder", leftBackEncoderPosition );	
+	SmartDashboard::PutNumber("rightFrontEncoder", rightFrontEncoderPosition );	
+	SmartDashboard::PutNumber("rightBackEncoder", rightBackEncoderPosition );
+	SmartDashboard::PutNumber("rightBackIRSensor", rightBackIRSensor.GetDistance() );
+	SmartDashboard::PutNumber("leftBackIRSensor",leftBackIRSensor.GetDistance()  );
+	SmartDashboard::PutNumber("rightFrontIRSensor", rightFrontIRSensor.GetDistance() );
+	SmartDashboard::PutNumber("leftFrontIRSensor",leftFrontIRSensor.GetDistance()  );
+	SmartDashboard::PutNumber("shooterIRSensor",shooterIRSensor.GetDistance()  );
 	
-	SmartDashboard::GetInstance()->PutDouble("Gyro", gyro.GetAngle() );
+	SmartDashboard::PutNumber("Gyro", gyro.GetAngle() );
 #endif
 	
 }

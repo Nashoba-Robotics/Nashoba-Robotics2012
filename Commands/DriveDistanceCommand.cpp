@@ -18,7 +18,7 @@ void DriveDistanceCommand::Initialize()
 	
 	float startEncoderValueAvg;
 	float endEncoderValue;
-	
+/*	
 	float frontLeftEncoderValue = -drivesubsystem->frontLeftJaguar.GetPosition();
 	float frontRightEncoderValue = drivesubsystem->frontRightJaguar.GetPosition();
 	float backLeftEncoderValue = -drivesubsystem->backLeftJaguar.GetPosition();
@@ -26,7 +26,7 @@ void DriveDistanceCommand::Initialize()
 	
 //	startEncoderValueAvg = (frontLeftEncoderValue + frontRightEncoderValu + backLeftEncoderValue + backRightEncoderValue)/4;
 //	endEncoderValue = find function of encoder values
-	
+*/	
 }	
 // Called repeatedly when this Command is scheduled to run
 void DriveDistanceCommand::Execute() 
@@ -49,6 +49,7 @@ void DriveDistanceCommand::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool DriveDistanceCommand::IsFinished() 
 {
+	return true;
 	//return (endEncoderValue =< currentEncoderValueAvg);
 }
 

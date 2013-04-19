@@ -27,13 +27,13 @@ void DriveToTensionRangeCommand::Initialize()
 void DriveToTensionRangeCommand::Execute()
 {
 #ifdef TELEOP
-	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
+	tensionValue = SmartDashboard::GetNumber("Tension");
 	if (tensionValue > 430)
 		drivesubsystem->drive(0, .3, 0);
 #endif
 	
 #ifdef AUTONOMOUS
-	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
+	tensionValue = SmartDashboard::GetNumber("Tension");
 	if (tensionValue > 350)
 		drivesubsystem->drive(0, .25, 0);
 #endif

@@ -1,5 +1,5 @@
 #include "ShooterSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "math.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
@@ -10,7 +10,7 @@
 #include "../Commands/TensionIncreaseCommand.h"
 #include "../Commands/TensionDecreaseCommand.h"
 
-char *sbs_state_name[] =
+const char *sbs_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",
@@ -115,24 +115,24 @@ void ShooterSubsystem::Tensioner( float speed )
 void ShooterSubsystem::UpdateSmartDashboard()
 {
 #ifdef USE_SMART_DASHBOARD
-	SmartDashboard::GetInstance()->PutBoolean("ShooterBallSensor",  shooterBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble ("ShooterBallSensorV", shooterBallSensor.GetVoltage() );	
-	SmartDashboard::GetInstance()->PutDouble ("TensionerPotDial",  tensionerPot.GetValue() );	
-	SmartDashboard::GetInstance()->PutInt    ("TensionerPot",      tensionerPot.GetValue() );
+	SmartDashboard::PutBoolean("ShooterBallSensor",  shooterBallSensor.IsBallThere() );	
+	SmartDashboard::PutNumber ("ShooterBallSensorV", shooterBallSensor.GetVoltage() );	
+	SmartDashboard::PutNumber ("TensionerPotDial",  tensionerPot.GetValue() );	
+	SmartDashboard::PutNumber    ("TensionerPot",      tensionerPot.GetValue() );
 	
-	SmartDashboard::GetInstance()->PutDouble ("JAG 10 position",  tensionerJaguar.GetPosition() );
-    SmartDashboard::GetInstance()->PutBoolean("Shooter Arm Ready", ShooterArmReady() );
+	SmartDashboard::PutNumber ("JAG 10 position",  tensionerJaguar.GetPosition() );
+    SmartDashboard::PutBoolean("Shooter Arm Ready", ShooterArmReady() );
 	// send state name out to dashboard.
-	SmartDashboard::GetInstance()->PutString ( "ShooterBallState",  sbs_state_name[shooterBallState] );	
+	SmartDashboard::PutString ( "ShooterBallState",  sbs_state_name[shooterBallState] );	
 
 	float currentPoint;
 	
 	currentPoint = -shooterJaguar.GetPosition();
 	
-	SmartDashboard::GetInstance()->PutDouble("Cam Encoder SH", currentPoint);
+	SmartDashboard::PutNumber("Cam Encoder SH", currentPoint);
 	
 	currentPoint = GetCamAngle();
-	SmartDashboard::GetInstance()->PutDouble("Cam Value SH", currentPoint);	
+	SmartDashboard::PutNumber("Cam Value SH", currentPoint);	
 #endif
 	
 }

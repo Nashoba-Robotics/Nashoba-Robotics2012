@@ -16,7 +16,7 @@ void TensionToGivenValueCommand::Initialize()
 {
 	SetTimeout(6);
 	printf ("TensionToGivenValueCommand Initialized");
-	tensionValue = SmartDashboard::GetInstance()->GetDouble("Tension");
+	tensionValue = SmartDashboard::GetNumber("Tension");
 	ResetPrintCounter();
 }
 

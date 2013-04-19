@@ -1,5 +1,5 @@
 #include "BottomLiftSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
@@ -7,7 +7,7 @@
 #include "../Commands/BottomLiftReceiveContinuousCommand.h"
 #include "../Commands/BottomLiftRejectContinuousCommand.h"
 
-char *bls_state_name[] =
+const char *bls_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",
@@ -19,7 +19,7 @@ char *bls_state_name[] =
 		"OUTGOING"
 };
 
-BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
+BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem(const_cast<char*>("BottomLiftSubsystem")),
   
   bottomLiftLeftJaguar( BOTTOM_LIFT_LEFT_JAGUAR_CANID ),
   bottomLiftRightJaguar( BOTTOM_LIFT_RIGHT_JAGUAR_CANID ),
@@ -72,15 +72,15 @@ void BottomLiftSubsystem::LiftIdle()
 void BottomLiftSubsystem::UpdateSmartDashboard()
 {
 #ifdef USE_SMART_DASHBOARD
-	SmartDashboard::GetInstance()->PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
+	SmartDashboard::PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
+	SmartDashboard::PutNumber("BaseBallSensorV", baseBallSensor.GetVoltage() );	
 //	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
 
-	SmartDashboard::GetInstance()->PutBoolean("MiddleBallSensor", middleBallSensor.IsBallThere() );
-	SmartDashboard::GetInstance()->PutDouble("MiddleBallSensorV", middleBallSensor.GetVoltage() );	
+	SmartDashboard::PutBoolean("MiddleBallSensor", middleBallSensor.IsBallThere() );
+	SmartDashboard::PutNumber("MiddleBallSensorV", middleBallSensor.GetVoltage() );	
 //	SmartDashboard::GetInstance()->PutInt("MiddleBallSensorI", middleBallSensor.GetValue() );
 
-	SmartDashboard::GetInstance()->PutString ( "BottomLiftBallState",  bls_state_name[bottomLiftBallState] );	
+	SmartDashboard::PutString ( "BottomLiftBallState",  bls_state_name[bottomLiftBallState] );	
 #endif
 }
 

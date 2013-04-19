@@ -1,5 +1,5 @@
 #include "BallIntakeSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
@@ -7,7 +7,7 @@
 #include "../Commands/IntakeReceiveContinuousCommand.h"
 #include "../Commands/IntakeRejectContinuousCommand.h"
 
-char *bis_state_name[] =
+const char *bis_state_name[] =
 {
 	"UNKNOWN",
 	"ERROR",
@@ -20,7 +20,7 @@ char *bis_state_name[] =
 	"REJECTING"
 };
 
-BallIntakeSubsystem::BallIntakeSubsystem(): Subsystem("BallIntakeSubsyetm"),
+BallIntakeSubsystem::BallIntakeSubsystem(): Subsystem(const_cast<char*>("BallIntakeSubsyetm")),
   ballIntakeVictor( BALL_INTAKE_VICTOR_CHANNEL ),
   intakeBallSensor( BALL_SENSOR_MODULE, INTAKE_BALL_SENSOR_CHANNEL )
 //  baseBallSensor  ( BALL_SENSOR_MODULE, BOT_LIFT_BASE_BALL_SENSOR_CHANNEL  )
@@ -79,11 +79,11 @@ void BallIntakeSubsystem::UpdateSmartDashboard()
 //	SmartDashboard::GetInstance()->PutDouble("BaseBallSensorV", baseBallSensor.GetVoltage() );	
 //	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
 
-	SmartDashboard::GetInstance()->PutBoolean("IntakeBallSensor", intakeBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("IntakeBallSensorV", intakeBallSensor.GetVoltage() );
+	SmartDashboard::PutBoolean("IntakeBallSensor", intakeBallSensor.IsBallThere() );	
+	SmartDashboard::PutNumber("IntakeBallSensorV", intakeBallSensor.GetVoltage() );
 //	SmartDashboard::GetInstance()->PutInt("IntakeBallSensorI", intakeBallSensor.GetValue() );
 
-	SmartDashboard::GetInstance()->PutString ( "BallIntakeBallState",  bis_state_name[ballIntakeBallState] );	
+	SmartDashboard::PutString ( "BallIntakeBallState",  bis_state_name[ballIntakeBallState] );	
 #endif
 	
 }

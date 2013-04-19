@@ -1,5 +1,5 @@
 #include "TopLiftSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
@@ -9,7 +9,7 @@
 
 #include "ShooterSubsystem.h"
 
-char *tls_state_name[] =
+const char *tls_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",
@@ -64,11 +64,11 @@ TopLiftBallState TopLiftSubsystem::GetTopLiftBallState()
 void TopLiftSubsystem::UpdateSmartDashboard()
 {
 #ifdef USE_SMART_DASHBOARD
-	SmartDashboard::GetInstance()->PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
-	SmartDashboard::GetInstance()->PutDouble("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
- //	SmartDashboard::GetInstance()->PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );
+	SmartDashboard::PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
+	SmartDashboard::PutNumber("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
+ //	SmartDashboard::PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );
     // send state name out to dashboard.
-	SmartDashboard::GetInstance()->PutString ( "TopLiftBallState",  tls_state_name[topLiftBallState] );	
+	SmartDashboard::PutString ( "TopLiftBallState",  tls_state_name[topLiftBallState] );	
 #endif
 }
 
