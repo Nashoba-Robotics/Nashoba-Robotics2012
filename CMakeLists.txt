@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 include(FRCDeploy)
 
-project(Nashoba_Robotics-2013-SimpleRobot)
+project(Nashoba_Robotics-2012)
 find_package(WPILib)
 
 file(GLOB_RECURSE SOURCE_CODE *.cpp)
