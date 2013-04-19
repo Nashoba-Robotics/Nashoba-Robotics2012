@@ -8,3 +8,6 @@ PPC603gnu/
 .*settings/
 .*project
 Debug/
+*.swp
+*~
+*.orig
