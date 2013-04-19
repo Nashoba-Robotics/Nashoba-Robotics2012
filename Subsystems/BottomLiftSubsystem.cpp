@@ -1,5 +1,5 @@
 #include "BottomLiftSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
@@ -7,7 +7,7 @@
 #include "../Commands/BottomLiftReceiveContinuousCommand.h"
 #include "../Commands/BottomLiftRejectContinuousCommand.h"
 
-char *bls_state_name[] =
+const char *bls_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",
@@ -19,7 +19,7 @@ char *bls_state_name[] =
 		"OUTGOING"
 };
 
-BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem("BottomLiftSubsystem"),
+BottomLiftSubsystem::BottomLiftSubsystem(): Subsystem(const_cast<char*>("BottomLiftSubsystem")),
   
   bottomLiftLeftJaguar( BOTTOM_LIFT_LEFT_JAGUAR_CANID ),
   bottomLiftRightJaguar( BOTTOM_LIFT_RIGHT_JAGUAR_CANID ),

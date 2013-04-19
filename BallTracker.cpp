@@ -2,7 +2,7 @@
 #include "BallTracker.h"
 #include "WPILib.h"
 #include "Subsystems/BallIntakeSubsystem.h"
-#include "Subsystems/BottomliftSubsystem.h"
+#include "Subsystems/BottomLiftSubsystem.h"
 #include "Subsystems/TopLiftSubsystem.h"
 #include "Subsystems/ShooterSubsystem.h"
 #include "Commands/TopLiftReceiveContinuousCommand.h"

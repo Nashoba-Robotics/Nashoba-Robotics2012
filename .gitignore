@@ -1,0 +1,10 @@
+*~
+*.o
+*.out
+*.exe
+*.obj
+*.bak
+PPC603gnu/
+.*settings/
+.*project
+Debug/

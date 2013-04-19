@@ -1,15 +1,13 @@
 #include "CameraRotateToTargetCommand.h"
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
-#include <math.h>
-//#include "WPILib.h"
-#include <Timer.h>
+#include <cmath>
+#include "Timer.h"
 
-DriveSubsystem* CameraRotateToTargetCommand::drivesubsystem = NULL;
-
-CameraRotateToTargetCommand::CameraRotateToTargetCommand() : PIDCommand("CameraRotateToTargetCommand", .1, 0, 0)
+CameraRotateToTargetCommand::CameraRotateToTargetCommand() :
+CommandBase("CameraRotateToTargetCommand")
 {
-	Requires( drivesubsystem );
+	Requires( CommandBase::drivesubsystem );
 }
 
 inline double CameraRotateToTargetCommand::ReturnPIDInput()
@@ -76,7 +74,7 @@ void CameraRotateToTargetCommand::Execute()
 		rotate = -(magnitude);
 	else
 		rotate = magnitude;
-	drivesubsystem->drive (
+	CommandBase::drivesubsystem->drive (
 						0,
 						0,
 						rotate
@@ -96,12 +94,12 @@ bool CameraRotateToTargetCommand::IsFinished()
 
 void CameraRotateToTargetCommand::End()
 {
-	drivesubsystem->drive(
+	CommandBase::drivesubsystem->drive(
 							0,
 							0,
 							0
 							);
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Finished!");
 #endif
 }
