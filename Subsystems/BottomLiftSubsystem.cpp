@@ -74,11 +74,11 @@ void BottomLiftSubsystem::UpdateSmartDashboard()
 #ifdef USE_SMART_DASHBOARD
 	SmartDashboard::PutBoolean("BaseBallSensor", baseBallSensor.IsBallThere() );	
 	SmartDashboard::PutNumber("BaseBallSensorV", baseBallSensor.GetVoltage() );	
-//	SmartDashboard::GetInstance()->PutInt("BaseBallSensorI", baseBallSensor.GetValue() );	
+//	SmartDashboard::PutNumber((double)"BaseBallSensorI", baseBallSensor.GetValue() );	
 
 	SmartDashboard::PutBoolean("MiddleBallSensor", middleBallSensor.IsBallThere() );
 	SmartDashboard::PutNumber("MiddleBallSensorV", middleBallSensor.GetVoltage() );	
-//	SmartDashboard::GetInstance()->PutInt("MiddleBallSensorI", middleBallSensor.GetValue() );
+//	SmartDashboard::PutNumber((double)"MiddleBallSensorI", middleBallSensor.GetValue() );
 
 	SmartDashboard::PutString ( "BottomLiftBallState",  bls_state_name[bottomLiftBallState] );	
 #endif

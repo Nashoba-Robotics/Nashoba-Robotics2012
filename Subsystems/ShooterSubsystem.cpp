@@ -118,7 +118,7 @@ void ShooterSubsystem::UpdateSmartDashboard()
 	SmartDashboard::PutBoolean("ShooterBallSensor",  shooterBallSensor.IsBallThere() );	
 	SmartDashboard::PutNumber ("ShooterBallSensorV", shooterBallSensor.GetVoltage() );	
 	SmartDashboard::PutNumber ("TensionerPotDial",  tensionerPot.GetValue() );	
-	SmartDashboard::PutNumber    ("TensionerPot",      tensionerPot.GetValue() );
+	SmartDashboard::PutNumber("TensionerPot",      tensionerPot.GetValue() );
 	
 	SmartDashboard::PutNumber ("JAG 10 position",  tensionerJaguar.GetPosition() );
     SmartDashboard::PutBoolean("Shooter Arm Ready", ShooterArmReady() );

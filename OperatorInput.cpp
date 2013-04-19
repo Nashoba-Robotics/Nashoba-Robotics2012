@@ -121,7 +121,9 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 	stickThreeButtonTwo->WhenPressed( new AutonomousCommand() );
 	
 	stickThreeButtonSix = new JoystickButton( &stickThree, 6 );
-	stickThreeButtonSix->WhenPressed( new CameraRotateToTargetCommand() );
+	CameraRotateToTargetCommand * tmp = new CameraRotateToTargetCommand();
+	stickThreeButtonSix->WhenPressed( tmp ); 
+//	SmartDashboard::PutData("PID_TMP", tmp );
 	
 	stickThreeButtonSeven = new JoystickButton( &stickThree, 7);
 	stickThreeButtonSeven->WhileHeld( new IntakeIdleCommand() );
@@ -143,7 +145,7 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
 #ifdef USE_SMART_DASHBOARD
     resetCamButton = new InternalButton();
     resetCamButton->WhenPressed( new ResetCamCommand( ) );
-    SmartDashboard::PutData( "ResetCam", resetCamButton );
+    //SmartDashboard::PutData( "ResetCam", resetCamButton );
     
     resetGyroButton = new InternalButton();
     resetGyroButton->WhenPressed( new ResetGyroCommand( ) );
@@ -181,9 +183,11 @@ OperatorInput::OperatorInput() : stickOne(DRIVE_STICK_PORT), stickTwo(CAM_STICK_
     autonomousButton->WhenPressed( new AutonomousCommand() );
     SmartDashboard::PutData( "AutonomousCommand", autonomousButton );
     
+    /*
     cameraRotateToTargetButton = new InternalButton();
     cameraRotateToTargetButton->WhenPressed( new CameraRotateToTargetCommand() );
     SmartDashboard::PutData( "CameraRotateToTargetCommand", cameraRotateToTargetButton );
+	*/
 
     tensionToGivenValueButton = new InternalButton();
     tensionToGivenValueButton->WhenPressed( new TensionToGivenValueCommand() );

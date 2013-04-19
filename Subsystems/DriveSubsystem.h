@@ -2,6 +2,7 @@
 #define DRIVE_SUBSYSTEM_H
 #include "Commands/PIDSubsystem.h"
 #include "../AnalogIRSensor.h"
+#include "../UltraSonicRangeSensor.h"
 #include "WPILib.h"
 
 class DriveSubsystem: public Subsystem 
@@ -22,6 +23,8 @@ public:
 	AnalogIRSensor leftBackIRSensor;
 	AnalogIRSensor rightFrontIRSensor;
 	AnalogIRSensor rightBackIRSensor;
+	
+	UltraSonicRangeSensor sonicRangeSensor;
 
 	void drive(float x, float rotation, float z);
 	void driveField(float x, float rotation, float z);

@@ -19,11 +19,19 @@ void DriveSubsystem::driveField (float x, float y, float z )
 {
 	float angle = gyro.GetAngle();
 	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), angle );
+	
+	SmartDashboard::PutNumber("Drive_X", x);
+	SmartDashboard::PutNumber("Drive_Y", y);
+	SmartDashboard::PutNumber("Drive_Z", z);
 }
 
 
 void DriveSubsystem::drive (float x, float y, float z)
 {
+	SmartDashboard::PutNumber("Drive_X", x);
+	SmartDashboard::PutNumber("Drive_Y", y);
+	SmartDashboard::PutNumber("Drive_Z", z);
+	
 	myWPIdrive.MecanumDrive_Cartesian(x, y, (z/2), 0);
 }
 
@@ -91,6 +99,9 @@ void DriveSubsystem::UpdateSmartDashboard()
 	SmartDashboard::PutNumber("shooterIRSensor",shooterIRSensor.GetDistance()  );
 	
 	SmartDashboard::PutNumber("Gyro", gyro.GetAngle() );
+	
+	SmartDashboard::PutNumber("sonicRangeSensorVoltage", sonicRangeSensor.GetVoltage() );
+	SmartDashboard::PutNumber("sonicRangeSensorValue", sonicRangeSensor.GetValue() );
 #endif
 	
 }
@@ -101,12 +112,13 @@ DriveSubsystem::DriveSubsystem() : Subsystem("DriveSubsystem"),
 		backLeftJaguar   ( BACK_LEFT_JAGUAR_CANID   ),
 		backRightJaguar  ( BACK_RIGHT_JAGUAR_CANID  ),
 		gyro ( GYRO_PORT ),
-		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar,backRightJaguar),
+		myWPIdrive(frontLeftJaguar,  backLeftJaguar, frontRightJaguar, backRightJaguar),
 		shooterIRSensor   ( SHOOTER_IR_SENSOR_PORT ),
 		leftFrontIRSensor (	LEFT_FRONT_IR_SENSOR_PORT ),
 		leftBackIRSensor  (	LEFT_BACK_IR_SENSOR_PORT  ),
 		rightFrontIRSensor(	RIGHT_FRONT_IR_SENSOR_PORT),
-		rightBackIRSensor (	RIGHT_BACK_IR_SENSOR_PORT )
+		rightBackIRSensor (	RIGHT_BACK_IR_SENSOR_PORT ),
+		sonicRangeSensor  ( ULTRA_SONIC_SENSOR_CHANNEL )
 {
 	myWPIdrive.SetSafetyEnabled	(false);
 #define NR_CAST_CANID

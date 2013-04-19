@@ -66,7 +66,7 @@ void TopLiftSubsystem::UpdateSmartDashboard()
 #ifdef USE_SMART_DASHBOARD
 	SmartDashboard::PutBoolean("TopLiftBallSensor", topLiftBallSensor.IsBallThere() );	
 	SmartDashboard::PutNumber("TopLiftBallSensorV", topLiftBallSensor.GetVoltage() );	
- //	SmartDashboard::PutInt("TopLiftBallSensorI", topLiftBallSensor.GetValue() );
+ //	SmartDashboard::PutNumber((double)"TopLiftBallSensorI", topLiftBallSensor.GetValue() );
     // send state name out to dashboard.
 	SmartDashboard::PutString ( "TopLiftBallState",  tls_state_name[topLiftBallState] );	
 #endif

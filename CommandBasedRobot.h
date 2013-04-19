@@ -5,11 +5,14 @@
 #include "Commands/Command.h"
 #include "CommandBase.h"
 #include "Commands/Scheduler.h"
+#include "Subsystems/DriveSubsystem.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
 	Command *autonomousCommand;
 //	Command *cancelAllCommand;
+	
+	DriveSubsystem *drivesubsystem;
 	
 	virtual void RobotInit(); 
 

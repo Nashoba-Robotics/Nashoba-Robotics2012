@@ -15,18 +15,18 @@ DriveDistanceCommand::DriveDistanceCommand(double distance, double bearingX, dou
 // Called just before this Command runs the first time
 void DriveDistanceCommand::Initialize() 
 {
-	
+/*	
 	float startEncoderValueAvg;
 	float endEncoderValue;
-/*	
+	
 	float frontLeftEncoderValue = -drivesubsystem->frontLeftJaguar.GetPosition();
 	float frontRightEncoderValue = drivesubsystem->frontRightJaguar.GetPosition();
 	float backLeftEncoderValue = -drivesubsystem->backLeftJaguar.GetPosition();
 	float backRightEncoderValue = drivesubsystem->backRightJaguar.GetPosition();
-	
+*/	
 //	startEncoderValueAvg = (frontLeftEncoderValue + frontRightEncoderValu + backLeftEncoderValue + backRightEncoderValue)/4;
 //	endEncoderValue = find function of encoder values
-*/	
+	
 }	
 // Called repeatedly when this Command is scheduled to run
 void DriveDistanceCommand::Execute() 
