@@ -4,10 +4,12 @@
 #include <cmath>
 #include "Timer.h"
 
+DriveSubsystem* CameraRotateToTargetCommand::drivesubsystem = NULL;
+
 CameraRotateToTargetCommand::CameraRotateToTargetCommand() :
-CommandBase("CameraRotateToTargetCommand")
+PIDCommand("CameraRotateToTargetCommand", .1, 0, 0)
 {
-	Requires( CommandBase::drivesubsystem );
+	Requires( drivesubsystem );
 }
 
 inline double CameraRotateToTargetCommand::ReturnPIDInput()
@@ -46,7 +48,7 @@ void CameraRotateToTargetCommand::Initialize()
 	
 	GetPIDController()->SetPID(Pref_p, Pref_i, Pref_d);
 	
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Initialized");
 #endif
 	//ResetPrintCounter();
@@ -94,7 +96,7 @@ bool CameraRotateToTargetCommand::IsFinished()
 
 void CameraRotateToTargetCommand::End()
 {
-	CommandBase::drivesubsystem->drive(
+	drivesubsystem->drive(
 							0,
 							0,
 							0
@@ -107,7 +109,7 @@ void CameraRotateToTargetCommand::End()
 void CameraRotateToTargetCommand::Interrupted()
 {
 	End();
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Interrupted!");
 #endif
 }
