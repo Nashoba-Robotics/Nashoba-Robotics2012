@@ -7,6 +7,7 @@
 class ShooterReadyShotCommand : public CommandBase
 {
 private:
+	
 public:
 	ShooterReadyShotCommand();
 	virtual void Initialize();

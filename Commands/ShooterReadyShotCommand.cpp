@@ -3,24 +3,29 @@
 
 ShooterReadyShotCommand::ShooterReadyShotCommand() : CommandBase("ShooterReadyShotCommand")
 {
-	
+	Requires( shootersubsystem );
 }
 
 void ShooterReadyShotCommand::Initialize()
 {
+	SetTimeout(0.15);
+	ResetPrintCounter();
 	printf ("ShooterReadyShotCommand Initialized");
+	
+	shootersubsystem->shooterJaguar.ConfigEncoderCodesPerRev(360) ;
+	shootersubsystem->shooterJaguar.SetPositionReference(CANJaguar::kPosRef_QuadEncoder);
 }
 
 void ShooterReadyShotCommand::Execute()
 {
-	static int runNum = 0;
-	if (runNum % REPORT_PERIOD == 0)
+	shootersubsystem->Shoot( 0.5 );
+	if ( IsTimeToPrint() )
 		 printf ("ShooterReadyShotCommand is Executing!\n");
 }
 
 bool ShooterReadyShotCommand::IsFinished()
 {
-	return true;
+	return IsTimedOut();
 }
 
 void ShooterReadyShotCommand::End()

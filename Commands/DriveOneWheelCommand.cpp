@@ -11,7 +11,8 @@ DriveOneWheelCommand::DriveOneWheelCommand() : CommandBase("DriveOneWheelCommand
 // Called just before this Command runs the first time
 void DriveOneWheelCommand::Initialize() 
 {
-	
+	ResetPrintCounter();
+	printf ("IntakeIdleCommand Initialized \n");
 }
 
 // Called repeatedly when this Command is scheduled to run

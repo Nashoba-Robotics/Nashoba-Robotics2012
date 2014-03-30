@@ -3,24 +3,25 @@
 
 ShooterIdleCommand::ShooterIdleCommand() : CommandBase("ShooterIdleCommand")
 {
-	
+	Requires( shootersubsystem );
 }
 
 void ShooterIdleCommand::Initialize()
 {
 	printf ("ShooterIdleCommand Initialized");
+	ResetPrintCounter();
 }
 
 void ShooterIdleCommand::Execute()
 {
-	static int runNum = 0;
-	if (runNum % REPORT_PERIOD == 0)
+	if ( IsTimeToPrint() )
 		 printf ("ShooterIdleCommand is Executing!\n");
+	shootersubsystem->Stop();
 }
 
 bool ShooterIdleCommand::IsFinished()
 {
-	return true;
+	return false;
 }
 
 void ShooterIdleCommand::End()
