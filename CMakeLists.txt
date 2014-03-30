@@ -6,7 +6,7 @@ find_package(WPILib)
 
 file(GLOB_RECURSE SOURCE_CODE *.cpp)
 
-include_directories(${WPILib_INCLUDE_DIR})
+include_directories(${WPILib_INCLUDE_DIRS})
 
 add_executable(FRC_UserProgram ${SOURCE_CODE})
 
