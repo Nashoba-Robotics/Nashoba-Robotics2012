@@ -1,7 +1,8 @@
 #include "JoyStickDriveCommand.h"
-#include "DriveForwardAutoCommand.h"
+#include "DriveDurationCommand.h"
 #include "../OperatorInput.h"
 #include "../Subsystems/DriveSubsystem.h"
+#include "../Debug.h"
 
 
 JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand")
@@ -15,23 +16,58 @@ JoyStickDriveCommand::JoyStickDriveCommand() : CommandBase("JoyStickDriveCommand
 // Called just before this Command runs the first time
 void JoyStickDriveCommand::Initialize() 
 {
-	
+	ResetPrintCounter();
+	printf ("DriveForwardAutoCommand Initialized \n");
 }
+
+#define X_THRESHOLD (0.1)
+#define Y_THRESHOLD (0.1)
+#define Z_THRESHOLD (0.1)
 
 // Called repeatedly when this Command is scheduled to run
 void JoyStickDriveCommand::Execute() 
 {
-	static int runNum = 0;
-	if( runNum % 10 == 0)
+	Joystick& driveStick = OperatorInput::getInstance().getDriveStickOne();
+	Joystick& fieldStick = OperatorInput::getInstance().getDriveStickTwo();
+	
+	float driveX = driveStick.GetX();
+	float driveY = driveStick.GetY();
+	float driveZ = driveStick.GetZ();
+	
+	float fieldX = fieldStick.GetX();
+	float fieldY = fieldStick.GetY();
+	float fieldZ = 0; // fieldStick.GetZ();
+	
+	SmartDashboard::PutNumber("RoboCentric Drive X", driveX);	
+	SmartDashboard::PutNumber("RoboCentric Drive Y", driveY);	
+	SmartDashboard::PutNumber("RoboCentric Drive Z", driveZ);	
+
+	SmartDashboard::PutNumber("FieldCentric Drive X", fieldX);	
+	SmartDashboard::PutNumber("FieldCentric Drive Y", fieldY);	
+	SmartDashboard::PutNumber("FieldCentric Drive Z", fieldZ);	
+	
+	if( IsTimeToPrint() )
 		printf( "JoyStickDriveCommand::Execute\n");
 	// Default Command that will drive the robot with Mecanum Cartesian Drive
+	if (   ( SNAP_TO_VALUE( 0, X_THRESHOLD, driveX)  != 0 )
+		|| ( SNAP_TO_VALUE( 0, Y_THRESHOLD, driveY)  != 0 )
+		|| ( SNAP_TO_VALUE( 0, Z_THRESHOLD, driveZ)  != 0 )  )
+	{
 	drivesubsystem->drive (
-					OperatorInput::getInstance().getDriveStick().GetX(), 
-					OperatorInput::getInstance().getDriveStick().GetY(),
-					OperatorInput::getInstance().getDriveStick().GetZ()// Switch to get twist if not working 
-					// gyro (when uncommenting, add comma above)
+					SNAP_TO_VALUE( 0, X_THRESHOLD, driveX ), 
+					SNAP_TO_VALUE( 0, Y_THRESHOLD, driveY ),
+					SNAP_TO_VALUE( 0, Z_THRESHOLD, driveZ )
 						   );
-	runNum++;
+	}
+	else 
+	{
+	drivesubsystem->driveField (
+					SNAP_TO_VALUE( 0, X_THRESHOLD, fieldX ),
+					SNAP_TO_VALUE( 0, Y_THRESHOLD, fieldY ),
+					SNAP_TO_VALUE( 0, Z_THRESHOLD, fieldZ )
+							);
+	}
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()

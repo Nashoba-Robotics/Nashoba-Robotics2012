@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<dashboard>
+	<widget field="Front Left Jag Temp" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="481" y="80"/>
+	</widget>
+	<widget field="Front Left Jag Speed" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="943" y="494"/>
+	</widget>
+	<widget field="Front Left Jag Output Current" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="480" y="507"/>
+	</widget>
+	<widget field="Front Left Jag Output Voltage" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="43" y="515"/>
+	</widget>
+	<widget field="Drive_Z" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="1338" y="433"/>
+	</widget>
+	<widget field="Front Left Jag Bus Voltage" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="682" y="43"/>
+	</widget>
+	<widget field="sonicRangeSensorValue" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="363" y="376"/>
+	</widget>
+	<widget field="sonicRangeSensorVoltage" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="433" y="247"/>
+	</widget>
+	<widget field="P" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="0" y="160"/>
+	</widget>
+	<widget field="D" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="231" y="154"/>
+	</widget>
+	<widget field="I" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="252"/>
+	</widget>
+	<widget field="_Tolerance" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="803" y="128"/>
+	</widget>
+	<widget field="Angle" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.LinePlot">
+		<location x="1181" y="14"/>
+	</widget>
+	<widget field="Drive_X" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="835" y="279"/>
+	</widget>
+	<widget field="Drive_Y" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1008" y="438"/>
+	</widget>
+	<widget field="_Within_Tol" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="997" y="156"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.RobotPreferences">
+		<location x="1316" y="372"/>
+		<height>253</height>
+	</static-widget>
+	<widget field="Clock: " type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="773" y="344"/>
+	</widget>
+	<widget field="Distance" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="131"/>
+	</widget>
+	<widget field="Tension" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="474" y="218"/>
+	</widget>
+	<widget field="BaseBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="232" y="106"/>
+	</widget>
+	<widget field="ShooterBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="233" y="18"/>
+	</widget>
+	<widget field="ShootWithTensionerAndCameraValuesCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="350" y="347"/>
+	</widget>
+	<widget field="JAQ 10 position" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="554" y="44"/>
+		<width>127</width>
+	</widget>
+	<widget field="Shooter Arm Ready" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="546" y="19"/>
+		<height>16</height>
+	</widget>
+	<widget field="TensionBankShotCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="439" y="283"/>
+	</widget>
+	<widget field="TensionToGivenValueCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="461" y="175"/>
+	</widget>
+	<widget field="Subsystem" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="992" y="248"/>
+	</widget>
+	<widget field="Cam Encoder SH" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="553" y="85"/>
+	</widget>
+	<widget field="Cam Value SH" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="557" y="119"/>
+	</widget>
+	<widget field="AutonomousCommand" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="962" y="184"/>
+		<height>30</height>
+	</widget>
+	<widget field="DriveIntoSideWall" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="979" y="38"/>
+	</widget>
+	<widget field="DriveIntoFrontWall" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="975" y="8"/>
+	</widget>
+	<widget field="DriveIntoCornerContinuous" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="949" y="69"/>
+	</widget>
+	<widget field="DriveToFowardWall" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="971" y="99"/>
+	</widget>
+	<widget field="PUKE" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="1087" y="360"/>
+	</widget>
+	<widget field="DisableBallStates" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="1046" y="325"/>
+	</widget>
+	<widget field="ResetBallStates" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="1052" y="291"/>
+	</widget>
+	<widget field="BallIntakeBallState" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1" y="102"/>
+		<width>228</width>
+	</widget>
+	<widget field="CameraRotateToTarget" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="411" y="317"/>
+	</widget>
+	<widget field="BottomLiftBallState" type="String" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="0" y="76"/>
+		<width>227</width>
+	</widget>
+	<widget field="TopLiftBallState" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="18" y="45"/>
+		<width>212</width>
+	</widget>
+	<widget field="shooterIRSensor" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="15" y="433"/>
+	</widget>
+	<widget field="leftBackIRSensor" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="239" y="463"/>
+	</widget>
+	<widget field="rightBackIRSensor" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="236" y="425"/>
+		<width>215</width>
+	</widget>
+	<widget field="leftFrontIRSensor" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="12" y="464"/>
+	</widget>
+	<widget field="rightFrontIRSensor" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="8" y="401"/>
+	</widget>
+	<widget field="ResetGyro" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="346" y="199"/>
+	</widget>
+	<widget field="ResetCam" type="Button" class="edu.wpi.first.smartdashboard.gui.elements.Button">
+		<location x="344" y="235"/>
+	</widget>
+	<widget field="TensionerPot" type="Integer" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="685" y="175"/>
+		<width>110</width>
+		<height>32</height>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="760" y="10"/>
+	</static-widget>
+	<widget field="ShooterBallState" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="12" y="15"/>
+		<width>217</width>
+		<height>29</height>
+	</widget>
+	<widget field="BaseBallSensorV" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="377" y="99"/>
+		<width>154</width>
+	</widget>
+	<widget field="rightFrontEncoder" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="171" y="188"/>
+		<width>152</width>
+	</widget>
+	<widget field="IntakeBallSensorV" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="371" y="127"/>
+		<width>161</width>
+	</widget>
+	<widget field="MiddleBallSensorV" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="371" y="71"/>
+		<width>163</width>
+	</widget>
+	<widget field="TopLiftBallSensorV" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="370" y="45"/>
+		<width>163</width>
+	</widget>
+	<widget field="ShooterBallSensorV" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="366" y="15"/>
+		<width>168</width>
+	</widget>
+	<widget field="MiddleBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="233" y="78"/>
+		<width>119</width>
+		<height>21</height>
+		<property name="Color to show when true" value="255.102.0.255"/>
+		<property name="Color to show when false" value="0.0.0.255"/>
+	</widget>
+	<widget field="TopLiftBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="233" y="48"/>
+		<width>121</width>
+		<height>22</height>
+		<property name="Color to show when true" value="255.102.0.255"/>
+		<property name="Color to show when false" value="0.0.0.255"/>
+	</widget>
+	<widget field="IntakeBallSensor" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="231" y="135"/>
+		<width>117</width>
+		<height>18</height>
+		<property name="Color to show when true" value="255.102.0.255"/>
+		<property name="Color to show when false" value="0.0.0.255"/>
+	</widget>
+	<widget field="rightBackEncoder" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="163" y="224"/>
+		<width>152</width>
+	</widget>
+	<widget field="leftBackEncoder" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="12" y="223"/>
+		<width>146</width>
+	</widget>
+	<widget field="leftFrontEncoder" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="7" y="190"/>
+		<width>146</width>
+	</widget>
+	<widget field="RoboCentric Drive X" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="172" y="287"/>
+		<width>169</width>
+	</widget>
+	<widget field="RoboCentric Drive Y" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="172" y="315"/>
+		<width>168</width>
+	</widget>
+	<widget field="RoboCentric Drive Z" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="172" y="344"/>
+		<width>169</width>
+	</widget>
+	<widget field="FieldCentric Drive Z" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="6" y="345"/>
+		<width>160</width>
+	</widget>
+	<widget field="FieldCentric Drive Y" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="6" y="317"/>
+		<width>160</width>
+	</widget>
+	<widget field="FieldCentric Drive X" type="Double" class="edu.wpi.first.smartdashboard.gui.elements.FormattedField">
+		<location x="5" y="288"/>
+		<width>162</width>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="760" y="10"/>
+	</static-widget>
+	<hidden field="MiddleBallSensorI"/>
+	<hidden field="TopLiftBallSensorI"/>
+	<hidden field="TopLiftSubsystem"/>
+	<hidden field="TensionerPotDial"/>
+	<hidden field="JAG 10 position"/>
+	<hidden field="BaseBallSensorI"/>
+	<hidden field="TensionerPotI"/>
+	<hidden field="CameraRotateToTargetCommand"/>
+	<hidden field="Gyro"/>
+	<hidden field="TensionerPotV"/>
+	<hidden field="PID_TMP"/>
+	<hidden field="Cam Value"/>
+	<hidden field="ShooterSubsystem"/>
+	<hidden field="BottomLiftSubsystem"/>
+	<hidden field="Cam Encoder"/>
+	<hidden field="IntakeBallSensorI"/>
+</dashboard>

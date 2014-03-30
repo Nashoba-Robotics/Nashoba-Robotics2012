@@ -3,13 +3,16 @@
 
 #include "WPILib.h"
 #include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
 #include "Commands/Scheduler.h"
+#include "Subsystems/DriveSubsystem.h"
 
 class CommandBasedRobot : public IterativeRobot {
 private:
-	//Command *autonomousCommand;
+	Command *autonomousCommand;
+//	Command *cancelAllCommand;
+	
+	DriveSubsystem *drivesubsystem;
 	
 	virtual void RobotInit(); 
 
@@ -20,6 +23,8 @@ private:
 	virtual void TeleopInit();
 	
 	virtual void TeleopPeriodic();
+	
+	Task * coprocessorvisiontask;
 	
 public:
 	
