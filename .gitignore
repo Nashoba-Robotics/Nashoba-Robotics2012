@@ -11,3 +11,4 @@ Debug/
 *.swp
 *~
 *.orig
+build/
