@@ -10,3 +10,5 @@ PPC603gnu/
 Debug/
 *.swp
 *~
+*.orig
+build/
