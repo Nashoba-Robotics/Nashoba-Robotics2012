@@ -1,13 +1,13 @@
 #include "CameraRotateToTargetCommand.h"
 #include "../Debug.h"
 #include "../Subsystems/DriveSubsystem.h"
-#include <math.h>
-//#include "WPILib.h"
-#include <Timer.h>
+#include <cmath>
+#include "Timer.h"
 
 DriveSubsystem* CameraRotateToTargetCommand::drivesubsystem = NULL;
 
-CameraRotateToTargetCommand::CameraRotateToTargetCommand() : PIDCommand("CameraRotateToTargetCommand", .1, 0, 0)
+CameraRotateToTargetCommand::CameraRotateToTargetCommand() :
+PIDCommand("CameraRotateToTargetCommand", .1, 0, 0)
 {
 	Requires( drivesubsystem );
 }
@@ -48,7 +48,7 @@ void CameraRotateToTargetCommand::Initialize()
 	
 	GetPIDController()->SetPID(Pref_p, Pref_i, Pref_d);
 	
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Initialized");
 #endif
 	//ResetPrintCounter();
@@ -76,7 +76,7 @@ void CameraRotateToTargetCommand::Execute()
 		rotate = -(magnitude);
 	else
 		rotate = magnitude;
-	drivesubsystem->drive (
+	CommandBase::drivesubsystem->drive (
 						0,
 						0,
 						rotate
@@ -101,7 +101,7 @@ void CameraRotateToTargetCommand::End()
 							0,
 							0
 							);
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Finished!");
 #endif
 }
@@ -109,7 +109,7 @@ void CameraRotateToTargetCommand::End()
 void CameraRotateToTargetCommand::Interrupted()
 {
 	End();
-#ifndef _DEBUG
+#ifdef _DEBUG
 	printf ("CameraRotateToTargetCommand Interrupted!");
 #endif
 }

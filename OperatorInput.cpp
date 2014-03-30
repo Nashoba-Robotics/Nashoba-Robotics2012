@@ -40,7 +40,7 @@
 #include "Commands/ShootWithTensionerAndCameraValuesCommand.h"
 #include "Commands/DriveToTensionRangeCommand.h"
 #include "Commands/CancelAllCommand.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "CommandBasedRobot.h"
 #define USE_SMART_DASHBOARD 1
 

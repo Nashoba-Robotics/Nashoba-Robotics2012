@@ -1,5 +1,5 @@
 #include "ShooterSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "math.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
@@ -10,7 +10,7 @@
 #include "../Commands/TensionIncreaseCommand.h"
 #include "../Commands/TensionDecreaseCommand.h"
 
-char *sbs_state_name[] =
+const char *sbs_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",

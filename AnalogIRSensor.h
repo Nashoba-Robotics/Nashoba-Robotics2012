@@ -7,7 +7,7 @@ class AnalogIRSensor: public AnalogChannel
 {
 public:
 	AnalogIRSensor(UINT32 channel);
-	float GetDistance();
+	double GetDistance();
 private:
 	
 };

@@ -1,5 +1,5 @@
 #include "TopLiftSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../CommandBasedRobot.h"
 #include "../HardwareSettings.h"
@@ -9,7 +9,7 @@
 
 #include "ShooterSubsystem.h"
 
-char *tls_state_name[] =
+const char *tls_state_name[] =
 {
 		"UNKNOWN",
 		"ERROR",

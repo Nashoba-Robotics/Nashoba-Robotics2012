@@ -1,5 +1,5 @@
 #include "DriveSubsystem.h"
-#include "WPIlib.h"
+#include "WPILib.h"
 #include "../OperatorInput.h"
 #include "../Commands/JoyStickDriveCommand.h"
 #include "../CommandBasedRobot.h"
