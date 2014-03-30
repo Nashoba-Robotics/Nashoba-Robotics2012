@@ -4,20 +4,9 @@
 *.exe
 *.obj
 *.bak
-<<<<<<< HEAD
-PPC603gnu/*
-.csettings/*
-.cproject
-.project
-Release/*
-Debug/*
-=======
 PPC603gnu/
 .*settings/
 .*project
 Debug/
 *.swp
 *~
->>>>>>> master
-*.orig
-*~HEAD
